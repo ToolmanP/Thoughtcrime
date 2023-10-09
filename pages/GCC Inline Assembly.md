@@ -1,4 +1,5 @@
 - GCC provides a decent assembly extension to write a templated assembly for non-trivial but 
+  title:: GCC Inline Assembly
   important purposes. e.g.
 	- Spin locks
 	- Memory Order
