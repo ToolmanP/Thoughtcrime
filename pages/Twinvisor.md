@@ -1,0 +1,8 @@
+- ![LiSOSP21.pdf](../assets/LiSOSP21_1696692866479_0.pdf)
+- ## Introduction
+- ### ARM TrustZone Hardware Extension
+	- TrustZone was introduced in 2003 and provides secure semantics called **world** and **exception levels**.
+	- TrustZone has two worlds a secure world and normal world. Normal world
+- ## Architecture Overview
+-
+-

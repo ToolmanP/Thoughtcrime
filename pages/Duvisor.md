@@ -1,0 +1,50 @@
+- ![chenosdi23.pdf](../assets/chenosdi23_1696241927664_0.pdf)
+- ## Introduction
+- ### Facts
+- The hypervisors have evolved greatly in the past few years and now currently the virtualization process depends on a lightweight kernel-mode module and a user mode helper (e.g.)
+- However, this does not alleviate the risk of kernel mode crash since any malicious VM can attack the kernel mode module and let the entire host crash reaching the goal of Denial of Service Attack.
+- Risc V has different perspective compared to x86, x86 is a non root and root operations. whereas in Risc V it's called hypervisor mode and virtualization mode and it's orthogonal with kernel mode and user mode.
+- ### Innovation Point
+- **Move all hypervisor components that directly interact with VM to the user space**
+- ### Challenges
+	- ((651bc718-eab1-425d-86cc-1296a3beff18))
+- ### Solution
+- Decoupling the VM plane from the hypervisor plane.
+	- VM Plane interacts with the VM by manipulating various virtual resource abstraction
+	- Hypervisor plane controls the real physical resource allocation and error handling for the VM plane, e.g. allocating SLAT, rewiring the IO, dispatching system interrupts.
+- Propose a delegated virtualization plane in which each VM interacts with a single hypervisor running in user mode and leaving only a tiny virtualization driver inside the kernel.
+- How can the user mode hypervisor interacts with virtualization technique?
+	- By a trivial delegated virtualization extension, the DuVisor can directly interact with critical hardware virtualization module.
+	- DV-Ext exposes the hardware virtualization interfaces to user mode
+- ### Virtualization Detail
+- **CPU virtualization**:  Emulates a number of vthreads and leverage the hardware module for handling VM-Exit in user mode
+- **Memory Virtualization**: Stage-2 page table is constructed in user mode and handles the page faults in user mode with the delegated physical address verified in DV-Ext to check whether the physical memory is in bound.
+	- ((6521785d-055a-48a5-8ec0-0c69c0a11d08))
+	- ((65217879-0e56-4214-bec0-a99e96c7e5d6))
+- When the page fault happens
+- **I/O Virtualization**: DuVisor uses the user-level interrupt to bypass kernel trap and introduces a number of para virtualization drivers to the VM plane.
+	- >In computing,    **paravirtualization** or **para-virtualization** is a [virtualization](https://en.wikipedia.org/wiki/Virtualization) technique that presents a software interface to the [virtual machines](https://en.wikipedia.org/wiki/Virtual_machine) which is similar, yet not identical, to the underlying hardware–software interface.
+	- >Paravirtualization requires the guest [operating system](https://en.wikipedia.org/wiki/Operating_system) to be explicitly [ported](https://en.wikipedia.org/wiki/Porting) for the para-[API](https://en.wikipedia.org/wiki/Application_programming_interface) – a conventional OS distribution that is not paravirtualization-aware  cannot be run on top of a paravirtualizing VMM. However, even in cases where the operating system cannot be modified,  components may be available that enable many of the significant performance advantages of 
+	  paravirtualization
+- ### Limitations of software based deprivileged execution
+- **Non-eliminable In-kernel vulnerability**
+- **Redundant and Costly Mode Switching**
+- ## Architecture
+- ### DV-Ext Module
+- Six registers (Hypervisor User) for determining the VM Exit and sending virtual interrupts for user mode.
+- Three registers(Hypervisor Kernel) for enabling the DV-ext, determining which type of fault should be passed to the user mode to handle and the vcpu info.
+- Two more instructions for flushing TLB and resume the VM execution.
+- ### Handling VM Exit
+	- Exceptions are handled in DuVisor
+	- Interrupts are handled in kernel modules since there must be some physical management for the kernel to handle.
+- ### Restricted Memory Virtualization
+- User mode DuVisor only maps the stage 2 page table and the driver in the host kernel sets the boundary in PMP registers to authorize the memory access. Only if the requested pages exceeds the boundary of pre-allocated memory, the driver should be waken by the fault invoked by the PMP registers and continue the work.
+- Extending the PMP register by configuring a virtualization bit to indicate whether the MMU only should check when the physical memory is in virtualization mode.
+- ((6521785d-055a-48a5-8ec0-0c69c0a11d08))
+- ((65217879-0e56-4214-bec0-a99e96c7e5d6))
+- ### I/O and Interrupt Virtualization
+- hu_vitr is the core component (acts as a vector) on how the DuVisor manipulates the I/O notification and interrupts.
+- **I/O Interrupt**:
+	- Both emulated and PV are supported, but riscv lacks IOMMU so passthrough is not supported.
+	- DuVisor spawns **a dedicated thread** for each I/O device and generating virtual interrupts by writing the DV-ext hu_vitr interrupt vector in user mode. Each DuVisor is assigned with a unique VMID and each Vcpu has VCPU ID. I/O thread can only send interrupts to the same VMID VCPU as theirs. The guest Kernel writes the VCPUID every time the guest boots.
+- **IPI Interrupt**: VCPU can send IPI to another one by writing to the IPI vector in hu_vitr.
