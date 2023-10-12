@@ -24,9 +24,26 @@
 - ## Apache
 	- ### Apache 2.0 License
 - ## BSD
-	- ### BSD Clause-3 License
-	- ### BSD Clause-2 License
+	- ### Clause-2
+	- ### Clause-3
+	- ### Clause-4
 	-
 - ## MIT
-	- >
+	- > A short and simple permissive license with conditions only requiring 
+	  preservation of copyright and license notices. Licensed works, 
+	  modifications, and larger works may be distributed under different terms
+	   and without source code.
+	- #### Permission
+		- Commercial Use
+		- Distribution
+		- Modification
+		- Private Use
+	- #### Condition
+		- License and Copyright Notice
+		- > The above copyright notice and this permission notice shall be included in all
+		  copies or substantial portions of the Software.
+	- #### Limitation
+		- Liability
+		- Warranty
+	-
 	-
