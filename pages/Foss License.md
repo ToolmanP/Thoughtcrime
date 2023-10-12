@@ -17,9 +17,14 @@
 			-
 		- **Infective**: All the derived codes which modify its inherited libraries should be opensource t
 	- ### AGPL-3.0 License
-		- In GPL License, the Internet Operator can choose to dodge the disclosure of source code through a
+		- >When a modified version is used to provide a service over a network, the
+		   complete source code of the modified version must be made available.
+		- In GPL License, the Internet Operator can choose to dodge the disclosure of source code through a method of Software As A Service. AGPL-3.0 fixes this.
 	- ### LGPL License
-	-
+	- >However, a larger work using the licensed work through interfaces 
+	  provided by the licensed work may be distributed under different terms 
+	  and without source code for the larger work.
+	- This License relaxes the total disclosure of the software and the required redistribution of the license. If the software only uses the interface of the targeted library, the software is free to use other license.
 - ## Apache
 	- > A permissive license whose main conditions require preservation of 
 	  copyright and license notices. Contributors provide an express grant of 
