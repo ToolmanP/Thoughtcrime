@@ -1,6 +1,4 @@
 ## GPL
-	- ### GPL 2.0 License [ref](https://www.gnu.org/licenses/gpl-3.0.html)
-		-
 	- ### GPL 3.0 License
 		- #### Permission
 			- Commercial Use
@@ -19,7 +17,7 @@
 			-
 		- **Infective**: All the derived codes which modify its inherited libraries should be opensource t
 	- ### AGPL-3.0 License
-		- In A-GPL, you cannot
+		- In GPL License, the Internet Operator can choose to dodge the disclosure of source code through a
 	- ### LGPL License
 	-
 - ## Apache
