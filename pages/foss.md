@@ -1,5 +1,14 @@
-### GPL 2.0 License
-- ### A-GPL License
-- ### Apache 2.0 License
-- ### BSD Clause-3 License
-- ### MIT License
+## GPL
+	- ### GPL 2.0 License [ref](https://www.gnu.org/licenses/gpl-3.0.html)
+		-
+	- ### GPL 3.0 License
+	- ### AGPL-3.0 License
+	- ### LGPL License
+- ## Apache
+	- ### Apache 2.0 License
+- ## BSD
+	- ### BSD Clause-3 License
+- ## MIT
+	- ### Clause-2
+	- ### Clause-3
+	-
