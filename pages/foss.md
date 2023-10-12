@@ -19,7 +19,7 @@
 			-
 		- **Infective**: All the derived codes which modify its inherited libraries should be opensource t
 	- ### AGPL-3.0 License
-		- In A-GPL
+		- In A-GPL, you cannot
 	- ### LGPL License
 	-
 - ## Apache
