@@ -30,7 +30,15 @@
 	  copyright and license notices. Contributors provide an express grant of 
 	  patent rights. Licensed works, modifications, and larger works may be 
 	  distributed under different terms and without source code.
-	-
+	- ### Redistribution:
+	- Copy of the license in the distributed source code of the original code.
+	  logseq.order-list-type:: number
+	- Retain the original copyright notice.
+	  logseq.order-list-type:: number
+	- **Must** carry prominent notices that the source code of the licensed file is modified under the current work
+	  logseq.order-list-type:: number
+	- Notice should be included and the notice of the derived work can be redistributed.
+	  logseq.order-list-type:: number
 - ## BSD
 	-
 	- >Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
