@@ -17,8 +17,18 @@
 - ```console
   gcc test.c -o test
   ```
-- 然后在命令好
--
+- 然后你在命令行里面输入
+- ```console
+  ./test
+  ```
+- 然后你就有了
+- ```console
+  Hello world!
+  ```
+- #### 好耶！
+- ---
+- ### 一些奇怪的思考
+- 你的确打出了Hello world，但是不知道你有没有想过为什么这个Hello world能够打出
 - ## 自动机101
 -
 - ## System V ABI 101
