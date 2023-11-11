@@ -6,9 +6,18 @@
 			  id:: 654f666b-a243-49f6-8077-f1324f3092b4
 		- File Layer:
 			- **Representative**: Inode
-			- Resides in the block too
-			- Holds a array organized inode table to map the inode number to the block number that stores the inode
-			- ```
-			  Function
-			  ```
+			- Resides in the block too. Holds the location where real data stores and the file's metadata.
+			- ![image.png](../assets/image_1699702663883_0.png)
+			- Indirect holds another map to block which holds other indirect blocks
+			- Only the direct block holds the real data block which stores the actual data
+		- Inode number layer
+			- Just an array stores behind the block bitmap's with also inode's bitmap
+			- Indicates the block number of the inode layer
+		- File Name Layer
+			- Hide metadata of file management
+			- Separate the directory type and regular file type
+			- Holds the mapping from the filename to the inode number.
+		- Path Name Layer
+			- Recursively look up the directory inode untils it lands on the regular files.
+			-
 		-
