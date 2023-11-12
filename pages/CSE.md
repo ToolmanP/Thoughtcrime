@@ -118,7 +118,23 @@
 			- #### Distributed Block Layer
 				- Data Blocks are distributed across multiple data-server
 				- Inode table is stored on the master server and path name resolution on the metadata server.
-			-
+			- #### Interfaces
+				- Only Create/Delete/Open/Close/Read/Write
+				- Additional: Snapshot/Append
+				- Unupported Ops: Link, Symlink, Rename
+			- #### Architecture
+				- Master + N Replicated Chuck Servers
+				  Features:
+					- Large Chunk  (64MB)
+						- Reduce the need for frequent communication with master for chunk location info
+						- Make it feasible to keep a TCP connection open for a extended time
+						- Master Stores all metadata in memory
+					- Master:
+						- Replicates the metadata
+						- Maintains the metadata of the whole file system
+						- Store all the data in the memory and persist an operation log
+						- Chunk Location is not stored persistently for consistency management
+						-
 				-
 			- ####
 - ## Consistency Models
