@@ -96,6 +96,20 @@
 			- File System Identifier
 			- Inode Number -- Dealing with renaming
 			- Generation Number  -- Versioning (in case of deletion and reallocation happens)
+		- #### Performance
+			- We need caching on client sides to get ride of excessive read,readlink,getattr,lookup,readdir
+			- We need cache binding, metadata and directory binding
+			- Dealing With Cache Coherence
+				- Type 1: Guarantee read/write coherence on every operation or simply for some kinds of operations
+				- Type 2:  Close-to-Open Consistency (we need to perform getattr when opening and flushing all writes when closing)
+		- ### VFS
+			- In memory abstraction over different implmentations
+			- Provides a highly abstracted set of APIs including OPEN, READ, WRITE, CLOSE
+			- Even FS with no real local files supported can be abstracted this way (Proc FS)
+			- #### Validation
+				- Both server and client save timestamp of files
+				- We always need to validate the consistency between the client and the server
+				- Data Block Should be
 - ## Consistency Models
 	- Causal Consistency
 		-
