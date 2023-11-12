@@ -22,11 +22,18 @@
 			- Recursively look up the directory inode untils it lands on the regular files.
 			- The inode number of the root directory is fixed. In the case of the ext4, it's assigned with 1. Note that we don't have number 0 here, since it represents the dysfunction of the file system.
 	- ### Links
+		- ![image.png](../assets/image_1699790498209_0.png)
+		- Two semantic abstractions
+			- LINK (from, to) --- to's name to from's inode
+			- UNLINK (name) --- decrease the reference count of the inode where name points to.
 		- Create Shortcut from one link to another.
 		- We store the reference count inside the inode.
 		- We increment the refcnt of the inode if one link is formed. The default is always one.
-		- When the reference count of the inode reaches zero, we can safely remove the inode and free the data blocks
-	- ### Renaming
-		-
-		-
+		- When the reference count of the inode reaches zero, we can safely remove the inode and free the data blocks.
+	- #### Renaming(from,to)
+		- When renaming, it should be guaranteed that LINK(from, to) is done atomically and should not fail.
+	- #### Two Types of
+- ## FAT System
+	-
+	-
 -
