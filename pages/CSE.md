@@ -148,7 +148,16 @@
 				- No Directory here,  everything is flatten out with a single lookup table.
 - ## Consistency Models
 	- ### Strict Consistency
-		- Coherent to
+		- Coherent to the global time no compromise.
+		- Operation happens one by one and no overlaps
+	- ### Sequential Consistency
+		- Consistent issue to complete in a single program in one machine
+		- No operation reordered due to network latency with in that program
+	- ### Linearizability
+		- If operation is issued, it must be able to see to the changes happened before it's issued
+		- If certain operations overlaps from one another, the consistency is relaxed.
+	-
+	-
 	- Causal Consistency
 		-
 - ## All or Nothing? Logging
