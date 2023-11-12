@@ -80,12 +80,17 @@
 		- #### Response Message
 		- ![image.png](../assets/image_1699793021025_0.png)
 	- ### Parameter Passing
-		- Parameter Passing needs a machine-independent, language independent encoding and library
+		- Parameter Passing needs a machine-independent, language independent byte encoding.
+		- Two types of format representations
+			- Human Friendly: more verbose but needs more bits to store
+			- Machine Friendly: less verbose but needs less bits to store
+	- ### Failure Recovery
+		- Remov
 	-
 - ## Network File System
 -
 - ## Consistency Models
--
+	-
 - ## All or Nothing? Logging
 -
 - ## Core of transaction and block atomicity -- 2PL and OCC
