@@ -32,8 +32,15 @@
 		- When the reference count of the inode reaches zero, we can safely remove the inode and free the data blocks.
 	- #### Renaming(from,to)
 		- When renaming, it should be guaranteed that LINK(from, to) is done atomically and should not fail.
-	- #### Two Types of
+	- #### Two Types of lINKS
+		- Soft Link --- only associates the destination with the name
+		- Hard Link --- associates the destination with the inode number
+	-
 - ## FAT System
-	-
-	-
+	- **Only Two Layers**
+		- File associated entry
+			- starting from the root and finds the first block of the backed file and traverse the linked list.
+		- Free List
+			- contains the free block number and perform allocation and garbage collecting based on this free list.
+		- All
 -
