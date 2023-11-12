@@ -156,9 +156,10 @@
 	- ### Linearizability
 		- If operation is issued, it must be able to see to the changes happened before it's issued
 		- If certain operations overlaps from one another, the consistency is relaxed.
-	-
-	-
-	- Causal Consistency
+		- #### Implementation
+			- We use a sequence number just like TCP to reorder the write operation
+			- Read Operation Can be relaxed by local caching
+	- ### Causal Consistency
 		-
 - ## All or Nothing? Logging
 	- ### Redo Logging
