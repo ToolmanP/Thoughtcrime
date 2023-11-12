@@ -169,7 +169,7 @@
 				- Derivation: vector clock if we want partial clock order if we want to pack two streams of events instead only single one.
 				- Now the clock becomes [T1, T2, ..., Tn] we updates on clock when we receives nth event's update
 		- Log Truncation
-		-
+			- Attach a sequence number to each transaction and discard all the logs with smaller sequence number.
 - ## All or Nothing? Logging
 	- ### Redo Logging
 	- ### Undo Logging
