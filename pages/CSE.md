@@ -66,8 +66,21 @@
 		- Update the **Access** time (which means write operation )of itself and its all ancestors recursively (Can be disabled via system-level noatime mount)
 	- ### Write/Append (No need to mention here)
 	- ### Sync
-		- Flush the page cache
+		- Flush the page cache to the disk
+		- Ensure that all the content is flushed into the disk on time or on recovery whatever it may happen.
 	-
+- ## RPC
+	- > RPC Stands for Remote Procedure Call which provides an easy-to-use executional and functional abstraction without coding the details for the remote interaction.
+	- ### STUB
+		- STUB Translate the function call into the internet message and transmit the requests and responses accordingly over the network ports.
+		- Responsibility:
+			- ![image.png](../assets/image_1699792931192_0.png)
+		- #### Request Message
+		- ![image.png](../assets/image_1699792982844_0.png)
+		- #### Response Message
+		- ![image.png](../assets/image_1699793021025_0.png)
+	- ### Parameter Passing
+		- Parameter Passing
 	-
 - ## Network File System
 -
