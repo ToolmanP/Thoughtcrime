@@ -164,7 +164,9 @@
 		- #### Implementation
 			- Ordered operation log --- log the operation before performing it and reorder the log based on some order --- Time
 		- We issue the <Time T,  Node ID>  to reorder the logging and to use as a tiebreaker if timestamp comes to a tie.
-		- To
+		- Step by Step clock synchronization --- Lamport Clock
+			- When srv receives the message <T', srv'> it compares its own T with T' and updates T atomically with max (T, T'+1)
+				- Derivation: vector clock
 - ## All or Nothing? Logging
 	- ### Redo Logging
 	- ### Undo Logging
