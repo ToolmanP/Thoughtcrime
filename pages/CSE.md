@@ -6,7 +6,7 @@
 			  id:: 654f666b-a243-49f6-8077-f1324f3092b4
 		- File Layer:
 			- **Representative**: Inode
-			- Resides in the block too. Holds the location where real data stores and the file's metadata.
+			- Resides in the block too. Holds the location where real data stores and the file's **metadata**.
 			- ![image.png](../assets/image_1699702663883_0.png)
 			- Indirect holds another map to block which holds other indirect blocks
 			- Only the direct block holds the real data block which stores the actual data
@@ -42,5 +42,29 @@
 			- starting from the root and finds the first block of the backed file and traverse the linked list.
 		- Free List
 			- contains the free block number and perform allocation and garbage collecting based on this free list.
-		- All
+		- ![image.png](../assets/image_1699791405135_0.png)
+		- Linked List Structure
+			- Point to the end of the block list when ended.
+		- Directory
+			- Hold the next file entry until it reaches the end.
+			- Hold the metadata of the file and the entry of another file/directory.
+		- Advantage:
+			- Naive and simple --- used as the supporting file system for efi when designing the UEFI boot system
+- ## File System Abstraction
+	- ### Open
+		- Gives the process a fd which points to an entry in the file table
+		- fd-table
+	- ### Close
+	- ### Read
+	- ### Write
+	-
+- ## Network File System
+-
+- ## Consistency Models
+-
+- ## All or Nothing? Logging
+-
+- ## Core of transaction and block atomicity -- 2PL and OCC
+-
+- ##
 -
