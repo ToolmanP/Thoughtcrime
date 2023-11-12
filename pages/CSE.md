@@ -109,7 +109,18 @@
 			- #### Validation
 				- Both server and client save timestamp of files
 				- We always need to validate the consistency between the client and the server
-				- Data Block Should be
+				- Data Block should be flushed on close
+				- ![image.png](../assets/image_1699796315525_0.png)
+				-
+			- #### Performance Improvment
+			- ![image.png](../assets/image_1699796366885_0.png)
+		- ### GFS
+			- #### Distributed Block Layer
+				- Data Blocks are distributed across multiple data-server
+				- Inode table is stored on the master server and path name resolution on the metadata server.
+			-
+				-
+			- ####
 - ## Consistency Models
 	- Causal Consistency
 		-
