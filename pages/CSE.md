@@ -48,15 +48,26 @@
 		- Directory
 			- Hold the next file entry until it reaches the end.
 			- Hold the metadata of the file and the entry of another file/directory.
+			- ![image.png](../assets/image_1699792373187_0.png)
 		- Advantage:
 			- Naive and simple --- used as the supporting file system for efi when designing the UEFI boot system
 - ## File System Abstraction
 	- ### Open
-		- Gives the process a fd which points to an entry in the file table
-		- fd-table
+		- Gives the process a fd in its own fd table which points to an entry in the file table
+		- Each process has its own fd table but shares the file entry table on the OS level
+		- One open increase the reference count of the file table entry and the file itself,  each child process will increase also
+		- However, another open will get to another entry separating the file cursor apart from each other
 	- ### Close
+		- Remove the fd table entry from the process
+		- Decrement the reference count of the file table entry
+		- Remove the file table entry if the reference count reaches zero
 	- ### Read
-	- ### Write
+		- Move the file cursor and read the data block.
+		- Update the **Access** time (which means write operation )of itself and its all ancestors recursively (Can be disabled via system-level noatime mount)
+	- ### Write/Append (No need to mention here)
+	- ### Sync
+		- Flush the page cache
+	-
 	-
 - ## Network File System
 -
