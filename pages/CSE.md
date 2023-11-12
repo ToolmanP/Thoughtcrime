@@ -166,7 +166,10 @@
 		- We issue the <Time T,  Node ID>  to reorder the logging and to use as a tiebreaker if timestamp comes to a tie.
 		- Step by Step clock synchronization --- Lamport Clock
 			- When srv receives the message <T', srv'> it compares its own T with T' and updates T atomically with max (T, T'+1)
-				- Derivation: vector clock
+				- Derivation: vector clock if we want partial clock order if we want to pack two streams of events instead only single one.
+				- Now the clock becomes [T1, T2, ..., Tn] we updates on clock when we receives nth event's update
+		- Log Truncation
+		-
 - ## All or Nothing? Logging
 	- ### Redo Logging
 	- ### Undo Logging
