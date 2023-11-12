@@ -90,10 +90,15 @@
 		- We need semantics that can support that only zero or one request can be sent to the server for responding.
 	-
 - ## Network File System
-	-
+	- ### NFS
+		- We don't have open and close here We only get a mount operation which returns a file handler to the client.
+		- #### File Handler
+			- File System Identifier
+			- Inode Number -- Dealing with renaming
+			- Generation Number  -- Versioning (in case of deletion and reallocation happens)
 - ## Consistency Models
 	- Causal Consistency
-	-
+		-
 - ## All or Nothing? Logging
 	- ### Redo Logging
 	- ### Undo Logging
