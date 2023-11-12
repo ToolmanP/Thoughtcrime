@@ -85,14 +85,19 @@
 			- Human Friendly: more verbose but needs more bits to store
 			- Machine Friendly: less verbose but needs less bits to store
 	- ### Failure Recovery
-		- Remov
+		- Network Failure can happen when on requesting, server transmission and even responding.
+		- Requests resending is not tolerable since a lot of transaction is not Idempotent
+		- We need semantics that can support that only zero or one request can be sent to the server for responding.
 	-
 - ## Network File System
--
+	-
 - ## Consistency Models
+	- Causal Consistency
 	-
 - ## All or Nothing? Logging
--
+	- ### Redo Logging
+	- ### Undo Logging
+	-
 - ## Core of transaction and block atomicity -- 2PL and OCC
 -
 - ##
