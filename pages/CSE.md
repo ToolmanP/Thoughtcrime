@@ -147,6 +147,8 @@
 					- Logging when primary before writes
 				- No Directory here,  everything is flatten out with a single lookup table.
 - ## Consistency Models
+	- ### Strict Consistency
+		- Coherent to
 	- Causal Consistency
 		-
 - ## All or Nothing? Logging
