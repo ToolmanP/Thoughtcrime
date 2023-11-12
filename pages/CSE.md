@@ -158,9 +158,12 @@
 		- If certain operations overlaps from one another, the consistency is relaxed.
 		- #### Implementation
 			- We use a sequence number just like TCP to reorder the write operation
-			- Read Operation Can be relaxed by local caching
+			- Read Operation Can be relaxed by local caching so we can read the cache.
 	- ### Causal Consistency
-		-
+		- Causal Consistency is a higher level of consistency meaning that one operation should have an effect on the sequential order of operations
+		- #### Implementation
+			- Ordered operation log --- log the operation before performing it and reorder the log based on some order --- Time
+	- #### Time
 - ## All or Nothing? Logging
 	- ### Redo Logging
 	- ### Undo Logging
