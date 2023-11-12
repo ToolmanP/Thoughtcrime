@@ -172,8 +172,17 @@
 			- Attach a sequence number to each transaction and discard all the logs with smaller sequence number.
 - ## All or Nothing? Logging
 	- ### Redo Logging
-	- ### Undo Logging
-	-
+		- Collecting all the changes and persist the log before hand.
+		- Update the memory accordingly.
+		- Recovery just traverse all the entries and perform state transition one by one.
+		- **Pros**
+			- Efficient logging
+		- **Cons**
+			- Waste of disk I/O
+			- Need but buffer every update until commit
+			- Log File is continously growing. No truncation too much space.
+	- ### Undo-Redo Logging
+	- ### Checkpointing
 - ## Core of transaction and block atomicity -- 2PL and OCC
 -
 - ##
