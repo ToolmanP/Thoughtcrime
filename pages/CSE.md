@@ -134,9 +134,18 @@
 						- Maintains the metadata of the whole file system
 						- Store all the data in the memory and persist an operation log
 						- Chunk Location is not stored persistently for consistency management
-						-
-				-
-			- ####
+			- #### Client
+				- No OS Level API (No syscall / trap)
+				- Interacts with master and chunk server directly
+				- No caching
+			- Operations:
+				- Writing a file needs a lease (same as a versioning) issued by the master.
+				- Deliver data before writing
+					- Send the data to the closet primary server
+					- Wait for primary ack
+					- Send a write request to the primary
+					- Logging when primary before writes
+				- No Directory here,  everything is flatten out with a single lookup table.
 - ## Consistency Models
 	- Causal Consistency
 		-
