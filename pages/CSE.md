@@ -80,7 +80,7 @@
 		- #### Response Message
 		- ![image.png](../assets/image_1699793021025_0.png)
 	- ### Parameter Passing
-		- Parameter Passing
+		- Parameter Passing needs a machine-independent, language independent encoding and library
 	-
 - ## Network File System
 -
