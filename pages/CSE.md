@@ -163,7 +163,8 @@
 		- Causal Consistency is a higher level of consistency meaning that one operation should have an effect on the sequential order of operations
 		- #### Implementation
 			- Ordered operation log --- log the operation before performing it and reorder the log based on some order --- Time
-	- #### Time
+		- We issue the <Time T,  Node ID>  to reorder the logging and to use as a tiebreaker if timestamp comes to a tie.
+		- To
 - ## All or Nothing? Logging
 	- ### Redo Logging
 	- ### Undo Logging
