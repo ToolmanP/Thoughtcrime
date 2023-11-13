@@ -1,28 +1,26 @@
 ## Inode-FS
-	- Layers
-		- Block Layer:
-			- 4KB Size per block (maybe but adjustable)
-			- Contains bitmap to track the usability of the block
-			  id:: 654f666b-a243-49f6-8077-f1324f3092b4
-		- File Layer:
-			- **Representative**: Inode
-			- Resides in the block too. Holds the location where real data stores and the file's **metadata**.
-			- ![image.png](../assets/image_1699702663883_0.png)
-			- Indirect holds another map to block which holds other indirect blocks
-			- Only the direct block holds the real data block which stores the actual data
-		- Inode number layer
-			- Just an array stores behind the block bitmap's with also inode's bitmap
-			- Indicates the block number of the inode layer
-		- File Name Layer
-			- Hide metadata of file management
-			- Separate the directory type and regular file type
-			- Holds the mapping from the filename to the inode number.
-		- Path Name Layer
-			- ![image.png](../assets/image_1699703268122_0.png)
-			- Recursively look up the directory inode untils it lands on the regular files.
-			- The inode number of the root directory is fixed. In the case of the ext4, it's assigned with 1. Note that we don't have number 0 here, since it represents the dysfunction of the file system.
+- ### Layers
+	- Block Layer:
+		- 4KB Size per block (maybe but adjustable)
+		- Contains bitmap to track the usability of the block
+		  id:: 654f666b-a243-49f6-8077-f1324f3092b4
+	- File Layer:
+		- **Representative**: Inode
+		- Resides in the block too. Holds the location where real data stores and the file's **metadata**.
+		- ![image.png](../assets/image_1699702663883_0.png)
+		- Indirect holds another map to block which holds other indirect blocks
+		- Only the direct block holds the real data block which stores the actual data
+	- Inode number layer
+		- Just an array stores behind the block bitmap's with also inode's bitmap
+		- Indicates the block number of the inode layer
+	- File Name Layer
+		- Hide metadata of file management
+		- Separate the directory type and regular file type
+		- Holds the mapping from the filename to the inode number.
+	- Path Name Layer
+		- Recursively look up the directory inode untils it lands on the regular files.
+		- The inode number of the root directory is fixed. In the case of the ext4, it's assigned with 1. Note that we don't have number 0 here, since it represents the dysfunction of the file system.
 	- ### Links
-		- ![image.png](../assets/image_1699790498209_0.png)
 		- Two semantic abstractions
 			- LINK (from, to) --- to's name to from's inode
 			- UNLINK (name) --- decrease the reference count of the inode where name points to.
@@ -30,6 +28,7 @@
 		- We store the reference count inside the inode.
 		- We increment the refcnt of the inode if one link is formed. The default is always one.
 		- When the reference count of the inode reaches zero, we can safely remove the inode and free the data blocks.
+		- Note that soft link doesn't increment the reference counting.
 	- #### Renaming(from,to)
 		- When renaming, it should be guaranteed that LINK(from, to) is done atomically and should not fail.
 	- #### Two Types of lINKS
@@ -90,131 +89,215 @@
 		- We need semantics that can support that only zero or one request can be sent to the server for responding.
 	-
 - ## Network File System
-	- ### NFS
-		- We don't have open and close here We only get a mount operation which returns a file handler to the client.
-		- #### File Handler
-			- File System Identifier
-			- Inode Number -- Dealing with renaming
-			- Generation Number  -- Versioning (in case of deletion and reallocation happens)
-		- #### Performance
-			- We need caching on client sides to get ride of excessive read,readlink,getattr,lookup,readdir
-			- We need cache binding, metadata and directory binding
-			- Dealing With Cache Coherence
-				- Type 1: Guarantee read/write coherence on every operation or simply for some kinds of operations
-				- Type 2:  Close-to-Open Consistency (we need to perform getattr when opening and flushing all writes when closing)
-		- ### VFS
-			- In memory abstraction over different implmentations
-			- Provides a highly abstracted set of APIs including OPEN, READ, WRITE, CLOSE
-			- Even FS with no real local files supported can be abstracted this way (Proc FS)
-			- #### Validation
-				- Both server and client save timestamp of files
-				- We always need to validate the consistency between the client and the server
-				- Data Block should be flushed on close
-				- ![image.png](../assets/image_1699796315525_0.png)
-				-
-			- #### Performance Improvment
-			- ![image.png](../assets/image_1699796366885_0.png)
-		- ### GFS
-			- #### Distributed Block Layer
-				- Data Blocks are distributed across multiple data-server
-				- Inode table is stored on the master server and path name resolution on the metadata server.
-			- #### Interfaces
-				- Only Create/Delete/Open/Close/Read/Write
-				- Additional: Snapshot/Append
-				- Unupported Ops: Link, Symlink, Rename
-			- #### Architecture
-				- Master + N Replicated Chuck Servers
-				  Features:
-					- Large Chunk  (64MB)
-						- Reduce the need for frequent communication with master for chunk location info
-						- Make it feasible to keep a TCP connection open for a extended time
-						- Master Stores all metadata in memory
-					- Master:
-						- Replicates the metadata
-						- Maintains the metadata of the whole file system
-						- Store all the data in the memory and persist an operation log
-						- Chunk Location is not stored persistently for consistency management
-			- #### Client
-				- No OS Level API (No syscall / trap)
-				- Interacts with master and chunk server directly
-				- No caching
-			- Operations:
-				- Writing a file needs a lease (same as a versioning) issued by the master.
-				- Deliver data before writing
-					- Send the data to the closet primary server
-					- Wait for primary ack
-					- Send a write request to the primary
-					- Logging when primary before writes
-				- No Directory here,  everything is flatten out with a single lookup table.
+- ### NFS
+	- We don't have open and close here We only get a mount operation which returns a file handler to the client.
+	- #### File Handler
+		- File System Identifier
+		- Inode Number -- Dealing with renaming
+		- Generation Number  -- Versioning (in case of deletion and reallocation happens)
+	- #### Performance
+		- We need caching on client sides to get ride of excessive read,readlink,getattr,lookup,readdir
+		- We need cache binding, metadata and directory binding
+		- Dealing With Cache Coherence
+			- Type 1: Guarantee read/write coherence on every operation or simply for some kinds of operations
+			- Type 2:  Close-to-Open Consistency (we need to perform getattr when opening and flushing all writes when closing)
+- ### VFS
+	- In memory abstraction over different implmentations
+	- Provides a highly abstracted set of APIs including OPEN, READ, WRITE, CLOSE
+	- Even FS with no real local files supported can be abstracted this way (Proc FS)
+	- #### Validation
+		- Both server and client save timestamp of files
+		- We always need to validate the consistency between the client and the server
+		- Data Block should be flushed on close
+		- ![image.png](../assets/image_1699796315525_0.png)
+		-
+	- #### Performance Improvment
+	- ![image.png](../assets/image_1699796366885_0.png)
+- ### GFS
+	- #### Distributed Block Layer
+		- Data Blocks are distributed across multiple data-server
+		- Inode table is stored on the master server and path name resolution on the metadata server.
+	- #### Interfaces
+		- Only Create/Delete/Open/Close/Read/Write
+		- Additional: Snapshot/Append
+		- Unupported Ops: Link, Symlink, Rename
+	- #### Architecture
+		- Master + N Replicated Chuck Servers
+		  Features:
+			- Large Chunk  (64MB)
+				- Reduce the need for frequent communication with master for chunk location info
+				- Make it feasible to keep a TCP connection open for a extended time
+				- Master Stores all metadata in memory
+			- Master:
+				- Replicates the metadata
+				- Maintains the metadata of the whole file system
+				- Store all the data in the memory and persist an operation log
+				- Chunk Location is not stored persistently for consistency management
+	- #### Client
+		- No OS Level API (No syscall / trap)
+		- Interacts with master and chunk server directly
+		- No caching
+	- Operations:
+		- Writing a file needs a lease (same as a versioning) issued by the master.
+		- Deliver data before writing
+			- Send the data to the closet primary server
+			- Wait for primary ack
+			- Send a write request to the primary
+			- Logging when primary before writes
+		- No Directory here,  everything is flatten out with a single lookup table.
 - ## Consistency Models
-	- ### Strict Consistency
-		- Coherent to the global time no compromise.
-		- Operation happens one by one and no overlaps
-	- ### Sequential Consistency
-		- Consistent issue to complete in a single program in one machine
-		- No operation reordered due to network latency with in that program
-	- ### Linearizability
-		- If operation is issued, it must be able to see to the changes happened before it's issued
-		- If certain operations overlaps from one another, the consistency is relaxed.
-		- #### Implementation
-			- We use a sequence number just like TCP to reorder the write operation
-			- Read Operation Can be relaxed by local caching so we can read the cache.
-	- ### Causal Consistency
-		- Causal Consistency is a higher level of consistency meaning that one operation should have an effect on the sequential order of operations
-		- #### Implementation
-			- Ordered operation log --- log the operation before performing it and reorder the log based on some order --- Time
-		- We issue the <Time T,  Node ID>  to reorder the logging and to use as a tiebreaker if timestamp comes to a tie.
-		- Step by Step clock synchronization --- Lamport Clock
-			- When srv receives the message <T', srv'> it compares its own T with T' and updates T atomically with max (T, T'+1)
-				- Derivation: vector clock if we want partial clock order if we want to pack two streams of events instead only single one.
-				- Now the clock becomes [T1, T2, ..., Tn] we updates on clock when we receives nth event's update
-		- Log Truncation
-			- Attach a sequence number to each transaction and discard all the logs with smaller sequence number.
+- ### Strict Consistency
+	- Coherent to the global time no compromise.
+	- Operation happens one by one and no overlaps
+- ### Sequential Consistency
+	- Consistent issue to complete in a single program in one machine
+	- No operation reordered due to network latency with in that program
+- ### Linearizability
+	- If operation is issued, it must be able to see to the changes happened before it's issued
+	- If certain operations overlaps from one another, the consistency is relaxed.
+- #### Implementation
+	- We use a sequence number just like TCP to reorder the write operation
+	- Read Operation Can be relaxed by local caching so we can read the cache.
+- ### Causal Consistency
+	- Causal Consistency is a higher level of consistency meaning that one operation should have an effect on the sequential order of operations
+- #### Implementation
+	- Ordered operation log --- log the operation before performing it and reorder the log based on some order --- Time
+	- We issue the <Time T,  Node ID>  to reorder the logging and to use as a tiebreaker if timestamp comes to a tie.
+	- Step by Step clock synchronization --- Lamport Clock
+		- When srv receives the message <T', srv'> it compares its own T with T' and updates T atomically with max (T, T'+1)
+			- Derivation: vector clock if we want partial clock order if we want to pack two streams of events instead only single one.
+			- Now the clock becomes [T1, T2, ..., Tn] we updates on clock when we receives nth event's update
+	- Log Truncation
+		- Attach a sequence number to each transaction and discard all the logs with smaller sequence number.
 - ## All or Nothing? Logging
-	- ### Redo Logging
-		- Collecting all the changes and persist the log before hand.
-		- Update the memory accordingly.
-		- Recovery just traverse all the entries and perform state transition one by one.
-		- **Pros**
-			- Efficient logging
-		- **Cons**
-			- Waste of disk I/O
-			- Need but buffer every update until commit
-			- Log File is continously growing. No truncation too much space.
-	- ### Undo-Redo Logging
-		- We cache the operation into logging before performing each operation.
-			- Tx ID
-			- Operation ID
-			- Pointer to the previous record in the transaction
-			- Value (file name, offset, value diff)
-		- Append a commit sign with a pointer to the last undo log in the transaction at the end of the transaction or action.
-		- When we recover, we traverse from the end of log and regroup each transaction starting from the commit bit  at the end. For redo log entry that is obsolete and orphan, we undo the changes. For those that are identified in the commit, we redo them.
-	- ### Checkpointing
-		- Trim the logging file to save space
-			- Logging the ongoing transaction ID into the checkpoint
-			- Discard the logging that's commited before the checkpoint happens
-			- When crashed, traverse the recent checkpoint and perform the redo-undo recovery
-		- ![image.png](../assets/image_1699854179484_0.png)
+- ### Redo Logging
+	- Collecting all the changes and persist the log before hand. (We need to ensure the congruity of the log file we persist we need to add checksum to the log we append.)
+	- Update the memory accordingly.
+	- Recovery just traverse all the entries and perform state transition one by one.
+	- **Pros**
+		- Efficient logging
+	- **Cons**
+		- Waste of disk I/O
+		- Need but buffer every update until commit
+		- Log File is continously growing. No truncation too much space.
+- ### Undo-Redo Logging
+	- We persist the operation into logging before performing each operation
+		- Tx ID
+		- Operation ID
+		- Pointer to the previous record in the transaction
+		- Value (file name, offset, value diff)
+	- Append a commit sign with a pointer to the last undo log in the transaction at the end of the transaction or action.
+	- When we recover, we traverse from the end of log and regroup each transaction starting from the commit bit  at the end. For redo log entry that is obsolete and orphan, we undo the changes. For those that are identified in the commit, we redo them.
+- ### Checkpointing
+	- Trim the logging file to save space
+		- Logging the ongoing transaction ID into the checkpoint
+		- Discard the logging that's commited before the checkpoint happens
+		- When crashed, traverse the recent checkpoint and perform the redo-undo recovery
+	- ![image.png](../assets/image_1699854179484_0.png)
 - ## Core of transaction and block atomicity -- 2PL and OCC
 	- We need to ensure that each transaction is somehow atomic that can be disturbed by other transaction even if they share some part of data in the database.
 	- There are two ways achieving this: either pessimistically or optimistically
-	- ### Serializability
-		- #### Conflict Serializability
-		- > A schedule is conflict serializable if the order of its conflicts (the order in
-		  which the conflicting operations occur) is the same as the order of
-		  conflicts in some sequential schedule
-		- Conflict means that two different transaction has at least one write operation on the shared data.
-		- Each transaction is viewed as a single node in the conflict graph. Connecting one node to another means that at this sequential moment, the operation that is conflict happened before the second one.
-		- ![image.png](../assets/image_1699854810319_0.png)
-		- #### View Serializability
-		- This is a related model meaning that the scheduling and execution of each operation in each transaction will result in the same intermediate view for every variable in the serial execution of each transaction.
-		- #### Final State Serializability
-		- This is the most flexible one meaning that only the final state of the transactions is all we care. We don't care what happened inside the operations scheduling.s
-	- ### Pessimistic: Two Phase Locking
-		- Principles
-			- Fine-grained lock control on some portion of the data.
-			- Acquire the lock in the same order even if in different transaction
-			- Avoid Dead Lock
-		- ****
-- ##
--
+- ### Serializability
+- #### Conflict Serializability
+	- > A schedule is conflict serializable if the order of its conflicts (the order in
+	  which the conflicting operations occur) is the same as the order of
+	  conflicts in some sequential schedule
+	- Conflict means that two different transaction has at least one write operation on the shared data.
+	- Each transaction is viewed as a single node in the conflict graph. Connecting one node to another means that at this sequential moment, the operation that is conflict happened before the second one.
+	- ![image.png](../assets/image_1699854810319_0.png)
+	- #### View Serializability
+	- This is a related model meaning that the scheduling and execution of each operation in each transaction will result in the same intermediate view for every variable when performing reading in the single transaction  in the serial execution of each transaction.
+	- #### Final State Serializability
+	- This is the most flexible one meaning that only the final state of the transactions is all we care. We don't care what happened inside the operations scheduling.
+- ### Pessimistic: Two Phase Locking
+	- Principles
+		- Fine-grained lock control on some portion of the data.
+		- Acquire the lock in the same order even if in different transaction.
+		- Avoid Dead Lock Or Detect the Dead Lock in a heuristic manner
+- ### Optimistic: OCC / MVCC
+	- #### OCC  Steps
+		- Collect the read sets and write sets.
+		  logseq.order-list-type:: number
+		- Lock each element in the write set.
+		  logseq.order-list-type:: number
+		- Read the element in the read set and Abort the transaction if and only if d is changed when reading or has been locked by other transactions (Check of read/write conflict happened)
+		  logseq.order-list-type:: number
+		- Write the element in the write set.
+		  logseq.order-list-type:: number
+		- Release all the lock.
+		  logseq.order-list-type:: number
+	- #### Advantages
+		- Read-intensive applications can benefit because reading doesn't need to acquire locking.
+	- #### Disadvantages
+		- A large portion of abort operations happen when transactions rise
+	- ### Locking Semantics
+		- Compare and Swap
+		  logseq.order-list-type:: number
+		- Fetch And Add (ticket lock)
+		  logseq.order-list-type:: number
+- ### The Most Usable One -- MVCC
+	- #### Principles
+		- Each read operation gets the most recent snapshot of the data.
+		- Each write operation append a versioning number into the data columns.
+	- #### Implementation
+		- We need to add new version when writing.
+		- For reading, we don't need any validation now.
+		- Others are merely the same with the OCC.
+	- #### Disadvantage
+		- This cannot eliminate the read/write conflict.
+		  logseq.order-list-type:: number
+		- We assume this happens really rarely. So we just makes the snapshot isolation of it. 
+		  logseq.order-list-type:: number
+- ## Multi-site Consistency (No Availability)
+	- ### Two Phase Commit
+		- #### Higher Level Commit
+			- Same transaction but replicated across different machines.
+			- The responsibility of the coordinator to check whether the commit condition can meet across various machines.
+		- #### Lower Level Commit
+			- Multi transaction on the local machine.
+		- Higher-layer transaction coordinates the execution of lower layer TXs.
+		- Lower-layer transaction we needs turn the commit log into prepared log and only after the coordinator tells the machine that it can commit, then it performs the commit operation.
+		- Lower-layer commit log contains a **extra reference to higher level TX number**, if failure happens, the slaves must ask the coordinators whether the commit can be done.
+		- Higher-layer logs the commit operation instead of the lower-layer.
+	- ### Semantics
+		- #### Prepare
+			- Send the transaction data from coordinator to all of its slaves and wait for PREPARE ack.
+			- This is relatively the same as the GFS.
+			- If prepare timeout, abort the current transactions on every machine.
+		- #### Commit
+			- After receiving all the prepare flags by the slaves, the commit can be emitted and transmitted to the slaves.
+			- Coordinator must log the decision before sending in case that it fails after the preparation.
+- ## Replica Consistency (Availability Guarantee)
+- ### Replicated State Machines (Linearizability)
+	- Replicas revolves around the replicated state machines which made up by various log entries.
+	- We need to sync and maintain a consensus on the log entries.
+	- There's only one copy of the world state now.
+	- Operations should start at the same position and  make state transition based on the log.
+	- #### Replicas
+		- We need a view server to decide which replica is primary or secondary
+		- Note that when network partition happens, the view server is responsible to decide discrepency.
+- ### Paxos (Decide the log entry value)
+- This method is to resolve the dilemma issue where the coordinator fails to restart in a really long time.
+- This method is performed in a distributed manner meaning that there's no central coordinator whatsoever.
+- It can only decide a **single value in the single location and remains immutable**.
+- #### Semantics
+	- Propose(ID)
+		- The proposer chooses a SN and sends them to a list of acceptors.
+		- The acceptors should be in at least the majority of the servers.
+	- Promise(ID, Accepted_ID, Accepted_Value)
+		- The Acceptor views the proposed ID, and check
+			- If Current Accepted_ID > ID reject.
+			- If Current Accepted ID < ID then
+				- Log (ID) in the entry before making promise
+				- Send Promise(ID, Accepted_ID, Accepted_Value) to the proposer, where Accepted_ID is the last accepted ID and value is its corresponding value.
+	- Accept(ID, Accepted_Value)
+		- If the proposer receives the majority OK from the acceptors.
+		- It should
+			- If one of the promises contains the accepted_value
+				- choose the accepted_value with biggest large accepted_id and propogate them to the acceptors
+			- Or choose its own value and propagate it to the accepters.
+	- Accept_OK:
+		- When receiving a new Accept, it validates its ID again
+		- If success: Log(ID, Accepted_ID, Value) and send the Accept_OK back to proposer
+	- Decide:
+		- When the proposer receives the majority of Accept OK, then it logs (ID, Accepted_ID, Value) to its entry and send Decide(ID, Value) to the accepters
