@@ -196,6 +196,21 @@
 			- When crashed, traverse the recent checkpoint and perform the redo-undo recovery
 		- ![image.png](../assets/image_1699854179484_0.png)
 - ## Core of transaction and block atomicity -- 2PL and OCC
--
+	- We need to ensure that each transaction is somehow atomic that can be disturbed by other transaction even if they share some part of data in the database.
+	- There are two ways achieving this: either pessimistically or optimistically
+	- ### Serializability
+		- **Conflict Serializability**
+		- > A schedule is conflict serializable if the order of its conflicts (the order in
+		  which the conflicting operations occur) is the same as the order of
+		  conflicts in some sequential schedule
+		- Conflict means that two different transaction has at least one write operation on the shared data.
+		- Each transaction is viewed as a single node in the conflict graph. Connecting one node to another means that at this sequential moment, wr
+		-
+	- ### Pessimistic: Two Phase Locking
+		- Principles
+			- Fine-grained lock control on some portion of the data.
+			- Acquire the lock in the same order even if in different transaction
+			- Avoid Dead Lock
+		- ****
 - ##
 -
