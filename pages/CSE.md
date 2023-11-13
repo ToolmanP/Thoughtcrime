@@ -271,7 +271,15 @@
 - ## Replica Consistency (Availability Guarantee)
 - ### Network Partitions and View Server
 - There may be  multiple coordinators in the networks but somehow partitioned by the network.
-- Coordinators need some assistance to decide whether one
+- Coordinators need some assistance to decide whether which server is the primary.
+- The Principle is that only primary server can receive requests and forward the requests to all its backup.
+- Only if the primary server can get all ACK from its backup, it then can respond safely.
+- Backup must rejects any requests before it was identified as the primary by the view server.
+- View server needs to ping the primary and when the primary fails, need to allocate another view to update.
+- ![image.png](../assets/image_1699882387290_0.png)
+- Even when partition happens between VS and S1
+-
+-
 - ### Replicated State Machines (Linearizability)
 	- Replicas revolves around the replicated state machines which made up by various log entries.
 	- We need to sync and maintain a consensus on the log entries so there's only one single copy
