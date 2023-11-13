@@ -138,13 +138,11 @@
 		- Interacts with master and chunk server directly
 		- No caching
 	- Operations:
-		- Writing a file needs a lease (same as a versioning) issued by the master.
-		- Deliver data before writing
-			- Send the data to the closet primary server
-			- Wait for primary ack
-			- Send a write request to the primary
-			- Logging when primary before writes
-		- No Directory here,  everything is flatten out with a single lookup table.
+		- ![image.png](../assets/image_1699884328280_0.png)
+		- ![image.png](../assets/image_1699884281504_0.png)
+		- ![image.png](../assets/image_1699884289029_0.png)
+		- ![image.png](../assets/image_1699884296042_0.png)
+		-
 - ## Consistency Models
 - ### Strict Consistency
 	- Coherent to the global time no compromise.
@@ -248,10 +246,10 @@
 		  logseq.order-list-type:: number
 		- We assume this happens really rarely. So we just makes the snapshot isolation of it. 
 		  logseq.order-list-type:: number
-- ## Multi-site Consistency (No Availability)
+- ## Multi-site Consistency (Primary To Backup)
 	- ### Two Phase Commit
 		- #### Higher Level Commit
-			- Same transaction but replicated across different machines.
+			- Same transaction but needs to be replicated across different machines.
 			- The responsibility of the coordinator to check whether the commit condition can meet across various machines.
 		- #### Lower Level Commit
 			- Multi transaction on the local machine.
@@ -269,6 +267,13 @@
 			- Coordinator must log the decision before sending in case that it fails after the preparation.
 			- Coordinator might fail, therefore we need to think up another way to tolerate this failure.
 - ## Replica Consistency (Availability Guarantee)
+- ### Replicated State Machines (Linearizability)
+	- Replicas revolves around the replicated state machines which made up by various log entries.
+	- We need to sync and maintain a consensus on the log entries so there's only one single copy
+	- There's only one copy of the world state now since we only have one copy.
+	- Operations should start at the same position and  make state transition based on the log.
+	- ![image.png](../assets/image_1699884099097_0.png)
+	-
 - ### Network Partitions and View Server
 	- There may be  multiple coordinators in the networks but somehow partitioned by the network.
 	- Coordinators need some assistance to decide whether which server is the primary.
@@ -281,11 +286,6 @@
 - ![image.png](../assets/image_1699882544360_0.png)
 - When S1 and VS parition is removed, The S1 will hear about the new View #2  and asks to sync from S2 and act as the backup server.
 - However, the view server may still needs some replicas therefore we need to decide it pessimistically with paxos.
-- ### Replicated State Machines (Linearizability)
-	- Replicas revolves around the replicated state machines which made up by various log entries.
-	- We need to sync and maintain a consensus on the log entries so there's only one single copy
-	- There's only one copy of the world state now since we only have one copy.
-	- Operations should start at the same position and  make state transition based on the log.
 - ### Single-decree Paxos (Decide one single log entry value)
 - This method is to resolve the dilemma issue where the coordinator fails to restart in a really long time.
 - This method is performed in a distributed manner meaning that there's no central coordinator whatsoever.
