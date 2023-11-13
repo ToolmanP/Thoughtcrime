@@ -108,7 +108,7 @@
 	- #### Validation
 		- Both server and client save timestamp of files
 		- We always need to validate the consistency between the client and the server
-		- Data Block should be flushed on close
+		- Data Block should be flushed on close if possible.
 		- ![image.png](../assets/image_1699796315525_0.png)
 		-
 	- #### Performance Improvment
@@ -159,14 +159,14 @@
 	- We use a sequence number just like TCP to reorder the write operation
 	- Read Operation Can be relaxed by local caching so we can read the cache.
 - ### Causal Consistency
-	- Causal Consistency is a higher level of consistency meaning that one operation should have an effect on the sequential order of operations
+	- Causal Consistency is a higher level of consistency meaning that one operation should have an effect on the sequential order of operations. We don't want some conversation with an important context that goes out of order.
 - #### Implementation
 	- Ordered operation log --- log the operation before performing it and reorder the log based on some order --- Time
 	- We issue the <Time T,  Node ID>  to reorder the logging and to use as a tiebreaker if timestamp comes to a tie.
 	- Step by Step clock synchronization --- Lamport Clock
 		- When srv receives the message <T', srv'> it compares its own T with T' and updates T atomically with max (T, T'+1)
 			- Derivation: vector clock if we want partial clock order if we want to pack two streams of events instead only single one.
-			- Now the clock becomes [T1, T2, ..., Tn] we updates on clock when we receives nth event's update
+			- Now the clock becomes [T1, T2, ..., Tn] we updates on clock when we receives nth event's update Tn = max(Tn, Tn' +1)
 	- Log Truncation
 		- Attach a sequence number to each transaction and discard all the logs with smaller sequence number.
 - ## All or Nothing? Logging
@@ -175,7 +175,7 @@
 	- Update the memory accordingly.
 	- Recovery just traverse all the entries and perform state transition one by one.
 	- **Pros**
-		- Efficient logging
+		- Efficient logging. Only one single append operation.
 	- **Cons**
 		- Waste of disk I/O
 		- Need but buffer every update until commit
@@ -270,16 +270,17 @@
 			- Coordinator might fail, therefore we need to think up another way to tolerate this failure.
 - ## Replica Consistency (Availability Guarantee)
 - ### Network Partitions and View Server
-- There may be  multiple coordinators in the networks but somehow partitioned by the network.
-- Coordinators need some assistance to decide whether which server is the primary.
-- The Principle is that only primary server can receive requests and forward the requests to all its backup.
-- Only if the primary server can get all ACK from its backup, it then can respond safely.
-- Backup must rejects any requests before it was identified as the primary by the view server.
-- View server needs to ping the primary and when the primary fails, need to allocate another view to update.
+	- There may be  multiple coordinators in the networks but somehow partitioned by the network.
+	- Coordinators need some assistance to decide whether which server is the primary.
+	- The Principle is that only primary server can receive requests and forward the requests to all its backup.
+	- Only if the primary server can get all ACK from **all its backup**, it then can respond safely.
+	- Backup must rejects any requests before it was identified as the primary by the view server.
+	- View server needs to ping the primary and when the primary fails, need to allocate another view to update.
 - ![image.png](../assets/image_1699882387290_0.png)
 - Even when partition happens between VS and S1
--
--
+- ![image.png](../assets/image_1699882544360_0.png)
+- When S1 and VS parition is removed, The S1 will hear about the new View #2  and asks to sync from S2 and act as the backup server.
+- However, the view server may still needs some replicas therefore we need to decide it pessimistically with paxos.
 - ### Replicated State Machines (Linearizability)
 	- Replicas revolves around the replicated state machines which made up by various log entries.
 	- We need to sync and maintain a consensus on the log entries so there's only one single copy
