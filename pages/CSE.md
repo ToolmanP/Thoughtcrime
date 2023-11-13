@@ -269,15 +269,14 @@
 			- Coordinator must log the decision before sending in case that it fails after the preparation.
 			- Coordinator might fail, therefore we need to think up another way to tolerate this failure.
 - ## Replica Consistency (Availability Guarantee)
+- ### Network Partitions and View Server
+- There may be  multiple coordinators in the networks but somehow partitioned by the network.
+- Coordinators need some assistance to decide whether one
 - ### Replicated State Machines (Linearizability)
 	- Replicas revolves around the replicated state machines which made up by various log entries.
 	- We need to sync and maintain a consensus on the log entries so there's only one single copy
 	- There's only one copy of the world state now since we only have one copy.
 	- Operations should start at the same position and  make state transition based on the log.
-	- #### Replicas
-		- We need a view server to decide which replica is primary or secondary and determine whether the network partition is happening.
-		- Note that when network partition happens, the view server is responsible to decide discrepency.
-		- However, we still need to make replicas for the view server therefore we need to get the paxos
 - ### Single-decree Paxos (Decide one single log entry value)
 - This method is to resolve the dilemma issue where the coordinator fails to restart in a really long time.
 - This method is performed in a distributed manner meaning that there's no central coordinator whatsoever.
