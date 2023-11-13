@@ -113,7 +113,7 @@
 		-
 	- #### Performance Improvment
 	- ![image.png](../assets/image_1699796366885_0.png)
-- ### GFS
+- ### GFS (Compared to the naive design in the CHFS)
 	- #### Distributed Block Layer
 		- Data Blocks are distributed across multiple data-server
 		- Inode table is stored on the master server and path name resolution on the metadata server.
@@ -129,8 +129,7 @@
 				- Make it feasible to keep a TCP connection open for a extended time
 				- Master Stores all metadata in memory
 			- Master:
-				- Replicates the metadata
-				- Maintains the metadata of the whole file system
+				- Maintains the metadata of the whole file system including the locations of the chunk and filename -chunk mappings.
 				- Store all the data in the memory and persist an operation log
 				- Chunk Location is not stored persistently for consistency management
 	- #### Client
