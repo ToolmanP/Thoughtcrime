@@ -182,7 +182,15 @@
 			- Need but buffer every update until commit
 			- Log File is continously growing. No truncation too much space.
 	- ### Undo-Redo Logging
+		- We cache the operation into logging before performing each operation.
+			- Tx ID
+			- Operation ID
+			- Pointer to the previous record in the transaction
+			- Value (file name, offset, value diff)
+		- Append a commit sign with a pointer to the last undo log in the transaction at the end of the transaction or action.
+		- When we recover, we traverse from the end of log and regroup each transaction starting from the commit bit  at the end. For redo log entry that is obsolete and orphan, we undo the changes. For those that are identified in the commit, we redo them.
 	- ### Checkpointing
+		- Contacting
 - ## Core of transaction and block atomicity -- 2PL and OCC
 -
 - ##
