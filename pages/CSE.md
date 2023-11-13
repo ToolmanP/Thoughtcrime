@@ -267,20 +267,22 @@
 		- #### Commit
 			- After receiving all the prepare flags by the slaves, the commit can be emitted and transmitted to the slaves.
 			- Coordinator must log the decision before sending in case that it fails after the preparation.
+			- Coordinator might fail, therefore we need to think up another way to tolerate this failure.
 - ## Replica Consistency (Availability Guarantee)
 - ### Replicated State Machines (Linearizability)
 	- Replicas revolves around the replicated state machines which made up by various log entries.
-	- We need to sync and maintain a consensus on the log entries.
-	- There's only one copy of the world state now.
+	- We need to sync and maintain a consensus on the log entries so there's only one single copy
+	- There's only one copy of the world state now since we only have one copy.
 	- Operations should start at the same position and  make state transition based on the log.
 	- #### Replicas
-		- We need a view server to decide which replica is primary or secondary
+		- We need a view server to decide which replica is primary or secondary and determine whether the network partition is happening.
 		- Note that when network partition happens, the view server is responsible to decide discrepency.
-- ### Paxos (Decide the log entry value)
+		- However, we still need to make replicas for the view server therefore we need to get the paxos
+- ### Single-decree Paxos (Decide one single log entry value)
 - This method is to resolve the dilemma issue where the coordinator fails to restart in a really long time.
 - This method is performed in a distributed manner meaning that there's no central coordinator whatsoever.
 - It can only decide a **single value in the single location and remains immutable**.
-- #### Semantics
+- #### Semantics (On Position N)
 	- Propose(ID)
 		- The proposer chooses a SN and sends them to a list of acceptors.
 		- The acceptors should be in at least the majority of the servers.
@@ -300,4 +302,10 @@
 		- When receiving a new Accept, it validates its ID again
 		- If success: Log(ID, Accepted_ID, Value) and send the Accept_OK back to proposer
 	- Decide:
-		- When the proposer receives the majority of Accept OK, then it logs (ID, Accepted_ID, Value) to its entry and send Decide(ID, Value) to the accepters
+		- When the proposer receives the majority of Accept OK, then it logs (ID, Accepted_ID, Value) to its entry and send Decide(ID, Value) to the accepters.
+- ### Mutli-paxos
+- We may want to hold a consensus on a sequence of values e.g. log entries.
+- The proposer now have a modified semantics where he can select the position that the system needs to reach a consensus on.
+- When the conflict happens, it should select a bigger number and restart the round and write through the log entry.
+- ![image.png](../assets/image_1699881013821_0.png)
+- To optimize the paxos's performance, it's easy to think that only the leader can make proposal and batch all messages to reduce the overtime of request roundtrips.
