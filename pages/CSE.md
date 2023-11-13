@@ -190,7 +190,11 @@
 		- Append a commit sign with a pointer to the last undo log in the transaction at the end of the transaction or action.
 		- When we recover, we traverse from the end of log and regroup each transaction starting from the commit bit  at the end. For redo log entry that is obsolete and orphan, we undo the changes. For those that are identified in the commit, we redo them.
 	- ### Checkpointing
-		- Contacting
+		- Trim the logging file to save space
+			- Logging the ongoing transaction ID into the checkpoint
+			- Discard the logging that's commited before the checkpoint happens
+			- When crashed, traverse the recent checkpoint and perform the redo-undo recovery
+		- ![image.png](../assets/image_1699854179484_0.png)
 - ## Core of transaction and block atomicity -- 2PL and OCC
 -
 - ##
