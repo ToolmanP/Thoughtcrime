@@ -199,13 +199,17 @@
 	- We need to ensure that each transaction is somehow atomic that can be disturbed by other transaction even if they share some part of data in the database.
 	- There are two ways achieving this: either pessimistically or optimistically
 	- ### Serializability
-		- **Conflict Serializability**
+		- #### Conflict Serializability
 		- > A schedule is conflict serializable if the order of its conflicts (the order in
 		  which the conflicting operations occur) is the same as the order of
 		  conflicts in some sequential schedule
 		- Conflict means that two different transaction has at least one write operation on the shared data.
-		- Each transaction is viewed as a single node in the conflict graph. Connecting one node to another means that at this sequential moment, wr
-		-
+		- Each transaction is viewed as a single node in the conflict graph. Connecting one node to another means that at this sequential moment, the operation that is conflict happened before the second one.
+		- ![image.png](../assets/image_1699854810319_0.png)
+		- #### View Serializability
+		- This is a related model meaning that the scheduling and execution of each operation in each transaction will result in the same intermediate view for every variable in the serial execution of each transaction.
+		- #### Final State Serializability
+		- This is the most flexible one meaning that only the final state of the transactions is all we care. We don't care what happened inside the operations scheduling.s
 	- ### Pessimistic: Two Phase Locking
 		- Principles
 			- Fine-grained lock control on some portion of the data.
