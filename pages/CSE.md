@@ -214,6 +214,8 @@
 		- Fine-grained lock control on some portion of the data.
 		- Acquire the lock in the same order even if in different transaction.
 		- Avoid Dead Lock Or Detect the Dead Lock in a heuristic manner
+		- The transaction can not reacquire the lock after releasing it.
+		- Stricter 2PL requires that the release of the lock should happen at the end of transaction. But normal ones don't
 - ### Optimistic: OCC / MVCC
 	- #### OCC  Steps
 		- Collect the read sets and write sets.
@@ -286,7 +288,7 @@
 - ![image.png](../assets/image_1699882387290_0.png)
 - Even when partition happens between VS and S1
 - ![image.png](../assets/image_1699882544360_0.png)
-- When S1 and VS parition is removed, The S1 will hear about the new View #2  and asks to sync from S2 and act as the backup server.
+- When S1 and VS parition is removed, The S1 will hear about the new View 2  and asks to sync from S2 and act as the backup server.
 - However, the view server may still needs some replicas therefore we need to decide it pessimistically with paxos.
 - ### Single-decree Paxos (Decide one single log entry value)
 - This method is to resolve the dilemma issue where the coordinator fails to restart in a really long time.
