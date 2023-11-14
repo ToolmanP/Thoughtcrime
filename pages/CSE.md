@@ -235,7 +235,7 @@
 		- Read-intensive applications can benefit because reading doesn't need to acquire locking.
 	- #### Disadvantages
 		- A large portion of abort operations happen when transactions rise
-	- Note that the write_and_validate semantics can happen any time regardless of operation execution order. The execution only matters for the read_set state so it may cause false abort. Meaning that although the execution order is correct for serializability, but still got aborted.
+	- Note that the write_and_validate semantics can happen any time regardless of operation execution order. The execution only matters for the read_set state so it may cause false abort. Meaning that although the execution order is correct for serializability, but still got aborted. The execution order only affects when the read/write sets are collected, but doesn't guarantee when it is committed.
 	- ### Locking Semantics
 		- Compare and Swap
 		  logseq.order-list-type:: number
