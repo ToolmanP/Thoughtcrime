@@ -11,8 +11,11 @@
 		- Indirect holds another map to block which holds other indirect blocks
 		- Only the direct block holds the real data block which stores the actual data
 	- Inode number layer
-		- Just an array stores behind the block bitmap's with also inode's bitmap
+		- Just an array stores behind the block bitmap's with also inode's bitmap.
+		- **Note that: in modern ext4, inode table has actual inode inside instead of the block number, this is different to lab assignment design**
 		- Indicates the block number of the inode layer
+		- ![image.png](../assets/image_1699895099342_0.png)
+		-
 	- File Name Layer
 		- Hide metadata of file management
 		- Separate the directory type and regular file type
