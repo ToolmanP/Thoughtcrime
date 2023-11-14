@@ -189,9 +189,10 @@
 	- Append a commit sign with a pointer to the last undo log in the transaction at the end of the transaction or action.
 	- When we recover, we traverse from the end of log and regroup each transaction starting from the commit bit  at the end. For redo log entry that is obsolete and orphan, we undo the changes. For those that are identified in the commit, we redo them.
 - ### Checkpointing
+	- Wait until no actions are in progress.
 	- Trim the logging file to save space
-		- Logging the ongoing transaction ID into the checkpoint
-		- Discard the logging that's commited before the checkpoint happens
+		- Logging the ongoing transaction ID and their logs into the checkpoint and flush the page cache.
+		- Discard the logging that's commited before the checkpoint happens.
 		- When crashed, traverse the recent checkpoint and perform the redo-undo recovery
 	- ![image.png](../assets/image_1699854179484_0.png)
 - ## Core of transaction and block atomicity -- 2PL and OCC
@@ -217,6 +218,8 @@
 		- The transaction can not reacquire the lock after releasing it.
 		- Stricter 2PL requires that the release of the lock should happen at the end of transaction. But normal ones don't
 - ### Optimistic: OCC / MVCC
+	- ![image.png](../assets/image_1699938662266_0.png)
+	- ![image.png](../assets/image_1699938672422_0.png)
 	- #### OCC  Steps
 		- Collect the read sets and write sets.
 		  logseq.order-list-type:: number
@@ -232,12 +235,14 @@
 		- Read-intensive applications can benefit because reading doesn't need to acquire locking.
 	- #### Disadvantages
 		- A large portion of abort operations happen when transactions rise
+	- Note that the write_and_validate semantics can happen any time regardless of operation execution order. The execution only matters for the read_set state so it may cause false abort. Meaning that although the execution order is correct for serializability, but still got aborted.
 	- ### Locking Semantics
 		- Compare and Swap
 		  logseq.order-list-type:: number
 		- Fetch And Add (ticket lock)
 		  logseq.order-list-type:: number
 - ### The Most Usable One -- MVCC
+	- ![image.png](../assets/image_1699938704144_0.png)
 	- #### Principles
 		- Each read operation gets the most recent snapshot of the data.
 		- Each write operation append a versioning number into the data columns.
