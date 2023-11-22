@@ -33,5 +33,12 @@
   ```
 - In this case, the linker will create a section `.text` and merge all the data in the text section defined by the source object files. Notice that, it's optional to write a "." or "ALIGN" to explicitly define the address it points to. If not provided, the linker will default it to the strictest alignment for the section.
 - The part that is wrapped inside the curly braces is called the **Input Sections** and the keyword defined followed by  a colon is called a **output section**.
-- > *(.text *)
-- The  INPUT
+- #### Input Section
+- ```linker
+  *(.text*)
+  ```
+- The  input section consists of two parts the input file and the section in the file. In this case, this will include the section beginning with ".text" across all the input object files.
+- We can fine-grain the input file by using the archive namespace access, just like things did in c++
+- > (archive): file
+- we can specify an archive file and choose only from that archive file.
+-
