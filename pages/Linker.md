@@ -3,7 +3,7 @@
 - By combining and redirecting the sections, the linker merge all the relocatable object files into one single executable, may it be a simple hello world program or a complex and dedicated operating system.
 - ### Variables
 - > .  = TEXT_OFFSET
-- In linker script "." is a special program counter. This sets the current memory address to it points to. For example,  in this case, we set the current memory address to `TEXT_OFFSET`. If not explicitly set, the address starts at 0 and shifts based on the size of each section.
+- In linker script "." is a special location counter. This sets the current memory address to it points to. For example,  in this case, we set the current memory address to `TEXT_OFFSET`. If not explicitly set, the address starts at 0 and shifts based on the size of each section.
 - In Linker Script EVERY user-defined variable is a symbol introduced to the program.
 - For Example,
 - ```Linker
@@ -25,9 +25,13 @@
 - This is a weak definition of a symbol and can be overwritten by the symbol defined in the source object files. IF ONLY the object file refers to it and does not define it, it will be used as a default symbol definition.
 - > HIDDEN(symbol = expression)
 - This is a symbol hidden in the linker script and won't be exported to the global symbol table.
--
-- ### Commands
 - > ENTRY(symbol)
 - This defines a entry point of the program basically the start symbol of the text section.
-- #### Sections
-	-
+- ## Defining Sections And Other Stuffs
+- ```linker
+  .text [./ALIGN(4K)]: { *(.text*)}
+  ```
+- In this case, the linker will create a section `.text` and merge all the data in the text section defined by the source object files. Notice that, it's optional to write a "." or "ALIGN" to explicitly define the address it points to. If not provided, the linker will default it to the strictest alignment for the section.
+- The part that is wrapped inside the curly braces is called the **Input Sections** and the keyword defined followed by  a colon is called a **output section**.
+- > *(.text *)
+- The  INPUT
