@@ -27,6 +27,10 @@
 - This is a symbol hidden in the linker script and won't be exported to the global symbol table.
 - > ENTRY(symbol)
 - This defines a entry point of the program basically the start symbol of the text section.
+-
+- ## Alignment
+- > ALIGN(4K)
+- This is simple. We strictly align the location counter to 4K Page.
 - ## Defining Sections And Other Stuffs
 - ```linker
   .text [./ALIGN(4K)]: { *(.text*)}
@@ -41,4 +45,19 @@
 - We can fine-grain the input file by using the archive namespace access, just like things did in c++
 - > (archive): file
 - we can specify an archive file and choose only from that archive file.
--
+- ### Output Sections
+- id:: 655e2669-98ae-4048-942a-096486a8eb8e
+  ```linker
+  section [address] [(type)] :
+    [AT(lma)]
+    [ALIGN(section_align) | ALIGN_WITH_INPUT]
+    [SUBALIGN(subsection_align)]
+    [constraint]
+    {
+      output-section-command
+      output-section-command
+      …
+    } [>region] [AT>lma_region] [:phdr :phdr …] [=fillexp]
+  ```
+- #### AT
+- AT Specify the load address of the memory instead of
