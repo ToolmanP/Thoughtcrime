@@ -60,4 +60,4 @@
     } [>region] [AT>lma_region] [:phdr :phdr …] [=fillexp]
   ```
 - #### AT
-- AT Specify the load address of the memory instead of
+- AT Specify the load address of the memory explicitly instead of being assigned the same address as the virtual address (directed by the location counter)
