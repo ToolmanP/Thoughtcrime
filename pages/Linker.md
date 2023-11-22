@@ -20,7 +20,6 @@
   }
   ```
 - In this linker script, we define _etext at the end of .text which will introduce a symbol _etext into the symbol table which can instead be used in a kernel which helps determine the TEXT location when setting up the MMU unit in operating system. However, unlike the symbol defined in the source code, the symbol does not refer to any special or reserved memory space in the memory, which means, yes, it is  a merely a variable that only can be referenced from but cannot be dereferenced.
--
 - Similarly, _bdata will be defined as the address following the text output section aligned upward to a 4 byte boundary
 - > PROVIDE(symbol = expression)
 - This is a weak definition of a symbol and can be overwritten by the symbol defined in the source object files. IF ONLY the object file refers to it and does not define it, it will be used as a default symbol definition.
@@ -30,3 +29,5 @@
 - ### Commands
 - > ENTRY(symbol)
 - This defines a entry point of the program basically the start symbol of the text section.
+- #### Sections
+	-
