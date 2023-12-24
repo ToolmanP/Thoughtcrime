@@ -66,8 +66,17 @@
 - ## Transaction Management
 - ### Container
 - In application architecture, a container is the runtime for proxying all the resources needed for a controller and its service to responce.
-- For example, if a controller needs a transaction support, the container will supercede it and handle all the necessary outbound requirements. e.g. instance selection, transaction management
-- A easy target -- atomicity
+- For example, if a controller needs a transaction support, the container will supercede it and handle all the necessary outbound requirements. e.g. instance selection, transaction management etc.
+- ### Transaction Policy
+- Required  --- joining the transaction created by the outer scope of the current control flow
+  logseq.order-list-type:: number
+- Require New --- always create a new transaction when doing a data operation
+  logseq.order-list-type:: number
+- Mandatory -- must have a transaction when invoking this method. If not, throw an exception at the given point.
+  logseq.order-list-type:: number
+- logseq.order-list-type:: number
+- ### Goals
+- logseq.order-list-type:: number
 -
 - ## Log Structured Merge Tree
 - ---
