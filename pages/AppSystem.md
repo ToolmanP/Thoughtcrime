@@ -1,8 +1,31 @@
 ## Stateful System
-- HTTP protocol is a stateless protocol so it should
+- HTTP protocol is a stateless protocol to communicate.
   logseq.order-list-type:: number
-- ## State
--
+- To make sure that the state can be stored across multiple HTTP requests, HTTP Session is introduced and passed by each HTTP response from the server in the presentation of COOKIES.
+  logseq.order-list-type:: number
+- If we want to design a service, stateless service is clearly better for
+  logseq.order-list-type:: number
+	- No extra overhead for storing the states.
+	  logseq.order-list-type:: number
+	- Better extensibility since we don't need to maintain the session across the machines.
+	  logseq.order-list-type:: number
+	- Less complexity.
+	  logseq.order-list-type:: number
+- Spring Session Type
+  logseq.order-list-type:: number
+	- Singleton  --- always one instance in one process
+	  logseq.order-list-type:: number
+	- Prototype --- one method call one instance
+	  logseq.order-list-type:: number
+	- Session --- one session one instance
+	  logseq.order-list-type:: number
+	- Request --- one request one instance
+	  logseq.order-list-type:: number
+- ## Message Queue
+- ### Benefits
+- Loose decoupling of the system
+  logseq.order-list-type:: number
+- logseq.order-list-type:: number
 - ## Log Structured Merge Tree
 - ---
 - ## MySQL
