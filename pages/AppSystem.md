@@ -86,7 +86,11 @@
 - ### Snapshot
 - Some database takes a snapshot of the current view of the data.
 - It can prevent any dirty reads, nonrepeatable reads and phantom reads.
+- But it requires a lot of spaces and resources for generating the snapshots.
+- ## Concurrency Control
+- ### Optimistic Concurrency Control
 -
+- ### Pessimistic Concurrency Control
 - ## Log Structured Merge Tree
 - ---
 - ## MySQL
