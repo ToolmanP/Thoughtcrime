@@ -61,7 +61,11 @@
 - ### HandShake
 - HTTP Based
   logseq.order-list-type:: number
-- logseq.order-list-type:: number
+- Use bidirectional keys to authenticate 
+  logseq.order-list-type:: number
+- ## Transaction Management
+- A easy target -- atomicity
+-
 - ## Log Structured Merge Tree
 - ---
 - ## MySQL
