@@ -26,11 +26,15 @@
 	  logseq.order-list-type:: number
 - Database Connection Pool size
   logseq.order-list-type:: number
-	- Can not be too large since it will over consume the system's resources. Can not be too small since it may not be enough to feed the requests
+	- Can not be too large since it will over consume the system's resources and dispatching them requires a lot of context switches. Can not be too small since it may not be enough to feed the requests
 	  logseq.order-list-type:: number
 	- Empirical formula: connections = ((core_count * 2) + effective_spindle_count (effective concurrent IO count))
 	  logseq.order-list-type:: number
-	- Effective counts based on the co
+	- Core_counts *2 is the total number of capable threads handling and effective_spindle_count can be deemed as a IO buffer and even a bottle neck. 
+	  logseq.order-list-type:: number
+	- We don't need a really large connection pool. (Instance pool)
+	  logseq.order-list-type:: number
+	- Instance Pool Management is a crucial part of application system design.
 	  logseq.order-list-type:: number
 - ## Message Queue
 - ### Shortcomings of a synchronous client-server model
@@ -38,7 +42,11 @@
   logseq.order-list-type:: number
 - No delivery guaranteed
   logseq.order-list-type:: number
-- No
+- No request without a request buffer.
+  logseq.order-list-type:: number
+- Too much emphasis on requests and responses
+  logseq.order-list-type:: number
+- Communication is not replayable
   logseq.order-list-type:: number
 - ### Benefits
 - Loose decoupling of the system
