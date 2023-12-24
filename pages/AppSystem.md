@@ -75,8 +75,10 @@
 - Mandatory -- must have a transaction when invoking this method. If not, throw an exception at the given point.
   logseq.order-list-type:: number
 - ### Isolation Policy
-- If we do not set correct isolation level policy, there's some
-- logseq.order-list-type:: number
+- If we do not set correct isolation level policy, there might be some problems and discrepancies.
+- Isolation level describes how two or more transactions can interfere each other
+- Dirty Read Problem --- After reading the data and
+  logseq.order-list-type:: number
 -
 - ## Log Structured Merge Tree
 - ---
