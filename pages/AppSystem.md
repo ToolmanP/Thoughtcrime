@@ -77,8 +77,15 @@
 - ### Isolation Policy
 - If we do not set correct isolation level policy, there might be some problems and discrepancies.
 - Isolation level describes how two or more transactions can interfere each other
-- Dirty Read Problem --- After reading the data and
+- Dirty Read Problem --- Reading an scheduled-to-modify data in another transaction when the current ongoing transaction on modifying this data has not been commited yet. (Disable Read Uncommited)
   logseq.order-list-type:: number
+- Non Repeatable Reads --- Modifying a scheduled to read data in another transaction when the current ongoing transaction wants to read the data twice yielding different results on different tries. (Enable REPEATABLE READ)
+  logseq.order-list-type:: number
+- Phantom Reads --- Adding a new row to the table when the current transaction wants to list the data in the table for multiple time (SERIALIZABLE)
+  logseq.order-list-type:: number
+- ### Snapshot
+- Some database takes a snapshot of the current view of the data.
+- It can prevent any dirty reads, nonrepeatable reads and phantom reads.
 -
 - ## Log Structured Merge Tree
 - ---
