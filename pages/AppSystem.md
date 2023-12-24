@@ -66,7 +66,7 @@
 - ## Transaction Management
 - ### Container
 - In application architecture, a container is the runtime for proxying all the resources needed for a controller and its service to responce.
-- For example, if a controller needs a transaction support, the container will supercede it and handle it
+- For example, if a controller needs a transaction support, the container will supercede it and handle all the necessary outbound requirements. e.g. instance selection, transaction management
 - A easy target -- atomicity
 -
 - ## Log Structured Merge Tree
