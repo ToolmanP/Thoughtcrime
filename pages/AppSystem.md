@@ -42,7 +42,7 @@
   logseq.order-list-type:: number
 - No delivery guaranteed
   logseq.order-list-type:: number
-- No request without a request buffer.
+- No request without a request buffer. (preventing the a large overflow of data to overwhelm the whole system and consorting to a chain of timeout)
   logseq.order-list-type:: number
 - Too much emphasis on requests and responses
   logseq.order-list-type:: number
@@ -52,7 +52,16 @@
 - Message Queue acts a meditator mode in the programming modal in the system design.
 - Message Queue introduces a message buffer between the consumers and producers, it however adds another layer of complexity over the system. However, at the end of day, its overhead still is beaten by its architectural benefit. We can now program based on a message oriented model.
 - However, message queue does not provide a direct way to expose the exception to the application. E.g. when the bookstore is out of stock, the message can not be delivered immediately to their clients.
-- ## We
+- Kafka uses logs to track the ordered sequence of events and is a stream based server.
+- Kafka allows a partition of streams and can be deemed as a partitioned DB-like service to provide better concurrency
+- ## WebSocket
+- Sometime we do not need synchronous communication and if our requests are handled asynchronously, we naively require a method to receive asynchronous response.
+- WebSocket is an application protocol that provides full-duplex communications between two peers over the TCP Protocol.
+- It consists two parts: handshake and data transfer
+- ### HandShake
+- HTTP Based
+  logseq.order-list-type:: number
+- logseq.order-list-type:: number
 - ## Log Structured Merge Tree
 - ---
 - ## MySQL
