@@ -64,6 +64,9 @@
 - Use bidirectional keys to authenticate 
   logseq.order-list-type:: number
 - ## Transaction Management
+- ### Container
+- In application architecture, a container is the runtime for proxying all the resources needed for a controller and its service to responce.
+- For example, if a controller needs a transaction support, the container will supercede it and handle it
 - A easy target -- atomicity
 -
 - ## Log Structured Merge Tree
