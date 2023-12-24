@@ -1,4 +1,7 @@
-## Stateful System
+## Overview
+- General Principle: more maintainable, more extensible, faster and less prone to single-point failure
+  logseq.order-list-type:: number
+- ## Stateful System
 - HTTP protocol is a stateless protocol to communicate.
   logseq.order-list-type:: number
 - To make sure that the state can be stored across multiple HTTP requests, HTTP Session is introduced and passed by each HTTP response from the server in the presentation of COOKIES.
@@ -21,11 +24,27 @@
 	  logseq.order-list-type:: number
 	- Request --- one request one instance
 	  logseq.order-list-type:: number
+- Database Connection Pool size
+  logseq.order-list-type:: number
+	- Can not be too large since it will over consume the system's resources. Can not be too small since it may not be enough to feed the requests
+	  logseq.order-list-type:: number
+	- Empirical formula: connections = ((core_count * 2) + effective_spindle_count (effective concurrent IO count))
+	  logseq.order-list-type:: number
+	- Effective counts based on the co
+	  logseq.order-list-type:: number
 - ## Message Queue
+- ### Shortcomings of a synchronous client-server model
+- Deeply coupled.
+  logseq.order-list-type:: number
+- No delivery guaranteed
+  logseq.order-list-type:: number
+- No
+  logseq.order-list-type:: number
 - ### Benefits
 - Loose decoupling of the system
   logseq.order-list-type:: number
-- logseq.order-list-type:: number
+- We dont
+  logseq.order-list-type:: number
 - ## Log Structured Merge Tree
 - ---
 - ## MySQL
