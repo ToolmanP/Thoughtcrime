@@ -46,13 +46,13 @@
   logseq.order-list-type:: number
 - Too much emphasis on requests and responses
   logseq.order-list-type:: number
-- Communication is not replayable
+- Communication is not replayable.
   logseq.order-list-type:: number
-- ### Benefits
-- Loose decoupling of the system
-  logseq.order-list-type:: number
-- We dont
-  logseq.order-list-type:: number
+-
+- Message Queue acts a meditator mode in the programming modal in the system design.
+- Message Queue introduces a message buffer between the consumers and producers, it however adds another layer of complexity over the system. However, at the end of day, its overhead still is beaten by its architectural benefit. We can now program based on a message oriented model.
+- However, message queue does not provide a direct way to expose the exception to the application. E.g. when the bookstore is out of stock, the message can not be delivered immediately to their clients.
+- ## We
 - ## Log Structured Merge Tree
 - ---
 - ## MySQL
