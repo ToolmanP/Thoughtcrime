@@ -74,8 +74,8 @@
   logseq.order-list-type:: number
 - Mandatory -- must have a transaction when invoking this method. If not, throw an exception at the given point.
   logseq.order-list-type:: number
-- logseq.order-list-type:: number
-- ### Goals
+- ### Isolation Policy
+- If we do not set correct isolation level policy, there's some
 - logseq.order-list-type:: number
 -
 - ## Log Structured Merge Tree
