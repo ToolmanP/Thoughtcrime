@@ -329,7 +329,9 @@
 		  logseq.order-list-type:: number
 		- No Bit representation on null
 		  logseq.order-list-type:: number
-- Row Format
+	- VARCHAR(Header and data stored at the end NULL sized favored) vs CHAR (compact sized )
+	  logseq.order-list-type:: number
+- Row Format (VARCHAR)
   logseq.order-list-type:: number
 	- DYNAMIC
 	  logseq.order-list-type:: number
@@ -378,11 +380,20 @@
 - #### Temporary Table
 - Temp Table is created in a lot of evaluations  however the temp table is allocated in memory (communication, order by, union, group by)
 - #### Optimize Table
-- If the table size is not g
+- If the table size is not growing, we can use optimize table and reorder and combine the data file and rebuild index file accordingly.
+- ![image.png](../assets/image_1703863772698_0.png)
+-
 - ### Configuration Settings
 - Max connections
 - Table open cache: caching the connections and the number of files can be preempted to be opened. Related to the file descriptors (cannot be too large and cost a lot of resources)
 - When the table is closed and only if the cache is fulled and no longer used, the table will be evicted from the cache.
+- ### Transaction Management
+- AUTOCOMMIT = 1. Every clause is executed in transaction mode but we might need to wrap some clauses in one single transaction.
+- Alternatively, we might need to pack read only together so that we do not need lockming.
+- Buffer Pool  decides on the cache size and reduce the frequency of data persistence.
+- We might need to divide a large clause into small clauses and issue the COMMIT statements periodically.
+- **We don't want a long running transaction and need to determine the isolation level correctly**
+-
 - ### Data Layout
 -
 - ### Partitioning
