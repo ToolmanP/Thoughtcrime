@@ -369,10 +369,16 @@
 - Table is opened concurrently by each session.
 - Mysql has no limit on the number of tables and databases.
 - ![image.png](../assets/image_1703862414052_0.png)
--
+- Mysql has a hard limit 4096 columns per table
+- Also the row size has maximum and if the row size is too long
+- Less frequently accessed columns should be moved out of the current table and store in another one.
+- Max row size limit is 64KB (Based on the pagesize of the innodb page size) (On varchar)
+- However, in char it's contrained for half page size using char
+- If the data is significantly larger, Just USE BLOB AND TEXT
 - #### Temporary Table
 - Temp Table is created in a lot of evaluations  however the temp table is allocated in memory (communication, order by, union, group by)
--
+- #### Optimize Table
+- If the table size is not g
 - ### Configuration Settings
 - Max connections
 - Table open cache: caching the connections and the number of files can be preempted to be opened. Related to the file descriptors (cannot be too large and cost a lot of resources)
