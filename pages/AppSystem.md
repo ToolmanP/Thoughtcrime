@@ -36,6 +36,7 @@
 	  logseq.order-list-type:: number
 	- Instance Pool Management is a crucial part of application system design.
 	  logseq.order-list-type:: number
+- ---
 - ## Message Queue
 - ### Shortcomings of a synchronous client-server model
 - Deeply coupled.
@@ -54,6 +55,7 @@
 - However, message queue does not provide a direct way to expose the exception to the application. E.g. when the bookstore is out of stock, the message can not be delivered immediately to their clients.
 - Kafka uses logs to track the ordered sequence of events and is a stream based server.
 - Kafka allows a partition of streams and can be deemed as a partitioned DB-like service to provide better concurrency
+- ---
 - ## WebSocket
 - Sometime we do not need synchronous communication and if our requests are handled asynchronously, we naively require a method to receive asynchronous response.
 - WebSocket is an application protocol that provides full-duplex communications between two peers over the TCP Protocol.
@@ -61,8 +63,10 @@
 - ### HandShake
 - HTTP Based
   logseq.order-list-type:: number
-- Use bidirectional keys to authenticate 
+- Use bidirectional keys to authenticate
   logseq.order-list-type:: number
+- logseq.order-list-type:: number
+  ---
 - ## Transaction Management
 - ### Container
 - In application architecture, a container is the runtime for proxying all the resources needed for a controller and its service to responce.
@@ -87,19 +91,21 @@
 - Some database takes a snapshot of the current view of the data.
 - It can prevent any dirty reads, nonrepeatable reads and phantom reads.
 - But it requires a lot of spaces and resources for generating the snapshots.
+- ---
 - ## Concurrency Control
 - ### Optimistic Concurrency Control
 - We insert a version control number and a last-modified time in the row of the table and abort and try the changes when the version has changed when writing back.
 - ### Pessimistic Concurrency Control
 - Simply by locking the whole row/table and do not allow interleaved writing.
 - ### Virtual Thread
-- Java thread enables the program to bind a runnable object to a thread object and virtual thread can enable temporarily release the thread when waiting for I/O resource just like Golang.
+- Java thread enables the program to bind a runnable object to a thread object and virtual thread can enable temporarily release the thread and executes other codes when waiting for I/O resource just like Golang.  In short, a virtual thread in its lifetime isn't necessary tied to a specific OS thread.
 - ### Live Lock
 - Two threads are busy and waiting for each other, however unlike dead locks they are not blocked.
 - ### Immutable
 - Immutable objects are great for multithreaded applications since their fields can not be changed and cannot
 - ### Concurrent Collections
-- ## Log Structured Merge Tree
+- ---
+-
 - ---
 - ## MySQL
 	- ### Partitioning
