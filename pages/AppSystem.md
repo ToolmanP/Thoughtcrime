@@ -422,8 +422,13 @@
 - Data can only be split horizontally in mysql.
 - Benefit: Data removing. Store more data in one table can be held on a single disk. Some queries can be optimized based on partions
 - #### Partition Type
-- Range Paritioning
--
+- Range Paritioning (e.g. On Academic scores)
+	- Every partition is continous and not overlapped.
+	- Range Partition can operate on different columns by partial order
+- List Partitioning (e.g. Discrete based)
+- Hash Partitioning (e.g. On Date)
+- KEY partitioning (use hash on column cannot use an external function)
+- Partitions can have subpartitions
 - ---
 - ## MongoDB
 - ## InfluxDB
