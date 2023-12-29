@@ -125,8 +125,14 @@
 - ---
 - ## Full-text Searching
 - Suppose we have unstructured data and we want the context of the words we request to search.
--
--
+- Reverse Indexing: document the location of the word inside a certain passage and in a certain order.
+- #+BEGIN_NOTE
+  Still if the key is not present in the passage, how can we find a related passage and feed it back to the user.
+  #+END_NOTE
+- ### Lucene
+- Indexing based on reverse method, word -> passage + conext location
+- A format supported rapid search
+- We can use separated
 - ---
 - ## MySQL
 	- ### Partitioning
