@@ -250,8 +250,12 @@
 - Stateless services very extensive
 - ---
 - ## MySQL
+	- ### Optimization
+	-
 	- ### Partitioning
+	-
 	- ### Indexing
+	-
 - ---
 - ## NOSQL
 - ### Volumes
