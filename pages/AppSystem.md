@@ -140,7 +140,10 @@
 - Subjects can be vectorized and be stored in the index so that it can be presented to the user immediately for user experience.
 - We have a global table documenting the word-file location and subtables documenting word-context location in specific file.
 - If required words are not present in the keywords list, we need to vectorize it and implement a similarity search using the algorithm of cosine similarity.
-- An unstructured chunk of data consists of different terms coming from different fields.  Fields may be stored and indexed
+- An unstructured chunk of data consists of different terms coming from different fields.  Fields may be stored and indexed, fields contain terms and term may be tokenized to generate index or may be unified as a whole to provide index.
+- An index may be segmented and each field goes into its own segment.
+- ### Similarity
+  TFIDFS Similarity --
 - ---
 - ## MySQL
 	- ### Partitioning
