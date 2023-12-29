@@ -308,7 +308,48 @@
 - #### Multiple Column Indexes
 - An index may consist of multiple columns and maintain  a partial order relationship. The order counts. If we preempt the searching using wrong order, the index will not take effect. The first must be used before using the second field for indexing
 - **B -Tree is optimized for comparison or BETWEEN operators ALSO LIKE will benefit too (Only happens when the leftmost prefix matches )**
--
+- **Hash Index is optimized for key-value searched.**
+- **Ascending/Descending can be better when ordered by is used.**
+- ![image.png](../assets/image_1703860905036_0.png)
+- #### Beyond Indexing
+- We can use prefetch the data to provide spatial locality for data access.
+- ### Data Size Optimization
+- Design the tables to minimize their space on the disk
+	- Compaction for data
+	- Less alive memory needed when loading chunks of records
+	- Smaller INdexes
+- #### Techniques
+- Table Columns
+  logseq.order-list-type:: number
+	- USE Space Efficient Data Type when Possible
+	  logseq.order-list-type:: number
+	- Declare the data as NOT NULL if possible
+	  logseq.order-list-type:: number
+		- No NULL comparison needed
+		  logseq.order-list-type:: number
+		- No Bit representation on null
+		  logseq.order-list-type:: number
+- Row Format
+  logseq.order-list-type:: number
+	- DYNAMIC
+	  logseq.order-list-type:: number
+	- COMPACT
+	  logseq.order-list-type:: number
+	- COMPRESSED
+	  logseq.order-list-type:: number
+	- REDUNDANT (CHAR N uses N x the maximum byte length)
+	  logseq.order-list-type:: number
+- Indexes
+  logseq.order-list-type:: number
+	- Primary index should be as short as possible
+	  logseq.order-list-type:: number
+	- Composite index is better and the leftmost fields of the index should be most frequently used also can filter out lots of other rows
+	  logseq.order-list-type:: number
+	- logseq.order-list-type:: number
+- Joins
+  logseq.order-list-type:: number
+- Normalization
+  logseq.order-list-type:: number
 - ### Configuration Settings
 -
 - ### Data Layout
