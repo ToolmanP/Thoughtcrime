@@ -93,11 +93,12 @@
 - ### Pessimistic Concurrency Control
 - Simply by locking the whole row/table and do not allow interleaved writing.
 - ### Virtual Thread
-- Java virtual thread binds
+- Java thread enables the program to bind a runnable object to a thread object and virtual thread can enable temporarily release the thread when waiting for I/O resource just like Golang.
 - ### Live Lock
 - Two threads are busy and waiting for each other, however unlike dead locks they are not blocked.
 - ### Immutable
 - Immutable objects are great for multithreaded applications since their fields can not be changed and cannot
+- ### Concurrent Collections
 - ## Log Structured Merge Tree
 - ---
 - ## MySQL
