@@ -105,7 +105,9 @@
 - Immutable objects are great for multithreaded applications since their fields can not be changed and cannot
 - ### Concurrent Collections
 - ---
--
+- ## Caching
+- Everything needs caching to boost IO intensive application.
+- We sometimes need distributed caching to serve
 - ---
 - ## MySQL
 	- ### Partitioning
