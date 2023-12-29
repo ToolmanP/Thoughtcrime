@@ -275,14 +275,38 @@
 	- Memory Bandwidth
 	  logseq.order-list-type:: number
 	- ### Portability
-	- Wrap MySQL specific keywords in a stae
+	- Wrap MySQL specific keywords in a statement with in a comment so that other database can use it.
+	- ### Indexing
+	- A B+ tree organized index
+	- Unnecessary indexes waste space and waste time and its variability depends.
+	- We need the right balance to achieve fast queries using the optimal balance.
+	- MYSQL uses indexes for operations such as
+	- Where Clauses
+	  logseq.order-list-type:: number
+	- Eliminate rows for consideration
+	  logseq.order-list-type:: number
+	- Optimize the lookup based on the leftmost prefix matching
+	  logseq.order-list-type:: number
+	- MIN MAX operation
+	  logseq.order-list-type:: number
+	- Sort or group a table if the sorting is done on a leftmost prefix of a usable prefix
+	  logseq.order-list-type:: number
+	- #### Cluster Index
+	- Primary key always has a cluster index based on a B+ tree index and B+ tree index location is related to the actual location of the data layout on the disk
+	- Query Performance benefits from the NOT NULL optimization because it cannot include any NULL values.
+	- NOT NULL optimization based.
+	- If primary key can not be determined and create an auto increment column to be used as a index.
+	- These unique IDs can serve as pointers and server as another table to be a foreign key.
+	- #### Spatial Index
+	- NOT NULL geometry valued columns
+	- SPATIAL index must be SRID-restricted
 	- ### Configuration Settings
 	-
 	- ### Data Layout
 	-
 	- ### Partitioning
 	-
-	- ### Indexing
+	-
 	-
 - ---
 - ## NOSQL
