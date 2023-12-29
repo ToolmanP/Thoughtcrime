@@ -59,7 +59,8 @@
 - ## WebSocket
 - Sometime we do not need synchronous communication and if our requests are handled asynchronously, we naively require a method to receive asynchronous response.
 - WebSocket is an application protocol that provides full-duplex communications between two peers over the TCP Protocol.
-- It consists two parts: handshake and data transfer
+- It consists two parts: handshake and data transfer.
+- Although full-duplex, it still cost more resource so maybe too many websocket connections are also intolerable. We need to control them.
 - ### HandShake
 - HTTP Based
   logseq.order-list-type:: number
@@ -107,7 +108,16 @@
 - ---
 - ## Caching
 - Everything needs caching to boost IO intensive application.
-- We sometimes need distributed caching to serve
+- We sometimes need distributed caching to serve backend, cluster or even frontend applications such that we can skip extra data processing procedure.
+- Caching Policy
+	- Ring Buffer + eviction + LRU
+	  logseq.order-list-type:: number
+	- persist and eviction.
+	  logseq.order-list-type:: number
+- Some strategy: offloading those frequently accessed data into redis. (Redis also needs disk space)
+- We read from the cache first  and if we want to modify the data and evict the cache.
+- Still we prefer to prepare caching for read-only data instead of frequently modified data. Since we don't want introduce a lot of cache miss.
+-
 - ---
 - ## MySQL
 	- ### Partitioning
