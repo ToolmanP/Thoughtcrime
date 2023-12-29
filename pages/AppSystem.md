@@ -389,11 +389,12 @@
 - When the table is closed and only if the cache is fulled and no longer used, the table will be evicted from the cache.
 - ### Transaction Management
 - AUTOCOMMIT = 1. Every clause is executed in transaction mode but we might need to wrap some clauses in one single transaction.
-- Alternatively, we might need to pack read only together so that we do not need lockming.
+- Alternatively, we might need to pack read only together so that we do not need locking the record. But it might introduce inconsistency between buffer and disk.
 - Buffer Pool  decides on the cache size and reduce the frequency of data persistence.
 - We might need to divide a large clause into small clauses and issue the COMMIT statements periodically.
 - **We don't want a long running transaction and need to determine the isolation level correctly**
--
+- ### Bulk Insert
+- We might not need foreign key checking, unique checking for better performance
 - ### Data Layout
 -
 - ### Partitioning
