@@ -1,6 +1,7 @@
 ## Overview
 - General Principle: more maintainable, more extensible, faster and less prone to single-point failure
   logseq.order-list-type:: number
+- ---
 - ## Stateful System
 - HTTP protocol is a stateless protocol to communicate.
   logseq.order-list-type:: number
@@ -143,6 +144,16 @@
 - An unstructured chunk of data consists of different terms coming from different fields.  Fields may be stored and indexed, fields contain terms and term may be tokenized to generate index or may be unified as a whole to provide index.
 - An index may be segmented and each field goes into its own segment.
 -
+- ---
+- ## Web Service
+- Web services build service upon  web protocols providing better and reliable accessibility and interoperability.
+- Service means that the application is behind the implementation and only exposes  a bunch of APIs or RPCs across the Internet. This MUST be heterogeneous and hardware/language/operating system independent.
+- Web Protocol is text-oriented and circulated on the Internet.
+- ### SOAP
+- General: Method -> Text
+- SOAP refers to
+- ### REST
+- General: Data + Convention -> Restful
 - ---
 - ## MySQL
 	- ### Partitioning
