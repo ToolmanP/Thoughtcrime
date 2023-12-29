@@ -418,7 +418,12 @@
 - #### Backup (Primary-Backup Models)
 - Load Balancing and perform backups
 - ### Partitioning
-	-
+- We need to separate the table based on the features of the data and each client accesses its closet match table set.
+- Data can only be split horizontally in mysql.
+- Benefit: Data removing. Store more data in one table can be held on a single disk. Some queries can be optimized based on partions
+- #### Partition Type
+- Range Paritioning
+-
 - ---
 - ## MongoDB
 - ## InfluxDB
