@@ -151,7 +151,10 @@
 - Web Protocol is text-oriented and circulated on the Internet.
 - ### SOAP
 - General: Method -> Text
-- SOAP refers to
+- SOAP refers to Simple Object Access Protocol. Object is defined in a specific convention and  organized in XML.
+- ### WSDL
+- WSDL stands for web service description language.
+- WSDL defines the method and its return type in XML. This is a good way to provide RPC or API definition.
 - ### REST
 - General: Data + Convention -> Restful
 - ---
