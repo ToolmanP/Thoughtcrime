@@ -157,8 +157,21 @@
 - ### WSDL
 - WSDL stands for web service description language.
 - WSDL defines the method and its return type in XML. This is a good way to provide RPC or API definition.
+- ###  Shortcomings of SOAP
+- coupling with the message format
+  logseq.order-list-type:: number
+- coupling with the encoding of WS and attachment
+  logseq.order-list-type:: number
+- parse and assemble SOAP (extra overhead)
+  logseq.order-list-type:: number
+- need a wsdl to describe the details of WS
+  logseq.order-list-type:: number
+- need a proxy generated from WSDL
+  logseq.order-list-type:: number
 - ### REST
 - General: Data + Convention -> Restful
+- We only transfer the data not the method definition!
+-
 - ---
 - ## MySQL
 	- ### Partitioning
