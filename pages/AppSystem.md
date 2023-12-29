@@ -196,7 +196,27 @@
 - Support B2B integration
 - Encourage the reusability of the code
 - Not stand-alone applications
-- Homogeneous applications in LAN.
+- Not Homogeneous applications in LAN.
+- ---
+- ## Microservice
+- ### Concept
+- Building small, self-contained applications and services which can bring great flexibility and added resilience to the code.
+- Domain Driven Design helps us divide our applications into different tangent spaces and we can then implement different services based on them.
+- Microservices are delivered in small, managable pieces, independent of others, preventing the case of single-point failure.
+- ### Advantages
+- Better maintenance: since the code base is small
+- Improved Productivity: same reason
+- Greater fault tolerance: the spotted fault is constrained inside a container and is  segregated from other containers so that the fault can not be spread to other parts of the system.
+- Better modularity: simple
+- ### Components
+- Gateway
+  logseq.order-list-type:: number
+- Service Registry
+  logseq.order-list-type:: number
+- Config Server
+  logseq.order-list-type:: number
+- Breaker Dashboard
+  logseq.order-list-type:: number
 - ---
 - ## MySQL
 	- ### Partitioning
