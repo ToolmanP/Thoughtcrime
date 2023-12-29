@@ -211,7 +211,7 @@
 - ### Components
 - Gateway: redirect the request to different microservices
   logseq.order-list-type:: number
-- Service Registry: register the microservice
+- Service Registry + discovery : register the microservice and assign a KV location on it (load balancing)
   logseq.order-list-type:: number
 - Config Server: a RAFT based KV service
   logseq.order-list-type:: number
@@ -219,6 +219,7 @@
   logseq.order-list-type:: number
 - ### Design Pattern
 - Independent database + message queue for asynchronous server request handling.
+- Independent database + gateway to redirect the requests to domain-responsible microservices.
 - ### Fault Tolerance
 - ![image.png](../assets/image_1703854940036_0.png)
 - Survilliance
@@ -230,13 +231,18 @@
 	- Data gathering and service probing
 	  logseq.order-list-type:: number
 	- ![image.png](../assets/image_1703855270986_0.png)
-- Fault Analysis (Logging)
+- Fault Analysis
   logseq.order-list-type:: number
-	- logseq.order-list-type:: number
+	- Backtraces of requests and responses
+	  logseq.order-list-type:: number
+	- Logging analysis
+	  logseq.order-list-type:: number
 - Service restoration (primary+backup model  for fault tolerance)
   logseq.order-list-type:: number
 - Service degradation (Temporarily disable some services)
   logseq.order-list-type:: number
+- ---
+- ## Serverless
 -
 - ---
 - ## MySQL
