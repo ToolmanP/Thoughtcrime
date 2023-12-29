@@ -170,6 +170,7 @@
   logseq.order-list-type:: number
 - ### REST
 - General: Data + Convention -> Restful
+- REST stands for representational state transfer which represents the data object and its layout in a com
 - We only transfer the data not the method definition!
 -
 - ---
