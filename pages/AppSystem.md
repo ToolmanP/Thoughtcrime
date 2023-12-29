@@ -221,7 +221,7 @@
 - Independent database + message queue for asynchronous server request handling.
 - Independent database + gateway to redirect the requests to domain-responsible microservices.
 - ### Fault Tolerance
-- ![image.png](../assets/image_1703854940036_0.png)
+- ![image.png](../assets/image_1703854940036_0.png){:height 687, :width 958}
 - Survilliance
   logseq.order-list-type:: number
 	- Heartbeat system or periodical request
@@ -345,11 +345,28 @@
 	  logseq.order-list-type:: number
 	- Composite index is better and the leftmost fields of the index should be most frequently used also can filter out lots of other rows
 	  logseq.order-list-type:: number
-	- logseq.order-list-type:: number
+	- If indexed field is too long, better use a smaller data type
+	  logseq.order-list-type:: number
 - Joins
   logseq.order-list-type:: number
+	- Declare columns with identical information with identical data types
+	  logseq.order-list-type:: number
+	- Column Names should be same
+	  logseq.order-list-type:: number
 - Normalization
   logseq.order-list-type:: number
+	- Reduce the redundancy of the data
+	  logseq.order-list-type:: number
+- Data Type
+  logseq.order-list-type:: number
+	- String vs Character
+	  logseq.order-list-type:: number
+	- ![image.png](../assets/image_1703861516818_0.png)
+	- > Note That 8KB is approximated the half size of your page.
+	- If a table contains a lot of string columns, store it in another tablle
+	- A large blob containing a lot of textual data with a pointer pointing to blocks on disk
+- ### Table
+-
 - ### Configuration Settings
 -
 - ### Data Layout
