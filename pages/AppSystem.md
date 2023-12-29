@@ -170,6 +170,7 @@
   logseq.order-list-type:: number
 - ### REST
 - General: Data + Convention -> Restful
+- Data Driven, Decoupling the communication model between frontend and backend.
 - REST stands for representational state transfer which represents the data object and its layout in a common form.
 - Each resource can have different representations.
 - Each resource can have its own unique identity.
@@ -182,7 +183,20 @@
 - Server only process the requirements of data but its displacement depends on clients.
 - REST is idiomepent and the client should have the ability to display the resource. The resource is self described
 - We only transfer the data not the method definition!
--
+- #### Design rules
+- ![image.png](../assets/image_1703853699290_0.png)
+- ![image.png](../assets/image_1703853839914_0.png)
+- HTTP designs the type of action and url defines the resource the client is interested in.
+- CRUD -> GET/POST/PUT/DELETE
+- Resource -> URI
+- ![image.png](../assets/image_1703854017511_0.png)
+- ### When
+- Support communication across firewall
+- Support application integration
+- Support B2B integration
+- Encourage the reusability of the code
+- Not stand-alone applications
+- Homogeneous applications in LAN.
 - ---
 - ## MySQL
 	- ### Partitioning
