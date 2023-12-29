@@ -89,9 +89,9 @@
 - But it requires a lot of spaces and resources for generating the snapshots.
 - ## Concurrency Control
 - ### Optimistic Concurrency Control
-- We insert a version control number and a last-modified time in the row of the table
+- We insert a version control number and a last-modified time in the row of the table and abort and try the changes when the version has changed when writing back.
 - ### Pessimistic Concurrency Control
-- Simply by locking the whole row/table
+- Simply by locking the whole row/table and do not allow interleaved writing.
 - ## Log Structured Merge Tree
 - ---
 - ## MySQL
