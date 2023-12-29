@@ -117,6 +117,11 @@
 - Some strategy: offloading those frequently accessed data into redis. (Redis also needs disk space)
 - We read from the cache first  and if we want to modify the data and evict the cache.
 - Still we prefer to prepare caching for read-only data instead of frequently modified data. Since we don't want introduce a lot of cache miss.
+- Caching also provide better locality and provide more efficient memory indexing and searching.
+- Memcached introduces the concept of slabs. It defines a series of slabs of variant size however it causes internal fragmentation.
+- Memcached distributed the data using the algorithm of consistent hashing to decide which node should store the data.
+- Consistent hashing should survive a lot scenerios. e.g. server shutdown, leaving cluster, a server joining the cluster so on without the loss of availability. Consistent hashing only impacts only its neighbor and only import/export the data from/to its neighbor.
+-
 -
 - ---
 - ## MySQL
