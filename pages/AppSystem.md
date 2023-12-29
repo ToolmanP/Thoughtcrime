@@ -250,7 +250,35 @@
 - Stateless services very extensive
 - ---
 - ## MySQL
-	- ### Optimization
+	- ### Optimizing Overview
+	- Better Structured tables.
+	  logseq.order-list-type:: number
+	- Correct data types on columns
+	  logseq.order-list-type:: number
+	- Right indexes on certain columns to make queries efficient
+	  logseq.order-list-type:: number
+	- Storage Engine
+	  logseq.order-list-type:: number
+	- Row Format
+	  logseq.order-list-type:: number
+	- Locking Strategy
+	  logseq.order-list-type:: number
+	- Caching sized correctly
+	  logseq.order-list-type:: number
+	- ### Hardware Based
+	- Disk Seeks
+	  logseq.order-list-type:: number
+	- Disk Reading and writing
+	  logseq.order-list-type:: number
+	- CPU Cycles
+	  logseq.order-list-type:: number
+	- Memory Bandwidth
+	  logseq.order-list-type:: number
+	- ### Portability
+	- Wrap MySQL specific keywords in a stae
+	- ### Configuration Settings
+	-
+	- ### Data Layout
 	-
 	- ### Partitioning
 	-
