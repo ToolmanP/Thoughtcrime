@@ -366,9 +366,17 @@
 	- If a table contains a lot of string columns, store it in another tablle
 	- A large blob containing a lot of textual data with a pointer pointing to blocks on disk
 - ### Table
+- Table is opened concurrently by each session.
+- Mysql has no limit on the number of tables and databases.
+- ![image.png](../assets/image_1703862414052_0.png)
+-
+- #### Temporary Table
+- Temp Table is created in a lot of evaluations  however the temp table is allocated in memory (communication, order by, union, group by)
 -
 - ### Configuration Settings
--
+- Max connections
+- Table open cache: caching the connections and the number of files can be preempted to be opened. Related to the file descriptors (cannot be too large and cost a lot of resources)
+- When the table is closed and only if the cache is fulled and no longer used, the table will be evicted from the cache.
 - ### Data Layout
 -
 - ### Partitioning
