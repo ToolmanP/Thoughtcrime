@@ -125,7 +125,7 @@
 - ---
 - ## Full-text Searching
 - Suppose we have unstructured data and we want the context of the words we request to search.
-- Reverse Indexing: document the location of the word inside a certain passage and in a certain order.
+- Inverted Indexing: document the location of the word inside a certain passage and in a certain order.
 - #+BEGIN_NOTE
   Still if the key is not present in the passage, how can we find a related passage and feed it back to the user.
   #+END_NOTE
@@ -140,6 +140,7 @@
 - Subjects can be vectorized and be stored in the index so that it can be presented to the user immediately for user experience.
 - We have a global table documenting the word-file location and subtables documenting word-context location in specific file.
 - If required words are not present in the keywords list, we need to vectorize it and implement a similarity search using the algorithm of cosine similarity.
+- An unstructured chunk of data consists of different terms coming from different fields.  Fields may be stored and indexed
 - ---
 - ## MySQL
 	- ### Partitioning
