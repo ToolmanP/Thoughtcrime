@@ -329,8 +329,10 @@
 		  logseq.order-list-type:: number
 		- No Bit representation on null
 		  logseq.order-list-type:: number
-	- VARCHAR(Header and data stored at the end NULL sized favored) vs CHAR (compact sized )
+	- VARCHAR(Header and data stored at the end NULL sized favored) vs CHAR (compact sized and header)
 	  logseq.order-list-type:: number
+		- 8196 is fixed and
+		  logseq.order-list-type:: number
 - Row Format (VARCHAR)
   logseq.order-list-type:: number
 	- DYNAMIC
@@ -395,6 +397,14 @@
 - **We don't want a long running transaction and need to determine the isolation level correctly**
 - ### Bulk Insert
 - We might not need foreign key checking, unique checking for better performance
+- ### IO Optimization
+- Increase the buffer pool size
+- Change the fsync types and each buffer refers to one session
+- configure the fsync threshold
+- We can optimize based on the storage type whether it's tablespace and temporary tablespace.
+- ### Memory Table
+- Hash index considered first
+- ![image.png](../assets/image_1703865297169_0.png)
 - ### Data Layout
 -
 - ### Partitioning
