@@ -132,7 +132,14 @@
 - ### Lucene
 - Indexing based on reverse method, word -> passage + conext location
 - A format supported rapid search
-- We can use separated
+- We can use separated indexing one for title, another for the title of the passage
+- Each focus of the index is defined as the field and a file can have many fields e.g. title, subjects,content
+- #+BEGIN_IMPORTANT
+  Another idea is that we only create index for those less-frequent keywords so that the index will be more efficient and accurate.
+  #+END_IMPORTANT
+- Subjects can be vectorized and be stored in the index so that it can be presented to the user immediately for user experience.
+- We have a global table documenting the word-file location and subtables documenting word-context location in specific file.
+- If required words are not present in the keywords list, we need to vectorize it and implement a similarity search using the algorithm of cosine similarity.
 - ---
 - ## MySQL
 	- ### Partitioning
