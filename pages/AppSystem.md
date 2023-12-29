@@ -152,6 +152,8 @@
 - ### SOAP
 - General: Method -> Text
 - SOAP refers to Simple Object Access Protocol. Object is defined in a specific convention and  organized in XML.
+- It describes the text's location, object type and the service URI.
+- WSDL is language independent and the language can generate the implementation of a prototype interface based on the WSDL
 - ### WSDL
 - WSDL stands for web service description language.
 - WSDL defines the method and its return type in XML. This is a good way to provide RPC or API definition.
