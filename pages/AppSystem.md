@@ -209,14 +209,35 @@
 - Greater fault tolerance: the spotted fault is constrained inside a container and is  segregated from other containers so that the fault can not be spread to other parts of the system.
 - Better modularity: simple
 - ### Components
-- Gateway
+- Gateway: redirect the request to different microservices
   logseq.order-list-type:: number
-- Service Registry
+- Service Registry: register the microservice
   logseq.order-list-type:: number
-- Config Server
+- Config Server: a RAFT based KV service
   logseq.order-list-type:: number
-- Breaker Dashboard
+- Breaker Dashboard: Runtime Health check
   logseq.order-list-type:: number
+- ### Design Pattern
+- Independent database + message queue for asynchronous server request handling.
+- ### Fault Tolerance
+- ![image.png](../assets/image_1703854940036_0.png)
+- Survilliance
+  logseq.order-list-type:: number
+	- Heartbeat system or periodical request
+	  logseq.order-list-type:: number
+	- Throwing exception
+	  logseq.order-list-type:: number
+	- Data gathering and service probing
+	  logseq.order-list-type:: number
+	- ![image.png](../assets/image_1703855270986_0.png)
+- Fault Analysis (Logging)
+  logseq.order-list-type:: number
+	- logseq.order-list-type:: number
+- Service restoration (primary+backup model  for fault tolerance)
+  logseq.order-list-type:: number
+- Service degradation (Temporarily disable some services)
+  logseq.order-list-type:: number
+-
 - ---
 - ## MySQL
 	- ### Partitioning
