@@ -406,8 +406,17 @@
 - Hash index considered first
 - ![image.png](../assets/image_1703865297169_0.png)
 - ### Backup & Recovery
--
--
+- Online Backup : Service still running but needs isolation when hot data is being backed up
+- Offline Backup: Service down but simpler
+- SQL Output: Insert based. Best portability across RMDBS
+- CSV Based: can be read everywhere
+- Physical Based
+- Snapshot Backups: Logical copies of copy on writes after chunking
+- #### Full Vs Incremental
+- Full includes all the data (slow but complete.) Full log backup at a given time span and delete all the previous backup.
+- Incremental includes the data modification (fast but rapid writes) binary log based
+- #### Backup (Primary-Backup Models)
+- Load Balancing and perform backups
 - ### Partitioning
 	-
 - ---
