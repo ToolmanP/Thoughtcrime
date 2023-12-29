@@ -170,7 +170,17 @@
   logseq.order-list-type:: number
 - ### REST
 - General: Data + Convention -> Restful
-- REST stands for representational state transfer which represents the data object and its layout in a com
+- REST stands for representational state transfer which represents the data object and its layout in a common form.
+- Each resource can have different representations.
+- Each resource can have its own unique identity.
+- State is not maintained by the server.
+- The representation of resource is a state of client.
+- Client's representation will be transferred when client access different resource.  The state of the client changes according to different representation of resources.
+- #### Definition
+- REST is a typical Client-Server architecture with a stateless server.
+- All states are hold in the messages delivered between clients and server.
+- Server only process the requirements of data but its displacement depends on clients.
+- REST is idiomepent and the client should have the ability to display the resource. The resource is self described
 - We only transfer the data not the method definition!
 -
 - ---
