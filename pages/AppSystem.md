@@ -250,66 +250,70 @@
 - Stateless services very extensive
 - ---
 - ## MySQL
-	- ### Optimizing Overview
-	- Better Structured tables.
-	  logseq.order-list-type:: number
-	- Correct data types on columns
-	  logseq.order-list-type:: number
-	- Right indexes on certain columns to make queries efficient
-	  logseq.order-list-type:: number
-	- Storage Engine
-	  logseq.order-list-type:: number
-	- Row Format
-	  logseq.order-list-type:: number
-	- Locking Strategy
-	  logseq.order-list-type:: number
-	- Caching sized correctly
-	  logseq.order-list-type:: number
-	- ### Hardware Based
-	- Disk Seeks
-	  logseq.order-list-type:: number
-	- Disk Reading and writing
-	  logseq.order-list-type:: number
-	- CPU Cycles
-	  logseq.order-list-type:: number
-	- Memory Bandwidth
-	  logseq.order-list-type:: number
-	- ### Portability
-	- Wrap MySQL specific keywords in a statement with in a comment so that other database can use it.
-	- ### Indexing
-	- A B+ tree organized index
-	- Unnecessary indexes waste space and waste time and its variability depends.
-	- We need the right balance to achieve fast queries using the optimal balance.
-	- MYSQL uses indexes for operations such as
-	- Where Clauses
-	  logseq.order-list-type:: number
-	- Eliminate rows for consideration
-	  logseq.order-list-type:: number
-	- Optimize the lookup based on the leftmost prefix matching
-	  logseq.order-list-type:: number
-	- MIN MAX operation
-	  logseq.order-list-type:: number
-	- Sort or group a table if the sorting is done on a leftmost prefix of a usable prefix
-	  logseq.order-list-type:: number
-	- #### Cluster Index
-	- Primary key always has a cluster index based on a B+ tree index and B+ tree index location is related to the actual location of the data layout on the disk
-	- Query Performance benefits from the NOT NULL optimization because it cannot include any NULL values.
-	- NOT NULL optimization based.
-	- If primary key can not be determined and create an auto increment column to be used as a index.
-	- These unique IDs can serve as pointers and server as another table to be a foreign key.
-	- #### Spatial Index
-	- NOT NULL geometry valued columns
-	- SPATIAL index must be SRID-restricted to estimate the distance between multidimensional data
-	- #### Foreign Key Optimization
-	- Duplicated columns or less frequently accessed data might be separated to different tables.
-	- However, we need to perform joining when accessing the full record of the data. The latency of one single record will increase but the amortized cost is lower.
-	- #### Index Prefix
-	- We can use the prefix character s of the column to create index
-	- ### Configuration Settings
-	-
-	- ### Data Layout
-	-
-	- ### Partitioning
+- ### Optimizing Overview
+- Better Structured tables.
+  logseq.order-list-type:: number
+- Correct data types on columns
+  logseq.order-list-type:: number
+- Right indexes on certain columns to make queries efficient
+  logseq.order-list-type:: number
+- Storage Engine
+  logseq.order-list-type:: number
+- Row Format
+  logseq.order-list-type:: number
+- Locking Strategy
+  logseq.order-list-type:: number
+- Caching sized correctly
+  logseq.order-list-type:: number
+- ### Hardware Based
+- Disk Seeks
+  logseq.order-list-type:: number
+- Disk Reading and writing
+  logseq.order-list-type:: number
+- CPU Cycles
+  logseq.order-list-type:: number
+- Memory Bandwidth
+  logseq.order-list-type:: number
+- ### Portability
+- Wrap MySQL specific keywords in a statement with in a comment so that other database can use it.
+- ### Indexing
+- A B+ tree organized index
+- Unnecessary indexes waste space and waste time and its variability depends.
+- We need the right balance to achieve fast queries using the optimal balance.
+- MYSQL uses indexes for operations such as
+- Where Clauses
+  logseq.order-list-type:: number
+- Eliminate rows for consideration
+  logseq.order-list-type:: number
+- Optimize the lookup based on the leftmost prefix matching
+  logseq.order-list-type:: number
+- MIN MAX operation
+  logseq.order-list-type:: number
+- Sort or group a table if the sorting is done on a leftmost prefix of a usable prefix
+  logseq.order-list-type:: number
+- #### Cluster Index
+- Primary key always has a cluster index based on a B+ tree index and B+ tree index location is related to the actual location of the data layout on the disk
+- Query Performance benefits from the NOT NULL optimization because it cannot include any NULL values.
+- NOT NULL optimization based.
+- If primary key can not be determined and create an auto increment column to be used as a index.
+- These unique IDs can serve as pointers and server as another table to be a foreign key.
+- #### Spatial Index
+- NOT NULL geometry valued columns
+- SPATIAL index must be SRID-restricted to estimate the distance between multidimensional data
+- #### Foreign Key Optimization
+- Duplicated columns or less frequently accessed data might be separated to different tables.
+- However, we need to perform joining when accessing the full record of the data. The latency of one single record will increase but the amortized cost is lower.
+- #### Index Prefix
+- We can use the prefix character s of the column to create index
+- #### Multiple Column Indexes
+- An index may consist of multiple columns and maintain  a partial order relationship. The order counts. If we preempt the searching using wrong order, the index will not take effect. The first must be used before using the second field for indexing
+- **B -Tree is optimized for comparison or BETWEEN operators ALSO LIKE will benefit too (Only happens when the leftmost prefix matches )**
+-
+- ### Configuration Settings
+-
+- ### Data Layout
+-
+- ### Partitioning
 	-
 	-
 	-
