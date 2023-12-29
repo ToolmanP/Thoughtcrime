@@ -243,7 +243,11 @@
   logseq.order-list-type:: number
 - ---
 - ## Serverless
--
+- Only focus on the logic of the service instead of the server functionality (scheduler, transactin, security)
+- In a serverless environment, the platform provides the infrastucture to build the applications with extremely lightweight functions.
+- Platform handles all the starting, stopping and scaling chores.
+- Event-driven workloads and flows into a service platform and chaining the functions to give different results.
+- Stateless services very extensive
 - ---
 - ## MySQL
 	- ### Partitioning
