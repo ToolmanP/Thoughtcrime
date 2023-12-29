@@ -121,6 +121,10 @@
 - Memcached introduces the concept of slabs. It defines a series of slabs of variant size however it causes internal fragmentation.
 - Memcached distributed the data using the algorithm of consistent hashing to decide which node should store the data.
 - Consistent hashing should survive a lot scenerios. e.g. server shutdown, leaving cluster, a server joining the cluster so on without the loss of availability. Consistent hashing only impacts only its neighbor and only import/export the data from/to its neighbor.
+- Cache even though it needs IO persistence, still it's magnificently faster than regular DBMS
+- ---
+- ## Full-text Searching
+- Suppose we have unstructured data and we want the context of the words we request to search.
 -
 -
 - ---
