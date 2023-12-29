@@ -299,7 +299,12 @@
 	- These unique IDs can serve as pointers and server as another table to be a foreign key.
 	- #### Spatial Index
 	- NOT NULL geometry valued columns
-	- SPATIAL index must be SRID-restricted
+	- SPATIAL index must be SRID-restricted to estimate the distance between multidimensional data
+	- #### Foreign Key Optimization
+	- Duplicated columns or less frequently accessed data might be separated to different tables.
+	- However, we need to perform joining when accessing the full record of the data. The latency of one single record will increase but the amortized cost is lower.
+	- #### Index Prefix
+	- We can use the prefix character s of the column to create index
 	- ### Configuration Settings
 	-
 	- ### Data Layout
