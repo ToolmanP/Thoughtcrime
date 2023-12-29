@@ -331,7 +331,7 @@
 		  logseq.order-list-type:: number
 	- VARCHAR(Header and data stored at the end NULL sized favored) vs CHAR (compact sized and header)
 	  logseq.order-list-type:: number
-		- 8196 is fixed and
+		- 8196 is fixed and varchar holds a pointer of data that is too large for a row to store
 		  logseq.order-list-type:: number
 - Row Format (VARCHAR)
   logseq.order-list-type:: number
@@ -405,14 +405,17 @@
 - ### Memory Table
 - Hash index considered first
 - ![image.png](../assets/image_1703865297169_0.png)
-- ### Data Layout
+- ### Backup & Recovery
+-
 -
 - ### Partitioning
 	-
-	-
-	-
 - ---
-- ## NOSQL
+- ## MongoDB
+- ## InfluxDB
+- ## TSDB
+- ## VectorDB
+-
 - ### Volumes
 - ## DataLake
 - ## InfluxDB
