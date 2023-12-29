@@ -92,6 +92,12 @@
 - We insert a version control number and a last-modified time in the row of the table and abort and try the changes when the version has changed when writing back.
 - ### Pessimistic Concurrency Control
 - Simply by locking the whole row/table and do not allow interleaved writing.
+- ### Virtual Thread
+- Java virtual thread binds
+- ### Live Lock
+- Two threads are busy and waiting for each other, however unlike dead locks they are not blocked.
+- ### Immutable
+- Immutable objects are great for multithreaded applications since their fields can not be changed and cannot
 - ## Log Structured Merge Tree
 - ---
 - ## MySQL
