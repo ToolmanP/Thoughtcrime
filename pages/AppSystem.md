@@ -143,6 +143,7 @@
 - If required words are not present in the keywords list, we need to vectorize it and implement a similarity search using the algorithm of cosine similarity.
 - An unstructured chunk of data consists of different terms coming from different fields.  Fields may be stored and indexed, fields contain terms and term may be tokenized to generate index or may be unified as a whole to provide index.
 - An index may be segmented and each field goes into its own segment.
+- ### Ordering
 -
 - ---
 - ## Web Service
@@ -583,6 +584,7 @@
 - ### Container vs VM
 - Container does not come with a guest operating system and full hardware simulation. it depends on the container runtime and runs on one single operating system without any sort of virtualization but resource isolation. It's more portable and efficient.
 - Docker creates a set of namespaces for that container and provide a layer of isolation.
+- Combiner and Mapper works together.
 - ---
 - ## HADOOP
 - A framework that allows for distributed processing of large data sets across clusters of computers using simple programming models.
@@ -597,6 +599,8 @@
 - The bottleneck however is on the immediate files on the disk
 - Optimization:
 	- Partial reduce in the current mapper -- Combine
+- ### Workers settings (Mapper/Reducer Different Settings)
+-
 - ---
 - ## Spark
 - ---
