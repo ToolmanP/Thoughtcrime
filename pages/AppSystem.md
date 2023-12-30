@@ -652,7 +652,12 @@
 - Two Ways to create RDDs: parallelizing an existing collection in driver program or referencing a dataset in an external storage system.
 - RDD will be partitioned on different machines once file is imported.
 - After partitioning, transformations and actions can be performed
-	- transformations: create a new dataset from an old one
+	- transformations: create a new dataset from an old one. Lazy computed.
+	- actions: return a value to the driver describing a certain attribute of the dataset.
+	- Only action will trigger computation.
+	- Spark will remember the computational graph and calculate them simultaneously
+- RDD can be cached and compressed. Since the data is stored by column in RDD, then RDD can be compressed.
+- Since Persistence is not regular, compression can be used
 - ---
 - ## Storm
 - ---
