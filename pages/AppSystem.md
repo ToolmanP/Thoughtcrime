@@ -498,6 +498,9 @@
   logseq.order-list-type:: number
 - uninterested the distribution or attributes among an interval of data
   logseq.order-list-type:: number
+- ### Data Elements
+- Tags (Set): participated in indexing (Commonly Accessed) (Optional)
+- Fields (Set): Data Value
 - logseq.order-list-type:: number
 - ---
 - ## DataLake
