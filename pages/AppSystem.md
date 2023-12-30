@@ -606,6 +606,8 @@
 - The bottleneck however is on the immediate files on the disk
 - Optimization:
 	- Partial reduce in the current mapper -- Combine
+	- Mapper intermediate output will be sorted and shuffled to different reducers based on the reducer path
+- Reduce only happens after Map
 - ### Workers settings (Mapper/Reducer Different Settings)
 -
 - ---
