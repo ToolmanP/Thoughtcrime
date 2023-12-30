@@ -514,6 +514,8 @@
 - One technique is to use datawarehouse to store all the data into a high-demensional fact table using the techinque of ETL (extra overhead ). However, this suffers the loss of accuracy and transformed data will accumulate complexity for downstream tasks.
 - DataLake is a system or repository of dat in its natual/raw format, usally object blobs or files. It is a big centralized shipping and storing center for all the data stored in native/natual format for all the system input/output.
 - Downstream tasks can then use the data flow to do stream or batch processing, leveraging real-time data analysis.
+- The main difficulty: a unified query language or maybe a data middleware driver to import the incoming stream.
+- ![image.png](../assets/image_1703942092889_0.png)
 -
 - ---
 - ## NGINX (Load Balancer)
