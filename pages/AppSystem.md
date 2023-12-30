@@ -487,10 +487,10 @@
 - Locality Sensitive Hashing: Hashing the vector and measure the locality first result
 - ---
 - ## InfluxDB
-- Multilevel Timeseries Merge Tree
-- I nthe
+- Multilevel Timeseries Merge Tree (Something like Log structured Merge Tree)
+- A starting point and offset compressed data
 - ### Time-series dataset
-- timestamp k-v
+- timestamped KV data (a timestamp and tracked time data ) monitored, tracked, downsampled
   logseq.order-list-type:: number
 - high throughput
   logseq.order-list-type:: number
