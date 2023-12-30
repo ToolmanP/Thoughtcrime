@@ -661,7 +661,11 @@
 - Better partition. If no parition, in some task which involves joining operation, we need to walk the whole table to collect the record.
 - Paritioning Hashing is based on the size of the dataset. Hashing and Partioning on larger target yields better performance.
 - #### Dependencies
--
+- ![image.png](../assets/image_1703954730977_0.png)
+- When RDD is missing, The RDD will be recalculated based on the dependency graph\
+- ![image.png](../assets/image_1703954847430_0.png)
+- #### Spark SQL
+- Works on the dataframes and datasets like SQL.
 - ---
 - ## Storm
 - ---
