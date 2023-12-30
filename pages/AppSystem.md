@@ -459,7 +459,8 @@
 - Embedding of the graph (its edges and nodes)
 - ---
 - ## LSTM Based KV
--
+- Observation: Sequential is significantly faster than Randomized IO. Latest Data will be accessed lately (locality!)
+- Read Amplified/Write Amplified
 - ---
 - ## VectorDB
 - ---
