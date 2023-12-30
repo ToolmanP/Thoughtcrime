@@ -666,8 +666,14 @@
 - ![image.png](../assets/image_1703954847430_0.png)
 - #### Spark SQL
 - Works on the dataframes and datasets like SQL.
+- #### Spark Streaming
+- Not real streaming but buffer the data stream into batches based on the sliding window of time frames.
 - ---
 - ## Storm
+- Based on streaming data strategies.
+- Terms
+- Sprout:  a stream of input data
+- Bolt: The transformation operator
 - ---
 - ## HDFS
 	- ### Requirements:
