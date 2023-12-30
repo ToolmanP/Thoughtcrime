@@ -640,7 +640,14 @@
 - 3. Data Science at scale resort to downsampling of petabyte-scale data
 - 4. Machine Learning Support
 	- Spark RDD Support IID split of the dataset
-	-
+- #### In Memory
+- The RDD is defined in memory but the memory is limited so we need better management.
+- #### Architecture
+- ![image.png](../assets/image_1703952498842_0.png)
+- Driver Program maintains the spark context and spark context interacts with the cluster manager and its executors and each is multithreading. This is the same as the Hadoop Design. Spark is agnostic to the underlying cluster manager.
+- The Driver Program must be network addressable from the worker nodes.
+-
+-
 - ---
 - ## Storm
 - ---
