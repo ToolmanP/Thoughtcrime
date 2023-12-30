@@ -434,7 +434,8 @@
 - ## MongoDB
 - This DB works on semi-structured data since the new data collection system like today some fields might be missing and fields are always rolling. Schema is not strict.
 - RDBMS's biggest flaw is its relational based and is the bottleneck of batch/flow processing and restricts the data scheme.
-- In stream processing, 1
+- In stream processing,  schema is not everything.
+- Collections or sub collections have no relationship still it's for categorization.
 - ## InfluxDB
 - ## TSDB
 - ## VectorDB
