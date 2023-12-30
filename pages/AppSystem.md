@@ -752,7 +752,9 @@
 - ## HBase
 - ### Overview
 - Unstructured database on the HDFS
--
+- Random, realtime read/write access of column based data
+- support billions of rows X millions of column
+- HBase
 - ---
 - ## Hive
 - ---
