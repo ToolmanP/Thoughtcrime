@@ -646,8 +646,13 @@
 - ![image.png](../assets/image_1703952498842_0.png)
 - Driver Program maintains the spark context and spark context interacts with the cluster manager and its executors and each is multithreading. This is the same as the Hadoop Design. Spark is agnostic to the underlying cluster manager.
 - The Driver Program must be network addressable from the worker nodes.
--
--
+- In Spark, the scalability and runtime cost's slope running. If the file size or task size is too small, the significant overhead lies in the scheduling.
+- #### RDD
+- A fault-tolerant collection of elements that can be operated on in parallel and can introduce fault tolerance mechanism on different machines.
+- Two Ways to create RDDs: parallelizing an existing collection in driver program or referencing a dataset in an external storage system.
+- RDD will be partitioned on different machines once file is imported.
+- After partitioning, transformations and actions can be performed
+	- transformations: create a new dataset from an old one
 - ---
 - ## Storm
 - ---
