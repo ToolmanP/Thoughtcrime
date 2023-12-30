@@ -103,9 +103,16 @@
 - Java thread enables the program to bind a runnable object to a thread object and virtual thread can enable temporarily release the thread and executes other codes when waiting for I/O resource just like Golang.  In short, a virtual thread in its lifetime isn't necessary tied to a specific OS thread.
 - ### Live Lock
 - Two threads are busy and waiting for each other, however unlike dead locks they are not blocked.
+- ### Starvation
+- A thread is always waiting for a certain resource but cannot acquire it.
+- ### ReentrantLock
+- A lock that is already acquired by the current thread and can be acquired by the same thread but invoking different guarded block
 - ### Immutable
-- Immutable objects are great for multithreaded applications since their fields can not be changed and cannot
+- Immutable objects are great for multithreaded applications since their fields can not be changed and the obly way to change is to allocate a new object to override it
 - ### Concurrent Collections
+- ### Executors
+- Executor binds a thread to itself and acquire some resources and the executorService can receive a runnable object and callable object and runs the routine.
+- One sample implementation is thread pool. The worker threads in thread pool are fixed and receives the callable or runnable object. This will not waste the system resource when too much requests or tasks flooded in.
 - ---
 - ## Caching
 - Everything needs caching to boost IO intensive application.
