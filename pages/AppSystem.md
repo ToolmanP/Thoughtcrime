@@ -657,7 +657,11 @@
 	- Only action will trigger computation.
 	- Spark will remember the computational graph and calculate them simultaneously
 - RDD can be cached and compressed. Since the data is stored by column in RDD, then RDD can be compressed.
-- Since Persistence is not regular, compression can be used
+- Since Persistence is not regular, compression can be used.
+- Better partition. If no parition, in some task which involves joining operation, we need to walk the whole table to collect the record.
+- Paritioning Hashing is based on the size of the dataset. Hashing and Partioning on larger target yields better performance.
+- #### Dependencies
+-
 - ---
 - ## Storm
 - ---
