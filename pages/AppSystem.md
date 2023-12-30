@@ -510,10 +510,17 @@
 - The data has lifetime, old data will be discarded.
 - ---
 - ## DataLake
-- ## NGINX
+- Today's big data  requires us to present different format of files to suffice different kinds of demands and designed for different scenerios and analyze them online.
+- One technique is to use datawarehouse to store all the data into a high-demensional fact table using the techinque of ETL (extra overhead ). However, this suffers the loss of accuracy and transformed data will accumulate complexity for downstream tasks.
+- DataLake is a system or repository of dat in its natual/raw format, usally object blobs or files. It is a big centralized shipping and storing center for all the data stored in native/natual format for all the system input/output.
+- Downstream tasks can then use the data flow to do stream or batch processing, leveraging real-time data analysis.
+-
+- ---
+- ## NGINX (Load Balancer)
 - remove
   logseq.order-list-type:: number
 - ## HADOOP
+- ## Spark
 - ## HDFS
 	- ### Requirements:
 	- Large Data Access
@@ -576,3 +583,5 @@
 	  #+END_IMPORTANT
 	- 3. NameNode has a edit log just like in CHFS which documents all the metadata changes. It is redo-undo log.
 	- 4. DataNode has a CRC operation when guaranteeing integrity of the chunk file.
+- ## Hive
+-
