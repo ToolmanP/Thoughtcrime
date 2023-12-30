@@ -437,7 +437,15 @@
 - In stream processing,  schema is not everything and sometimes the data we want to process may have missing fields or columns
 - Collections or sub collections have no relationship still it's for categorization.
 - We can create geological index and cluster index in mongodb just like mysql. (with 1 for ascending -1 descending)
-- MongoDB document oriented schema-free and enable us to add special or polyfields/attributes to an object from a collection
+- MongoDB document oriented schema-free and enable us to add special or polymorphic fields/attributes to an object from a collection.
+- MongoDB can use find on special fields and values without the constraint of a schema. e.g. Some fields can be missing and we can filter out those objects in a collection. This allows searching among data from different structure.
+- Loosen Object KV system.
+- MongoDB can easily be replicated and sharded among different machines. A shard can be also divided chunks and the smallest granule is the chunk. MongoDB master will track the chunk location and will auto balance out the chunks from different machines. However, the timespan locality counts. The data access should be balanced.
+- ---
+- ## Neo4J
+- ### Graph Data
+- Graph data consist of graph entities and the relationship between different entity (different attributes, different edges)
+-
 - ## InfluxDB
 - ## TSDB
 - ## VectorDB
