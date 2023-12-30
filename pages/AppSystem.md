@@ -764,7 +764,13 @@
 - It can work on sparsely populated tables made from commodity hardware
 - Since no relationship present, we can easily split the dataset **horizontally**
 - Strictly consistent.
-- Bloom filter based and predicate push down via server side filters
+- Bloom filter based and predicate push down via server side filters (load balanced aware)
+- Thrift gateway and Restful Web Service
+- ### Labeled Tables
+- Everything can be row keys in byte ordered and everything is accessed via the table primary key.
+- The key is only way for queries and no queries on other columns fields.
+- The columns are structured in the column family  and compared to structured RBDMS, we can flexibly add new column to column families and since the storage is column based if the primary key in the certain row is missing, we can simply default it.
+- Cells are versioned, rows are sorted and columns can be added on the fly
 - ---
 - ## Hive
 - ---
