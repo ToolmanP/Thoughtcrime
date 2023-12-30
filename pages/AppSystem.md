@@ -506,7 +506,7 @@
 - Schemaless Design (Lenient)
 - Time Series Data is not ephemeral
 - Multiple data in the same indentical point aren't store twice
-- WAL Written and TSM Fields.\
+- WAL Written and TSM Fields.
 - The data has lifetime, old data will be discarded.
 - ---
 - ## DataLake
