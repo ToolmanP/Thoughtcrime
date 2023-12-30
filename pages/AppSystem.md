@@ -554,6 +554,15 @@
 - Multitenant and different resource sharing strategy
 - ### MapReduce
 - Batch Processing framework
+- Multiple mapper and multiple reducers and worker asks the task from the master and master dispatch the task to the worker. The master observes the process of the worker and if the worker is dead, the master may dispatch the batch to other worker.
+- In Hadoop, the heartbeat and the map is working on the same thread to prevent the case of thread collapsing and live locking.  Therefore, heartbeat messages may arrive at random intervals.
+- ### GFS
+- ### BigTable (a large distributed KV)
+- Managing structured data that is designed to scale to a very large size.
+- No strict schemas and relationship.
+- Column family to support unstructured data.
+- Timestamp based
+- Multilevel tablets based table and divided and managed
 - ---
 - ## GraphQL
 - ---
