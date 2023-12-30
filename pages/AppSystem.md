@@ -585,6 +585,18 @@
 - Docker creates a set of namespaces for that container and provide a layer of isolation.
 - ---
 - ## HADOOP
+- A framework that allows for distributed processing of large data sets across clusters of computers using simple programming models.
+- Can scale up from single server to thousands of machines.
+- Does not rely on hardware.
+- ![image.png](../assets/image_1703947047513_0.png){:height 554, :width 849}
+-
+- ### MapReduce Internal
+- Map File Split --- HDFS Block size to split the file for mapper
+- When the task timeout, the master reschedule the task to another worker assuming that the current work responsible for that task is already dead.
+- Reducer is responsible to certain range of map files and reduces the output
+- The bottleneck however is on the immediate files on the disk
+- Optimization:
+	- Partial reduce in the current mapper -- Combine
 - ---
 - ## Spark
 - ---
@@ -655,4 +667,4 @@
 - ---
 - ## Hive
 - ---
--
+- ## Flink
