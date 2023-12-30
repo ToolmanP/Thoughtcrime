@@ -576,9 +576,19 @@
 - A substitute for REST query for querying and mutating complex data model.
 - Server provide GraphQL runtime for the clients and it's really like SQL language but the query language should be a convention between the client and the server
 - ---
+- ## Container
+- A sandboxed process and the resource it uses is isolated from each other. It leverages kernel namespaces and cgroups for simulating discrete filesystems and process for containers.
+- An application is packed inside a image and unpacked to a volume and simulate the filesystem upon it.
+- The container provide all the runtime inside the image and can easily deployed on every machine.
+- ### Container vs VM
+- Container does not come with a guest operating system and full hardware simulation. it depends on the container runtime and runs on one single operating system without any sort of virtualization but resource isolation. It's more portable and efficient.
+- Docker creates a set of namespaces for that container and provide a layer of isolation.
+- ---
 - ## HADOOP
 - ---
 - ## Spark
+- ---
+- ## Storm
 - ---
 - ## HDFS
 	- ### Requirements:
