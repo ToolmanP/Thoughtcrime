@@ -436,6 +436,8 @@
 - RDBMS's biggest flaw is its relational based and is the bottleneck of batch/flow processing and restricts the data scheme. If we want to partition the data, we have maintain the relationship between different tables.
 - In stream processing,  schema is not everything and sometimes the data we want to process may have missing fields or columns
 - Collections or sub collections have no relationship still it's for categorization.
+- We can create geological index and cluster index in mongodb just like mysql. (with 1 for ascending -1 descending)
+- MongoDB document oriented schema-free and enable us to add special or polyfields/attributes to an object from a collection
 - ## InfluxDB
 - ## TSDB
 - ## VectorDB
