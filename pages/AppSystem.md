@@ -460,7 +460,12 @@
 - ---
 - ## LSTM Based KV
 - Observation: Sequential is significantly faster than Randomized IO. Latest Data will be accessed lately (locality!)
-- Read Amplified/Write Amplified
+- Modified and Delete: Create a new record instead of accessing old one (a lot faster)
+- Multi-level: space amplication is smaller.
+- ![image.png](../assets/image_1703925361902_0.png)
+- ![image.png](../assets/image_1703925475377_0.png)
+- Write Amplification: Happened when a level is full and triggered merging with other levels
+- Read Amplification: Search levels to find old data. Since multi-level, old data needs a lot of time to access
 - ---
 - ## VectorDB
 - ---
