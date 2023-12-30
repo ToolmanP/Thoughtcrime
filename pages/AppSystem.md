@@ -611,8 +611,8 @@
 - Sort will decide which record goes into the certain partition.
 - Reducer can use two different modes.
 - ![image.png](../assets/image_1703950618676_0.png)
--
--
+- In short, one is partitioned and shuffled directly to reducers
+- Another one is partitioned into smaller granule and the reducer concurrently asks the task and preempt the task.
 - Reduce only happens after Map
 - JobTracker: tracking the jobs of map reduce tasks
 - Once a jar is running, the job client is invoked and the jobtracker get input from the HDFS and gets the job id and copy job resources from HDFS from the Job Client.
@@ -631,6 +631,16 @@
 -
 - ---
 - ## Spark
+- ### Overview
+- 1. Works for Batch/Streaming Data.
+	- Batch Data still needs multistage processing but stream does not. Stream works on a pipeline and endlessly process the dataflow.
+- 2. SQL Analytics
+	- Execute fast and ANSI SQL queries on resilient distributed dataset which can be distributed on different machines and perform the same transformation
+	- Fast In Memory Storage
+- 3. Data Science at scale resort to downsampling of petabyte-scale data
+- 4. Machine Learning Support
+	- Spark RDD Support IID split of the dataset
+	-
 - ---
 - ## Storm
 - ---
