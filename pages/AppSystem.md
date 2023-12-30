@@ -564,7 +564,17 @@
 - Timestamp based
 - Multilevel tablets based table and divided and managed
 - ---
+- ## Edge Computing
+- The communications between the edges and the center is not reliable.
+- We may want to offload the computing from the center to the edge and the center amortizes some basic calculations to its counterparts and collect the intermediate data.
+- The workload can be distributed across different clients.
+- The edge computing decides how the overload can be dispatched to different remote nodes to provide better user experience. (how the data is computed)
+- Fog: the offloading data from the cloud to the edges
+- ---
 - ## GraphQL
+- A web query language over the HTTP to query or mutate structured data from the backend.
+- A substitute for REST query for querying and mutating complex data model.
+- Server provide GraphQL runtime for the clients and it's really like SQL language but the query language should be a convention between the client and the server
 - ---
 - ## HADOOP
 - ---
