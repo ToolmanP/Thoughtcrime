@@ -467,6 +467,11 @@
 - Write Amplification: Happened when a level is full and triggered merging with other levels
 - Read Amplification: Search levels to find old data. Since multi-level, old data needs a lot of time to access
 - ---
+- ### HTAP
+- Hybrid Transactional Analytical Processing
+- OLTP: Online Transaction Processing  High Concurrency, Low Latency, Small amount of data in one transaction
+- OLAP: Online Analytical Processing Low Concurrency, High Latency, High throughput, Large chunks of data of streaming processing
+- ---
 - ## VectorDB
 - ---
 - ## InfluxDB
