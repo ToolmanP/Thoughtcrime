@@ -608,14 +608,26 @@
 	- Partial reduce in the current mapper -- Combine
 	- Mapper intermediate output will be sorted and shuffled to different reducers based on the reducer path
 - Shuffle will partition the immediate files to different reducers.
-- Sort will decide which record goes into which parition. Containers
+- Sort will decide which record goes into the certain partition.
+- Reducer can use two different modes.
+- ![image.png](../assets/image_1703950618676_0.png)
+-
+-
 - Reduce only happens after Map
 - JobTracker: tracking the jobs of map reduce tasks
 - Once a jar is running, the job client is invoked and the jobtracker get input from the HDFS and gets the job id and copy job resources from HDFS from the Job Client.
 - Job tracker then retrieves the splits and intialize the job and the task tracker works as a worker and receive the task from the job tracker and job tracker will restart the task on the other work.
 - Job Tracker is the single point failure point (YARN works a distributed file )
--
-- ### Workers settings (Mapper/Reducer Different Settings)
+- ### Shortcomings
+- A lot of Disk IO overhead since reading and writing immediate files
+- If one mapper suffers network partition, the reducer can not effectively receive the intermediate partitions.
+- One optimization: do not merge on the mapper side, consider shuffling the part of map spill out
+- ### YARN
+- To tackle the over complexity of job tracker, Hadoop Introduces YARN
+- Node Manager has one tracker per application in the node manager.
+- Resource manager is responsible to dispatch the resources to the node manager.
+- Node Manager's container tracker and job tracker is responsible for the application container it's running on.
+- ![image.png](../assets/image_1703950989246_0.png)
 -
 - ---
 - ## Spark
