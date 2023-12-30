@@ -680,7 +680,11 @@
 - NodeManager = Supervisor
 - Bolt and Sprouts are nodes and connected on the graph DAG
 - Tuples are the basic data model and serialized over the graph.
-- Stream grouping: hashing the output and distribute it to different instances
+- Stream grouping: hashing the output and distribute it to different instances.
+- Topology is like a job and submitted to the master
+- ---
+- ## Zookeeper
+- Consensus and cluster management  among lots of inferences
 - ---
 - ## HDFS
 	- ### Requirements:
@@ -744,6 +748,11 @@
 	  #+END_IMPORTANT
 	- 3. NameNode has a edit log just like in CHFS which documents all the metadata changes. It is redo-undo log.
 	- 4. DataNode has a CRC operation when guaranteeing integrity of the chunk file.
+- ---
+- ## HBase
+- ### Overview
+- Unstructured database on the HDFS
+-
 - ---
 - ## Hive
 - ---
