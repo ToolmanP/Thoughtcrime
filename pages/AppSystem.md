@@ -449,7 +449,11 @@
 - The Graph Databases are generally built for use with transactional systems.
 - It comes with a storage engine and underlying engine.
 - RDMS/NoSQL Lacks  multi-level relationship support. It can only rely on excessive joins if one wants to maintain a bunch of relationships between different models. We must switch to the graph database.
-- Graph Nodes are labeled with properties and constructed by edges of relationships. Unlike RDMS, which only supports the general relationship between tables and tables.
+- Graph Nodes are labeled with properties and constructed by edges of relationships. Unlike RDMS, which only supports the general relationship between tables and tables. RDMS's strict structured schema model can not describe this kind of relationship model. They are constucted virtually by joining.
+- Graph Database if we want a chain of nodes on certain relationship, this is easily supported and costs way less resources than traditional RDMS (Joining requires a lot system resources and time)
+- ### Storage Model
+- Neo4j partitions the graph into subgraphs and store them in different files.
+- Nodes and Relationships are segregated and strictly partitioned. Attributes are stored in double linked list.
 - ## InfluxDB
 - ## TSDB
 - ## VectorDB
