@@ -428,9 +428,13 @@
 - List Partitioning (e.g. Discrete based)
 - Hash Partitioning (e.g. On Date)
 - KEY partitioning (use hash on column cannot use an external function)
-- Partitions can have subpartitions
+- Partitions can have subpartition (now it's just like a tree)
+- NULL goes into the partition with the smallest range
 - ---
 - ## MongoDB
+- This DB works on semi-structured data since the new data collection system like today some fields might be missing and fields are always rolling. Schema is not strict.
+- RDBMS's biggest flaw is its relational based and is the bottleneck of batch/flow processing and restricts the data scheme.
+- In stream processing, 1
 - ## InfluxDB
 - ## TSDB
 - ## VectorDB
