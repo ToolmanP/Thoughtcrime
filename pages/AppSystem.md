@@ -454,6 +454,7 @@
 - ### Storage Model
 - Neo4j partitions the graph into subgraphs and store them in different files.
 - Nodes and Relationships are segregated and strictly partitioned. Attributes are stored in double linked list.
+- An edge stores the starting point and the terminal and four pointers of prev/next edges.
 - ## InfluxDB
 - ## TSDB
 - ## VectorDB
