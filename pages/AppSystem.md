@@ -484,14 +484,23 @@
 - Similarity, like Inverted index, we need to measure the similarity of the data we give.
 - The database generates index on vector and fuzzy queries the vector.
 - Random Projection : Converting high dimensional matrix into different 1-D vectors and split the vector into different chunks of codes
--
+- Locality Sensitive Hashing: Hashing the vector and measure the locality first result
 - ---
 - ## InfluxDB
--
--
-- ### Volumes
+- Multilevel Timeseries Merge Tree
+- I nthe
+- ### Time-series dataset
+- timestamp k-v
+  logseq.order-list-type:: number
+- high throughput
+  logseq.order-list-type:: number
+- can withstand some faults
+  logseq.order-list-type:: number
+- uninterested the distribution or attributes among an interval of data
+  logseq.order-list-type:: number
+- logseq.order-list-type:: number
+- ---
 - ## DataLake
-- ## InfluxDB
 - ## NGINX
 - remove
   logseq.order-list-type:: number
