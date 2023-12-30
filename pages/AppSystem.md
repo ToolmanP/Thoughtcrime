@@ -535,8 +535,15 @@
   logseq.order-list-type:: number
 - A cluster should provide a unified single system view to its users or clients.
 - A loosely coupled group of servers that provide unified services to their clients.
+- Database Cluster --- availability Server Cluster --- better performance
+- ![image.png](../assets/image_1703943937731_0.png)
+- Some requests are not ideomptent, if the fault happens when such operations are ongoing, the operation may not be undoable and should be manually intervened.
 - ## NGINX (Load Balancer)
 - performance first --- balance the overloading
+  logseq.order-list-type:: number
+- Several strategies and should survive session failover.
+  logseq.order-list-type:: number
+- Session should be persisted across the nodes in the cluster (redis based ? ip-hash balancer ?)
   logseq.order-list-type:: number
 - ---
 - ## HADOOP
