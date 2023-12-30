@@ -151,7 +151,7 @@
 - Web Protocol is text-oriented and circulated on the Internet.
 - ### SOAP
 - General: Method -> Text
-- SOAP refers to Simple Object Access Protocol. Object is defined in a specific convention and  organized in XML.
+- SOAP refers to Simple Object Access Protocol. Object is defined in a specific convention and organized in XML.
 - It describes the text's location, object type and the service URI.
 - WSDL is language independent and the language can generate the implementation of a prototype interface based on the WSDL
 - ### WSDL
@@ -501,7 +501,12 @@
 - ### Data Elements
 - Tags (Set): participated in indexing (Commonly Accessed) (Optional)
 - Fields (Set): Data Value
-- logseq.order-list-type:: number
+- ### Design Principle
+- Read/Write > Strong Consistency (Real-time is the king)
+- Schemaless Design (Lenient)
+- Time Series Data is not ephemeral
+- Multiple data in the same indentical point aren't store twice
+- WAL Written and TSM Fields
 - ---
 - ## DataLake
 - ## NGINX
