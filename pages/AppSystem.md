@@ -445,7 +445,11 @@
 - ## Neo4J
 - ### Graph Data
 - Graph data consist of graph entities and the relationship between different entity (different attributes, different edges)
--
+- ### Graph Database
+- The Graph Databases are generally built for use with transactional systems.
+- It comes with a storage engine and underlying engine.
+- RDMS/NoSQL Lacks  multi-level relationship support. It can only rely on excessive joins if one wants to maintain a bunch of relationships between different models. We must switch to the graph database.
+- Graph Nodes are labeled with properties and constructed by edges of relationships. Unlike RDMS, which only supports the general relationship between tables and tables.
 - ## InfluxDB
 - ## TSDB
 - ## VectorDB
