@@ -465,7 +465,11 @@
 - ![image.png](../assets/image_1703925361902_0.png)
 - ![image.png](../assets/image_1703925475377_0.png)
 - Write Amplification/Stall : Happened when a level is full and triggered merging with other levels
-	- Optimization: Asynchronous Compaction in the background
+	- Optimization:
+		- Asynchronous Compaction in the background
+		- Load balancing the written data to different replicas or data centers or (row/column transformation)
+		- ![image.png](../assets/image_1703927217657_0.png)
+		-
 - Read Amplification: Search levels to find old data. Since multi-level, old data needs a lot of time to access
 - ---
 - ### HTAP
@@ -473,8 +477,14 @@
 - OLTP: Online Transaction Processing  High Concurrency, Low Latency, Small amount of data in one transaction (row based)
 - OLAP: Online Analytical Processing Low Concurrency, High Latency, High throughput, Large chunks of data of streaming processing (column based)
 - HTAP will analyze the transaction and will separate the copies and online dispatches them into row/column based storage.
+- We can use different database (RocksDB) to store row datra or column data.
 - ---
 - ## VectorDB
+- In machine learning, a model generates a lot of embeddings which are the immediate representation of data and sometimes we need to store them for further analysis and better performance (we offload the data in the storage)
+- Similarity, like Inverted index, we need to measure the similarity of the data we give.
+- The database generates index on vector and fuzzy queries the vector.
+- Random Projection : Converting high dimensional matrix into different 1-D vectors and split the vector into different chunks of codes
+-
 - ---
 - ## InfluxDB
 -
