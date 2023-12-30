@@ -521,10 +521,22 @@
 - ![image.png](../assets/image_1703942767878_0.png)
 - ---
 - ## Clustering
-- Distributed Storage --- storage needs sharding and distributed across the machines. We also need replicas.
--
+- Storage --- Primary - Secondary Storage instead of database storage (availability first)
+- SAAS --- Multi-tenant
+- Mem / Computing is all separated
+- ### Overview
+- high concurrency many users from many different places
+  logseq.order-list-type:: number
+- long-running cannot suffer shutdown
+  logseq.order-list-type:: number
+- large numbers of transactions per second
+  logseq.order-list-type:: number
+- high system load
+  logseq.order-list-type:: number
+- A cluster should provide a unified single system view to its users or clients.
+- A loosely coupled group of servers that provide unified services to their clients.
 - ## NGINX (Load Balancer)
-- remove
+- performance first --- balance the overloading
   logseq.order-list-type:: number
 - ---
 - ## HADOOP
