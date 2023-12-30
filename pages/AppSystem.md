@@ -516,11 +516,17 @@
 - Downstream tasks can then use the data flow to do stream or batch processing, leveraging real-time data analysis.
 - The main difficulty: a unified query language or maybe a data middleware driver to import the incoming stream.
 - ![image.png](../assets/image_1703942092889_0.png)
--
+- edge processing -- better latency and preprocessing on the edges
+- ![image.png](../assets/image_1703942737485_0.png)
+- ![image.png](../assets/image_1703942767878_0.png)
 - ---
+- ## Clustering
+- Distributed Storage --- storage needs sharding and distributed across the machines. We also need replicas.
+-
 - ## NGINX (Load Balancer)
 - remove
   logseq.order-list-type:: number
+- ---
 - ## HADOOP
 - ## Spark
 - ## HDFS
