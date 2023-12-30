@@ -535,7 +535,7 @@
   logseq.order-list-type:: number
 - A cluster should provide a unified single system view to its users or clients.
 - A loosely coupled group of servers that provide unified services to their clients.
-- Database Cluster --- availability Server Cluster --- better performance
+- Database Cluster --- availability Server Cluster --- better performance over load balancing
 - ![image.png](../assets/image_1703943937731_0.png)
 - Some requests are not ideomptent, if the fault happens when such operations are ongoing, the operation may not be undoable and should be manually intervened.
 - ## NGINX (Load Balancer)
@@ -546,8 +546,21 @@
 - Session should be persisted across the nodes in the cluster (redis based ? ip-hash balancer ?)
   logseq.order-list-type:: number
 - ---
+- ## Cloud Computing
+- ### Overview
+- Cloud computing refers to both the applications delivered as services over the Internet and the hardware and systems software in the datacenters that provide those services.
+- Cloud computing uses the Internet and receive the tasks from the Internet and accumulated the resources over a large number of machines.
+- Unlike grid computing, which simply connects the machines, in cloud computing, the cloud provider build a large virtualized and scalable  computing platform.
+- Multitenant and different resource sharing strategy
+- ### MapReduce
+- Batch Processing framework
+- ---
+- ## GraphQL
+- ---
 - ## HADOOP
+- ---
 - ## Spark
+- ---
 - ## HDFS
 	- ### Requirements:
 	- Large Data Access
@@ -610,5 +623,7 @@
 	  #+END_IMPORTANT
 	- 3. NameNode has a edit log just like in CHFS which documents all the metadata changes. It is redo-undo log.
 	- 4. DataNode has a CRC operation when guaranteeing integrity of the chunk file.
+- ---
 - ## Hive
+- ---
 -
