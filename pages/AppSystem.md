@@ -674,6 +674,13 @@
 - Terms
 - Sprout:  a stream of input data
 - Bolt: The transformation operator
+- ![image.png](../assets/image_1703957740223_0.png)
+- MapReduce jobs = Storm Topologies
+- Nimbus = JobTracker = Resource Manager
+- NodeManager = Supervisor
+- Bolt and Sprouts are nodes and connected on the graph DAG
+- Tuples are the basic data model and serialized over the graph.
+- Stream grouping: hashing the output and distribute it to different instances
 - ---
 - ## HDFS
 	- ### Requirements:
