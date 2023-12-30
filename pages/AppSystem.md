@@ -709,6 +709,8 @@
 	  logseq.order-list-type:: number
 	- One file is split into different files and restored distributely across different machines.
 	  logseq.order-list-type:: number
+	- Replications should succeed on every replica before reporting the data chunk has been successfully written.
+	  logseq.order-list-type:: number
 	- Heartbeat: **Block Report**
 	  logseq.order-list-type:: number
 		- Block Report holds the list of all blocks on a datanode.
@@ -754,7 +756,15 @@
 - Unstructured database on the HDFS
 - Random, realtime read/write access of column based data
 - support billions of rows X millions of column
-- HBase
+- HBase is 3D based. It turns the element in the row into a cell enabling it to record  data with different timestamp.
+- HBased is modeled after the BigTable Paper and built atop of the HDFS
+- ### Architecture
+- When a table is too large, the HBase documents the metadata which contains the layout of the mult-layered table. Each Table is chunked and distributed in the HDFS.
+- Scale linearly for the sake of the DataNode and NameNode representations provided by the HDFS
+- It can work on sparsely populated tables made from commodity hardware
+- Since no relationship present, we can easily split the dataset **horizontally**
+- Strictly consistent.
+- Bloom filter based and predicate push down via server side filters
 - ---
 - ## Hive
 - ---
