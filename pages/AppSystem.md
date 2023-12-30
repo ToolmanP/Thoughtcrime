@@ -607,7 +607,14 @@
 - Optimization:
 	- Partial reduce in the current mapper -- Combine
 	- Mapper intermediate output will be sorted and shuffled to different reducers based on the reducer path
+- Shuffle will partition the immediate files to different reducers.
+- Sort will decide which record goes into which parition. Containers
 - Reduce only happens after Map
+- JobTracker: tracking the jobs of map reduce tasks
+- Once a jar is running, the job client is invoked and the jobtracker get input from the HDFS and gets the job id and copy job resources from HDFS from the Job Client.
+- Job tracker then retrieves the splits and intialize the job and the task tracker works as a worker and receive the task from the job tracker and job tracker will restart the task on the other work.
+- Job Tracker is the single point failure point (YARN works a distributed file )
+-
 - ### Workers settings (Mapper/Reducer Different Settings)
 -
 - ---
