@@ -791,8 +791,16 @@
 - ### MetadataStore
 - Storing the metadata of one single file and the central repository of how the data is managed across the HDFS.
 - ### DML Operations
-- HQL manipulating is lazy computed and just like spark transformation. If data is being loaded, the speed is really fast. In DataWarehouse, the data is not modified.  This is schema on read. In comparison, RDMS is schema on write (which is responsive immediately)
+- HQL manipulating is lazy computed and just like spark transformation. If data is being loaded, the speed is really fast. In DataWarehouse, the data is not modified.  **This is schema on read. In comparison, RDMS is schema on write (which is responsive immediately)**
+- Tables can reside in HDFS and even access extern tables that reside in the local file system.
 - ![image.png](../assets/image_1703995036488_0.png)
--
+- The file stored in the Hive is in raw format.
+- Partition can only be using one single metrics however using subpartition you can have different metrics.
+- In Hive, subpartitions are called buckets.
+- ### RCFile
+- Row columnar File and rows are horizontally split and vertically partitions each row split in a columnar way.
+- ![image.png](../assets/image_1703995643597_0.png)
+- ![image.png](../assets/image_1703995687492_0.png)
+- Easily to compress, since each element in one single column is related
 - ---
 - ## Flink
