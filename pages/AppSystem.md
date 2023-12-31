@@ -773,5 +773,10 @@
 - Cells are versioned, rows are sorted and columns can be added on the fly
 - ---
 - ## Hive
+- Hive, a framework for data warehousing on top of Hadoop.
+- The common action on the fact table is extract, transformation, loading from the table.
+- Hive provides HQL and queries on the data warehouse.
+- Hive compiler generates map-reduce jobs for most queries and provide query features
+- It supports partitioning and can be virtual column not part of the data itself
 - ---
 - ## Flink
