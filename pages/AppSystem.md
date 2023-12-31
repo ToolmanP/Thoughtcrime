@@ -821,3 +821,15 @@
 - Flink uses **Timing Window** to handle out-of-order problem and leverages the late processing to handle late data.
 - ![image.png](../assets/image_1703996960990_0.png)
 - Snapshots are used to checkpoint the ever-increasing states and provide basic fault-tolerance.
+- Stateful sources can transfer its states and base its transfer on the replicateds KV store.
+- ### Checkpointing
+- #### Aligned
+- Checkpoints use the technique of stream replay and checkpointing.
+- When checkpoint happens, Flink set a checkpoint barrier to provide a barrier for datastream to synchronize the clusters to process the checkpoints.
+- Checkpoint barrier flows with the datastream and dynamically align the datastream to perform checkpointing.
+- This method, even if the checkpointing finish time is not the same as the issue time, we can simply preserve the snapshot all the ways.
+- ![image.png](../assets/image_1703997515301_0.png)
+- #### UnAligned
+- Use the input barrier to reverse calculate  all the previous barriers.
+- ### State Backend
+- RocksDB or In Memory Hash Table
