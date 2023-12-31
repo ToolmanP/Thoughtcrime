@@ -770,13 +770,26 @@
 - Everything can be row keys in byte ordered and everything is accessed via the table primary key.
 - The key is only way for queries and no queries on other columns fields.
 - The columns are structured in the column family  and compared to structured RBDMS, we can flexibly add new column to column families and since the storage is column based if the primary key in the certain row is missing, we can simply default it.
-- Cells are versioned, rows are sorted and columns can be added on the fly
+- Cells are versioned, rows are sorted and columns can be added on the fly.
+- HBase is a multi-dimensional map.
+- Rows are sorted alphabetically by the row key and related rows are near each other.
+- Column family physically corelates and are physically stored together.
+- Cells that appear to be empty do not take space actually and are sparse.
+- ### Namespace
+- A namespace is database like in RDMS
+- ### Regions
+- Tables are automatically horizontally.
+  Each region is a subset of table rows.
+- AS the table grows, the number of its regions grows and distributed on different machines.
 - ---
 - ## Hive
 - Hive, a framework for data warehousing on top of Hadoop.
 - The common action on the fact table is extract, transformation, loading from the table.
 - Hive provides HQL and queries on the data warehouse.
 - Hive compiler generates map-reduce jobs for most queries and provide query features
-- It supports partitioning and can be virtual column not part of the data itself
+- It supports partitioning and the partition index is a  virtual column not part of the data itself
+- ### MetadataStore
+- Storing the metadata of one single file.
+-
 - ---
 - ## Flink
