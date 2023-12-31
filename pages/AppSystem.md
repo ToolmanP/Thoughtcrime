@@ -833,3 +833,10 @@
 - Use the input barrier to reverse calculate  all the previous barriers.
 - ### State Backend
 - RocksDB or In Memory Hash Table
+- ### WaterMarks event-stream control
+- ![image.png](../assets/image_1703997751724_0.png)
+- Watermark is a conservative approximated hint that the timestamped events going after the watermark. The timestamp before the water mark will be discarded. This works as a dynamic timing window and flows between the graph. So that Flink can process out of order events.
+- ### Windowing
+- The stream is processed in windows and btach processed.
+- ![image.png](../assets/image_1703998131835_0.png)
+-
