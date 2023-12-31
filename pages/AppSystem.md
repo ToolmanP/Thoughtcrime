@@ -802,5 +802,16 @@
 - ![image.png](../assets/image_1703995643597_0.png)
 - ![image.png](../assets/image_1703995687492_0.png)
 - Easily to compress, since each element in one single column is related
+- #### Notes
+- DataWarehouse is OLAP database and all the data should be stored in columns.
+- Column based storage can easily be compressed since the number in columns is statistically resembled, which can significantly boost the IO speed.
 - ---
 - ## Flink
+- Flink is a framework to process stream-like datastream.
+- The datastream is organized in the events and how we can partition them for different clusters.
+- And Also, if the data is partitioned , how to handle the out-of-order datastream and synchronize them?
+- Moreover, the data has states for real-time analysis and we need to analyze one single user's behavior. Some events come from one source and we need simply to group them
+- ### RocksDB
+- Flink normally stores the state of the topic in RocksDB.
+- ### Architecture
+- Events are mapped and sinked to another sink
