@@ -814,4 +814,10 @@
 - ### RocksDB
 - Flink normally stores the state of the topic in RocksDB.
 - ### Architecture
-- Events are mapped and sinked to another sink
+- Events are mapped and sinked to another sink.
+- States in Flink can have various datatypes and each variable can have very large state.
+- Different events have different states and checkpointing can temporariliy store some states.
+- ![image.png](../assets/image_1703996698271_0.png)
+- Flink uses **Timing Window** to handle out-of-order problem and leverages the late processing to handle late data.
+- ![image.png](../assets/image_1703996960990_0.png)
+- Snapshots are used to checkpoint the ever-increasing states and provide basic fault-tolerance.
