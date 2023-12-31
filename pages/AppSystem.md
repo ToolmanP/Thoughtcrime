@@ -789,7 +789,10 @@
 - Hive compiler generates map-reduce jobs for most queries and provide query features
 - It supports partitioning and the partition index is a  virtual column not part of the data itself
 - ### MetadataStore
-- Storing the metadata of one single file.
+- Storing the metadata of one single file and the central repository of how the data is managed across the HDFS.
+- ### DML Operations
+- HQL manipulating is lazy computed and just like spark transformation. If data is being loaded, the speed is really fast. In DataWarehouse, the data is not modified.  This is schema on read. In comparison, RDMS is schema on write (which is responsive immediately)
+- ![image.png](../assets/image_1703995036488_0.png)
 -
 - ---
 - ## Flink
