@@ -365,7 +365,7 @@
 - ![image.png](../assets/image_1704464424722_0.png)
 - Best efforts to deliver the data.
 - IP Layer uses a routing table to route the source to another destination and jump between the routers to get to the destination.
-- For a router, there's a control plane and a data plane.
+- For a router, there's a control plane and a data plane. Control Plane adjust
 - #### Link Layers
 - #### Physical Transmission
 - Parallel Transportation :
