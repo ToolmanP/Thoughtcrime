@@ -363,4 +363,12 @@
 - ![image.png](../assets/image_1704464372977_0.png)
 - #### Network Layer
 - ![image.png](../assets/image_1704464424722_0.png)
-- ####
+- #### Physical Transmission
+- Parallel Transportation :
+- Data Ports -- sending the data to the destination
+  logseq.order-list-type:: number
+- Ready bit - Indicating that the data is ready for the receiver to synchronize
+  logseq.order-list-type:: number
+- ACK bit -- receiver indicates that it has done with current receiving
+  logseq.order-list-type:: number
+- Shortcomings: when the required bit
