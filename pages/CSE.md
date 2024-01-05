@@ -386,5 +386,10 @@
   logseq.order-list-type:: number
 - Devide the time unit transporation rate by the frame size 5624/8 = 703
   logseq.order-list-type:: number
-- If there's more conver
+- If there are more connections than capacity, the rest of those are blocked.
   logseq.order-list-type:: number
+- In Asynchronous approaches, the data is fragmented into large pieces instead of small pieces and delivered across the network via IP protocol. Multiplexed with queue and demultiplexed using the provided header.
+- ![image.png](../assets/image_1704466672492_0.png)
+- When demultiplexing, to distinguish where a frame begins, we reformat the data.
+- #### Error Handling
+-
