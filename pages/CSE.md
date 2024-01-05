@@ -332,5 +332,16 @@
 - Raft is a leader based consensus industry-ready algorithm for balancing both efficiency and correctness.
 - ### Leader Election
 - #### Invariant
-- Leader in one partition always has the latest log entries and has the highest term index. Term decides whether this leader is still up-to-date and the log entry term index has the final decision whether the
+- Leader in one partition always has the latest log entries and has the highest term index. Term decides whether this leader is still up-to-date and the log entry term index has the final say when the term is tied.
+- Only one leader can be elected in one partition at one time.
+- #### Practice
+- So in candidate mode, the leader must send its proposed term and its latest log entry metadata to the followers or other candidates.
+- If one of the follower or candidate or an old leader from other partition decides to vote, it should change its state to follower immediately.
+- If the RequestVoteRPC fails, the candidate becomes the follower immediately.
+- If the leader cannot collect enough votes (a simple majority), election should be reopened immediately.
 - ### Log Replication
+- #### Invariant
+- Only **commited** log can not be overwritten.
+- The commited log should be replicated to the majority of the partition. So the new elected leader should at least have all the up-to-date commited log (if not it will simply be rejected.)
+- #### Practice
+- Therefore, if one follower hasn't kept up with the leader, the leader should first replicate the missing or overwrite the missing entries for the follower to keep up with the leader. (That's why there's next index and last index for the candidate)
