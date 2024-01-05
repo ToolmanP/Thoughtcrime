@@ -357,3 +357,10 @@
 - ### Networking Layers
 - #### Application (Something like html)
 - #### Transport Layer
+- **The Case of TCP**
+- Three times of handshaking with seq, seq ack, ack with both of clients maintaining a sequence number.
+- ![image.png](../assets/image_1704464336722_0.png)
+- ![image.png](../assets/image_1704464372977_0.png)
+- #### Network Layer
+- ![image.png](../assets/image_1704464424722_0.png)
+- ####
