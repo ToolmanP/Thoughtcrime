@@ -326,3 +326,11 @@
 - When the conflict happens, it should select a bigger number and restart the round and write through the log entry.
 - ![image.png](../assets/image_1699881013821_0.png)
 - To optimize the paxos's performance, it's easy to think that only the leader can make proposal and batch all messages to reduce the overtime of request roundtrips.
+- ---
+- ## Raft
+- We need to figure out a way to replicate the log quickly, notice that in a fully decentralized distributed method like PAXOS.
+- Raft is a leader based consensus industry-ready algorithm for balancing both efficiency and correctness.
+- ### Leader Election
+- #### Invariant
+- Leader in one partition always has the latest log entries and has the highest term index. Term decides whether this leader is still up-to-date and the log entry term index has the final decision whether the
+- ### Log Replication
