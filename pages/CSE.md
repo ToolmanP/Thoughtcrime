@@ -371,4 +371,5 @@
   logseq.order-list-type:: number
 - ACK bit -- receiver indicates that it has done with current receiving
   logseq.order-list-type:: number
-- Shortcomings: when the required bit
+- The time to send even one bit: 2 * $\delta t$, so the maximum rate is $1/(2* \delta t)$
+- Shortcomings: when the data bits has a lot in parallel, the propagation time is too long.
