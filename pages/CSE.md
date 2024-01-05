@@ -372,4 +372,19 @@
 - ACK bit -- receiver indicates that it has done with current receiving
   logseq.order-list-type:: number
 - The time to send even one bit: 2 * $\delta t$, so the maximum rate is $1/(2* \delta t)$
-- Shortcomings: when the data bits has a lot in parallel, the propagation time is too long.
+- Shortcomings: when the data bits has a lot in parallel, the propagation time is just too long. The maximum data it can hold is too low
+- Serial Transportation:
+- Sending a bit one at a time at extremely high clock rate.
+- Two things to settle here.
+- How to synchronize the clock: using the VCO to lock the frequency when the voltage is frequently oscilating but can not be precise if the voltage is stable -> solving: using manchester code to convert 0->01 1->10 so that the rising edge infers 0 and dying edge infers 1.
+- #### Multiplexing
+- ![image.png](../assets/image_1704465936071_0.png)
+- Steps:
+- Divide a minimum frames required per second into time unit like 1/8000 = 125 us
+  logseq.order-list-type:: number
+- Multiply it with the transportation rate to get the maximum bits transported in the time unit 45M * 1/8000 = 5624bits
+  logseq.order-list-type:: number
+- Devide the time unit transporation rate by the frame size 5624/8 = 703
+  logseq.order-list-type:: number
+- If there's more conver
+  logseq.order-list-type:: number
