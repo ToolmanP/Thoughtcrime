@@ -838,5 +838,10 @@
 - Watermark is a conservative approximated hint that the timestamped events going after the watermark. The timestamp before the water mark will be discarded. This works as a dynamic timing window and flows between the graph. So that Flink can process out of order events.
 - ### Windowing
 - The stream is processed in windows and btach processed.
+- ### Tasks Groups and Management
 - ![image.png](../assets/image_1703998131835_0.png)
--
+- ![image.png](../assets/image_1703998227701_0.png)
+- One task, one aggregator and one operation. Just like a spark
+- ---
+- ## OneAPI
+- Intel based ML rewrite API
