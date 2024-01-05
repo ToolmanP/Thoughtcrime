@@ -363,6 +363,10 @@
 - ![image.png](../assets/image_1704464372977_0.png)
 - #### Network Layer
 - ![image.png](../assets/image_1704464424722_0.png)
+- Best efforts to deliver the data.
+- IP Layer uses a routing table to route the source to another destination and jump between the routers to get to the destination.
+- For a router, there's a control plane and a data plane.
+- #### Link Layers
 - #### Physical Transmission
 - Parallel Transportation :
 - Data Ports -- sending the data to the destination
@@ -392,4 +396,10 @@
 - ![image.png](../assets/image_1704466672492_0.png)
 - When demultiplexing, to distinguish where a frame begins, we reformat the data.
 - #### Error Handling
+- Router detects the error by force and will try to error correcting the data bit with best efforts.
+  logseq.order-list-type:: number
+- If error correction fails, the router will ask the sender to resend the data regardless of the protocol layer requires.
+  logseq.order-list-type:: number
+- we use  the hamming code to detect the failure of the transportation.
+  logseq.order-list-type:: number
 -
