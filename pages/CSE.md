@@ -344,4 +344,11 @@
 - Only **commited** log can not be overwritten.
 - The commited log should be replicated to the majority of the partition. So the new elected leader should at least have all the up-to-date commited log (if not it will simply be rejected.)
 - #### Practice
-- Therefore, if one follower hasn't kept up with the leader, the leader should first replicate the missing or overwrite the missing entries for the follower to keep up with the leader. (That's why there's next index and last index for the candidate)
+- Therefore, if one follower hasn't kept up with the leader, the leader should first replicate the missing or overwrite the missing entries for the follower to keep up with the leader. (That's why there's next index and last index for the leader to take notes.)
+- ### Persistent Data
+- CurrentTerm: it should be persisted in case that the term mismatched for the log and
+  logseq.order-list-type:: number
+- Voted For: this is easy, in one term, one follower can only vote for one guy. Or in some cases, two leaders will emerge. 
+  logseq.order-list-type:: number
+- Log: Simple and understandable
+  logseq.order-list-type:: number
