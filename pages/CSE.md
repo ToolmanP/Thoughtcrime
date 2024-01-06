@@ -478,4 +478,14 @@
 - Fixed timer will make every activity overlapped significantly killing the system's efficiency.
 - Timeout is introduced by the at least once delivery promise.
 - #### Adaptive Timer
-- We continu
+- We continuously measures the RTT of the request to adjust the timeout period or uses the exponential back-off to adjust the timer.
+- #### NAK Protocol
+- Negative Acknowledgment means the receiver side should send a message that lists missing items.
+- Receiver can count arriving segments rather than timer.
+- Sender can have no timer.
+- ---
+- Assurance of
+- ---
+- ## Congestion Control
+- We
+- ---
