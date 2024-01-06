@@ -511,4 +511,19 @@
 	- Not tolerable in wireless environment (unreliable)
 	- Can produce better equality between two participants in the network.
 - ![image.png](../assets/image_1704550326968_0.png)
-- 1
+- ---
+- ## Naming
+- ### DNS
+- A root server mapping website names to ip
+-
+- ### Benefits of Hierachical Design
+- Each zone is only responsible for a small portion of the networks
+- ### DNS Good Points
+- No need to specific a context
+- DNS has no trouble generating unique names
+- The name can also be user-friendly
+- Very Scalable in simplicity, caching and delagations.
+- ### Bad Design of DNS
+- Policy: who should control the root zone
+- Significant load on root servers: Many queries for non-existent names becomes a DOS attack
+- Security: How to know that the IP is correct and changing of the mapping is correct.
