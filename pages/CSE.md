@@ -496,6 +496,7 @@
   logseq.order-list-type:: number
 - When the sender can slide the window with the continguous region starting from the lowest acknowledgement number in the current window, it can advance the window.
   logseq.order-list-type:: number
+- Window Size >= RTT  * bottleneck data rate
 - ---
 - ## Congestion Control
 - We
