@@ -459,3 +459,13 @@
 - In local network, the hub and switch links the machines in the local network.
 - A network hub broadcasts the message whereas a switch exchanges peer-to-peer messages and other nodes can not spoof the messages.
 - In ethernet, the router gets to the destination by identifying the Mac Address.
+- In ethernet, if the workstation wants to send a packet:
+	- Look up in its table to find whether the destination is in the local network.
+	  logseq.order-list-type:: number
+	- If yes, just send it to the corresponding port of the destintation in the local network.
+	  logseq.order-list-type:: number
+	- If not, sends it to the router and hoping that the router will successfully forward it to its proposed destination.
+	  logseq.order-list-type:: number
+- ### ARP Protocol
+- Address Resolution Protocol decides where the destincation MAC's  in the local network.
+- If the destination is not in the local network, the destination will be default to the router in the ARP protocol.
