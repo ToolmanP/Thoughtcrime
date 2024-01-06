@@ -472,4 +472,4 @@
 - If the destination is not in the local network, the destination will be default to the router in the ARP protocol.
 - In ARP, reply can also change the routing table in the node.
 - ---
-- ## Putting it Altogether
+-
