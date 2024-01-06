@@ -489,6 +489,14 @@
 - However, the table might grow too large to handle. One optimization, the receiver can choose to select the biggest nouce to store the nouce number. Now the old nonce is an tombstone that can not be remove d.
 - Use a different port for each port to let the receiver knows that the port is different so that different nonce is distributed.
 - ---
+- ### Sliding Window
+- Advance on the lowest acknowledgement number received.
+  logseq.order-list-type:: number
+- Sliding on the window size given by the receiver.
+  logseq.order-list-type:: number
+- When the sender can slide the window with the continguous region starting from the lowest acknowledgement number in the current window, it can advance the window.
+  logseq.order-list-type:: number
+- ---
 - ## Congestion Control
 - We
 - ---
