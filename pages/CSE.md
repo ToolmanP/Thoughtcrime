@@ -527,3 +527,7 @@
 - Policy: who should control the root zone
 - Significant load on root servers: Many queries for non-existent names becomes a DOS attack
 - Security: How to know that the IP is correct and changing of the mapping is correct.
+-
+- ![image.png](../assets/image_1704553082807_0.png)
+- ![image.png](../assets/image_1704553104432_0.png)
+-
