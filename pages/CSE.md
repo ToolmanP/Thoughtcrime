@@ -442,4 +442,15 @@
 - We need one routing protocol to route across regions and a different protocol to route within regions.
 - Implies that there are devices on the edge of each region that can translate between protocols.
 - #### Topological Addressing
-- Each region in one region is assigned with
+- Each region in one region is assigned with contiguous addresses in the form of block and they can be specified succinctly via a particular notation.
+- This keep advertisements small.
+- ---
+- ## Network Forwarding Interface
+- ![image.png](../assets/image_1704528506090_0.png)
+- Forwarding an IP Packet we need to forward the header and rewrite the source of our own.
+- TTL should be decremented if it reaches zero the router drops it immediately.
+- ![image.png](../assets/image_1704528673109_0.png)
+- ---
+- ## NAT
+- A NAT router converts its exported port to the internal network's ip + port.
+- So now the internal ip is mapped to the port of the router exports to the outer network.
