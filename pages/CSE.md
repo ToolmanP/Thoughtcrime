@@ -496,8 +496,17 @@
   logseq.order-list-type:: number
 - When the sender can slide the window with the continguous region starting from the lowest acknowledgement number in the current window, it can advance the window.
   logseq.order-list-type:: number
-- Window Size >= RTT  * bottleneck data rate
+- For Performance, Window Size >= RTT  * bottleneck data rate to maximize the performance.
 - ---
 - ## Congestion Control
-- We
-- ---
+- Packets will congest since one path in the network has its maximum bound.
+- If the packets overflow the router, router will simply drop the network packet.
+- In this way, the router should come up with a mechanism to control the window size so that it can balance out the congestion and reach the best performance possible
+- window size <= min( Receiver Buffer, RTT * bottleneck data rate)
+- ### AIMD
+- For Every RTT:
+- No drop: cwnd = cwnd + 1
+- A drop: cwnd = cwnd / 2  (duplicated ACK / Drop Rate)
+- Drawbacks:
+	- Not tolerable in wireless environment (unreliable)
+	- Can be quili
