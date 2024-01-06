@@ -405,4 +405,10 @@
 - ---
 - ## IP Routing
 - ### Dijkstra Approach
-- Dijkstra approach uses
+- Dijkstra approach uses flooding approach to advertise its part of topology knowledge to all the counterparts in the network.
+- After all nodes in the network exchanges the topology, each node runs the dijkstra's algorithm independently to get the routing table and hopping decision.
+- **Advantages**:  only works a small scale of network, Really resilient on fault.
+- **Disadvantages**: incapable of scaling on large network because of excessive network traffic.
+- ###  Distance Vector + Bellman Ford
+- Steps: We know that on a graph with only positive nodes, a shortest path from $u$ to $v$ can at most have $|V| -1$ nodes.
+-
