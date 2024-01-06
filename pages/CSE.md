@@ -415,4 +415,17 @@
 - However, each node can only forward its forwarding table rows to its neighbor when the hop action in that specific row can not be forwarded to its neighbor (in the case of split horizon problem)
 - ![image.png](../assets/image_1704527011267_0.png)
 - in this case, A cannot forward to B about its routing to C because A also needs to hop to B to get to C.
-- ###
+- **Advantages**: low Overhead
+- **Disadvantages**: Can not converge immediately. Prone to split horizon problem.
+- ### How to Scale?
+- Path Vector:  advertisement should include the path to accelerate the convergence.
+- Hierachy of Routing: Route between regions and then with a region
+- Topological Addressing: Assign addresses in contiguous blocks to make advertisements smaller.w
+- #### Path Vector
+- Send a table of its known path to every destination to its neighbor.
+- Like Distance-Vector but include the full path in the routing advertisements.
+- Overhead increases but convergence time decreases.
+- The node rejects the path when the path contains itself.
+- It will always choose the best path advertised by its neighbors.
+- Discard any path that a neighbor stops advertising to.
+- #### Hiera
