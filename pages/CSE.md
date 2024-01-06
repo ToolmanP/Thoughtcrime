@@ -457,4 +457,5 @@
 - ---
 - ## Ethernet
 - In local network, the hub and switch links the machines in the local network.
-- A network hub broadcasts the message whereas a switch exchanges p2p to
+- A network hub broadcasts the message whereas a switch exchanges peer-to-peer messages and other nodes can not spoof the messages.
+- In ethernet, the router gets to the destination by identifying the Mac Address.
