@@ -365,7 +365,7 @@
 - ![image.png](../assets/image_1704464424722_0.png)
 - Best efforts to deliver the data.
 - IP Layer uses a routing table to route the source to another destination and jump between the routers to get to the destination.
-- For a router, there's a control plane and a data plane. Control Plane adjust
+- For a router, there's a control plane and a data plane. Control Plane adjust and calculate the forwarding table in real-time, Data time just deliberately forward the every incoming packet to the destination using the forwarding table.
 - #### Link Layers
 - #### Physical Transmission
 - Parallel Transportation :
@@ -402,4 +402,7 @@
   logseq.order-list-type:: number
 - we use  the hamming code to detect the failure of the transportation.
   logseq.order-list-type:: number
--
+- ---
+- ## IP Routing
+- ### Dijkstra Approach
+- Dijkstra approach uses
