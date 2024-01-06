@@ -509,4 +509,6 @@
 - A drop: cwnd = cwnd / 2  (duplicated ACK / Drop Rate)
 - Drawbacks:
 	- Not tolerable in wireless environment (unreliable)
-	- Can be quili
+	- Can produce better equality between two participants in the network.
+- ![image.png](../assets/image_1704550326968_0.png)
+-
