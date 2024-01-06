@@ -454,6 +454,7 @@
 - ## NAT
 - A NAT router converts its exported port to the internal network's ip + port.
 - So now the internal ip is mapped to the port of the router exports to the outer network.
+- When NAT happens , the source IP will change to the router's IP.
 - ---
 - ## Ethernet
 - In local network, the hub and switch links the machines in the local network.
@@ -469,3 +470,6 @@
 - ### ARP Protocol
 - Address Resolution Protocol decides where the destincation MAC's  in the local network.
 - If the destination is not in the local network, the destination will be default to the router in the ARP protocol.
+- In ARP, reply can also change the routing table in the node.
+- ---
+- ## Putting it Altogether
