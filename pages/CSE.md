@@ -408,7 +408,11 @@
 - Dijkstra approach uses flooding approach to advertise its part of topology knowledge to all the counterparts in the network.
 - After all nodes in the network exchanges the topology, each node runs the dijkstra's algorithm independently to get the routing table and hopping decision.
 - **Advantages**:  only works a small scale of network, Really resilient on fault.
-- **Disadvantages**: incapable of scaling on large network because of excessive network traffic.
+- **Disadvantages**: incapable of scaling on large network because of excessive network traffic. Large Overhead.
 - ###  Distance Vector + Bellman Ford
 - Steps: We know that on a graph with only positive nodes, a shortest path from $u$ to $v$ can at most have $|V| -1$ nodes.
--
+- So in every round, one node only advertises the forwarding table to its neighbor and each node do relaxation on path on each round.
+- However, each node can only forward its forwarding table rows to its neighbor when the hop action in that specific row can not be forwarded to its neighbor (in the case of split horizon problem)
+- ![image.png](../assets/image_1704527011267_0.png)
+- in this case, A cannot forward to B about its routing to C because A also needs to hop to B to get to C.
+- ###
