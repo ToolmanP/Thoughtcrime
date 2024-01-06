@@ -454,3 +454,7 @@
 - ## NAT
 - A NAT router converts its exported port to the internal network's ip + port.
 - So now the internal ip is mapped to the port of the router exports to the outer network.
+- ---
+- ## Ethernet
+- In local network, the hub and switch links the machines in the local network.
+- A network hub broadcasts the message whereas a switch exchanges p2p to
