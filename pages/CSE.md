@@ -472,4 +472,10 @@
 - If the destination is not in the local network, the destination will be default to the router in the ARP protocol.
 - In ARP, reply can also change the routing table in the node.
 - ---
--
+- ### Timeout Restoration
+- We cannot use a fixed time to decide whether a timeout happens on the end point.
+- Using a fixed timer will result in countless flood of retrying.
+- Fixed timer will make every activity overlapped significantly killing the system's efficiency.
+- Timeout is introduced by the at least once delivery promise.
+- #### Adaptive Timer
+- We continu
