@@ -428,4 +428,18 @@
 - The node rejects the path when the path contains itself.
 - It will always choose the best path advertised by its neighbors.
 - Discard any path that a neighbor stops advertising to.
-- #### Hiera
+- #### Hierachical Address Assignment & Routing
+- Routing Table has two parts on forwarding table, Region aware and Local-aware.
+- Hierachical Address Assignment across the regions when the router routes to the region first and in the region we have local routing tables.
+- IP Address is now bound to the location right now.
+- Hierachy brings complexity:
+	- Address is bound to a location
+	- Path may no longer be the shortest possible.
+	- Algorithm has less detailed information
+- More about hierarchy
+	- Can extend to more levels
+	- Different places can have different levels
+- We need one routing protocol to route across regions and a different protocol to route within regions.
+- Implies that there are devices on the edge of each region that can translate between protocols.
+- #### Topological Addressing
+- Each region in one region is assigned with
