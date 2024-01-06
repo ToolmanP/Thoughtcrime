@@ -511,4 +511,4 @@
 	- Not tolerable in wireless environment (unreliable)
 	- Can produce better equality between two participants in the network.
 - ![image.png](../assets/image_1704550326968_0.png)
--
+- 1
