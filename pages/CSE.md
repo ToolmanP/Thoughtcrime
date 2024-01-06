@@ -484,7 +484,10 @@
 - Receiver can count arriving segments rather than timer.
 - Sender can have no timer.
 - ---
-- Assurance of
+- ### Duplication Suppression
+- Since each packet has one nounce identifier, the receiver can maintain a table taking notes of the every nonce the receiver receives.
+- However, the table might grow too large to handle. One optimization, the receiver can choose to select the biggest nouce to store the nouce number. Now the old nonce is an tombstone that can not be remove d.
+- Use a different port for each port to let the receiver knows that the port is different so that different nonce is distributed.
 - ---
 - ## Congestion Control
 - We
