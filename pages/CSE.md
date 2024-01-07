@@ -547,5 +547,15 @@
 - #### Principle
 - Random start to download the first chunk.
   logseq.order-list-type:: number
-- Rando
+- Download the least popular piece concurrently first.
   logseq.order-list-type:: number
+- In the last piece, parallel downloading and finish the first.
+  logseq.order-list-type:: number
+- ### DHT
+- #### Principle
+- The distributed key value look up is for one key storing at one designated machine in the public network.
+- So each key and the machine address should be hashed into one uniform hash space (ring).
+- Each key is stored in the successor in the hash space corresponding to the machine.
+- For storage, each machine holds a distributed lookup table for documenting the next r nodes in the hash space and the
+- ---
+- ## Distributed Trainingd
