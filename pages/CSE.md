@@ -570,4 +570,17 @@
 - ## Distributed Training
 - ### Parallelism Revisited
 - #### Single core approach
-- ####
+- Instruction Pipelining --- Simple Strategy discussed in the ICS (Cannot be too long since the latency will be sky high)
+- Super Scalar --- instruction level parallism (Still there are instruction-level dependency. Not very feasible to scale too)
+- Mounting the clock speed is not feasible since the voltage will be too high.
+- #### Multi-core Approach
+- #### Multi-core CPU
+- Pros: real concurrency instead of instruction level parallelism
+- Cons: Cache Coherency Constraint.
+- #### SIMD
+- Single instruction multi data-stream approach
+- We add a lot of ALU for the processing unit and hoping that adding vector will bring locality into places.
+- However, the loading still costs a lot and prefetching is not feasible for branching device.
+- When doing calculation, the general boost of the calculation can not  match the memory bandwidth.
+- #### Roofline Model
+-
