@@ -631,6 +631,15 @@
 - Up to now, we have only discussed synchronous update. We have a barrier when trying to update the model.
 - However, in some cases where the model does not share the same training dataset, the asynchronous will do better.
 - ### Modern Network
+- ### DPDK
+- Works in the userspace, do not need the kernel tcp/ip stack.
+- However, we need to rework every protocol needed for communication.
+- ![image.png](../assets/image_1704623183790_0.png)
 -
--
+- ### RDMA
+- We have three queues. Completion Queue, Send Queue and Receive Queue.
+- All queues reside in the memory and DMA and MMIO step in to directly copy the data into the memory bypassing the kernel.
+- ![image.png](../assets/image_1704623222396_0.png)
+- ![image.png](../assets/image_1704623231853_0.png)
+- ![image.png](../assets/image_1704623256742_0.png)
 -
