@@ -508,7 +508,7 @@
 - No drop: cwnd = cwnd + 1
 - A drop: cwnd = cwnd / 2  (duplicated ACK / Drop Rate)
 - Drawbacks:
-	- Not tolerable in wireless environment (unreliable)
+	- Not tolerable in wireless environment (unreliable) since in a sense we need to increase the data rate for best delivery.
 	- Can produce better equality between two participants in the network.
 - ![image.png](../assets/image_1704550326968_0.png)
 - ---
@@ -530,4 +530,22 @@
 -
 - ![image.png](../assets/image_1704553082807_0.png)
 - ![image.png](../assets/image_1704553104432_0.png)
--
+- ---
+- ## P2P
+- Sometimes we need a decentralized environment
+- ![image.png](../assets/image_1704615394142_0.png)
+- In a sense, we need to preserve privacy and high fault tolerance in the cost of performance.
+- ### BitTorrent
+- Three roles:
+- Tracker: announce the information about how many peers are online in the public network.
+  logseq.order-list-type:: number
+- Seeder: the participants that own the whole portion of the file.
+  logseq.order-list-type:: number
+- Peer: the participants that only hold part of the file and need to retrieve from the seeder or other peers.
+  logseq.order-list-type:: number
+- Torrent File consists of the tracker, the data length, the piece length and the checksum of each piece/
+- #### Principle
+- Random start to download the first chunk.
+  logseq.order-list-type:: number
+- Rando
+  logseq.order-list-type:: number
