@@ -607,7 +607,13 @@
 - Describing the chain of calculation in the graph through DAG. Each node describes the dependency.
 - ![image.png](../assets/image_1704619335169_0.png)
 - Some idempotent actions may include some transactions here to restore the atomicity.
-- **Optimization**:
-	- Combining the data opewn
+- DAG supports a wide range of jobs at the cost of sacrificing the simplicity brought by map reduce.
+- **Optimization for AI**:
+	- Ease for gradient computation.
+	- Ease for graph fusion to simplify the computation.
+- ### Training Parallelism
+- ![image.png](../assets/image_1704621566078_0.png)
+- Parameter Server: On parameter update, send the updated parameter to the server
+- Decentralized Allreduce:
 -
 -
