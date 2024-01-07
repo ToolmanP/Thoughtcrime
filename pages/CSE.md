@@ -651,4 +651,16 @@
 - Decide the authentication model and method.
 - ### Threat Model
 - Assumptions of the components that the adversary cannot control
+- ---
+- ## Password Authentication Attack Model
+- ### Principle
+- Hashing the password for fixed length hash
+  logseq.order-list-type:: number
+- Specific Password for each site
+  logseq.order-list-type:: number
+- Turn offline into online attack --- compulsorily let the attacker need to turn itself to online to be the man in the middle.
+  logseq.order-list-type:: number
+- One-time Password --- use hashing for 100 times generate a chain of password
+  logseq.order-list-type:: number
+- logseq.order-list-type:: number
 -
