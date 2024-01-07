@@ -560,6 +560,14 @@
 - For each lookup, we jump to the closest node based on the lifting table if that node is still alive.
 - If not, we jump to the next r nodes hoping that those nodes can have reachable candidates when calling the lifting nodes.
 - The amortized cost of getting and putting is now $O(log n)$
+- When a node decides to join, it asks its closet reachable successor to brought the keys to the local and rejoin the network and ask its closet ancestor to update its r nodes and lifting table.
+- This is down by partial broadcast.
+- ### BlockChain Bitcoin
+- Distributed ledger instead.
+- The miner collects the ledger and transaction record and adds a random number to it hoping that the transaction hash will yield a dedicated pattern (e.g. 18-leading-zero)
+- If the currency is exhausted, now the miner will have a gas fee when doing transaction.
 - ---
 - ## Distributed Training
-- ##
+- ### Parallelism Revisited
+- #### Single core approach
+- ####
