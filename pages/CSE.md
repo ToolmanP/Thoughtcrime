@@ -595,4 +595,17 @@
 - #### Map-Reduce
 - Discussed in chp not gonna focus more.
 - Something to be noticed here.
-- **Fault Tolerance**: Each operation is idompiant
+- **Fault Tolerance**:
+	- Worker: Each operation is idempotent simply by reexecution and redispatching the differences.
+	- Master: Checkpointing before distributing the tasks.
+	- GFS: fault tolerant service
+	- Skipping bad records
+- **Locality**: manually scheduling the tasks to the nodes which held the input chunks. Nodes are abstracted upon the chunkservers in GFS.
+- **Refinement**: parallel execution distributing the tasks to several nodes together
+- ![image.png](../assets/image_1704619270291_0.png)
+- #### Computation Graph
+- Describing the chain of calculation in the graph through DAG. Each node describes the dependency.
+- ![image.png](../assets/image_1704619335169_0.png)
+- Some idempotent
+-
+-
