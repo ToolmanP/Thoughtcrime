@@ -644,4 +644,9 @@
 - ![image.png](../assets/image_1704623256742_0.png)
 - ---
 - ## Security
-- Security
+- ### Difference between fault tolerance
+- Result of the fault is too much.
+- Failures due to attack might be highly correlated not independently.
+- ### Policy
+- ### Integrity
+-
