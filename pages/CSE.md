@@ -622,6 +622,14 @@
 - $p$ is partitioning factor and can be decreased by removing device. (Parameters are too large we can not reduce it).
 - Maybe increasing m, no since large batch size will significantly affect the training performance.
 - #### Tensor Parallelism
+- We partitioned the weight into several parts and calculate part.
+- ![image.png](../assets/image_1704622878226_0.png)
+- ![image.png](../assets/image_1704622886575_0.png)
+- ![image.png](../assets/image_1704622895140_0.png)
+- ![image.png](../assets/image_1704622931157_0.png)
+- ### Asynchronous vs Synchronous
+- Up to now, we have only discussed synchronous update. We have a barrier when trying to update the model.
+- However, in some cases where the model does not share the same training dataset, the asynchronous will do better.
 - ### Modern Network
 -
 -
