@@ -606,6 +606,7 @@
 - #### Computation Graph
 - Describing the chain of calculation in the graph through DAG. Each node describes the dependency.
 - ![image.png](../assets/image_1704619335169_0.png)
-- Some idempotent actions
+- Some idempotent actions may include some transactions here to restore the atomicity.
+- **Optimization**:
 -
 -
