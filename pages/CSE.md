@@ -648,5 +648,7 @@
 - Result of the fault is too much.
 - Failures due to attack might be highly correlated not independently.
 - ### Policy
-- ### Integrity
+- Decide the authentication model and method.
+- ### Threat Model
+- Assumptions of the components that the adversary cannot control
 -
