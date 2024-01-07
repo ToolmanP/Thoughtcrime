@@ -583,4 +583,16 @@
 - However, the loading still costs a lot and prefetching is not feasible for branching device.
 - When doing calculation, the general boost of the calculation can not  match the memory bandwidth.
 - #### Roofline Model
--
+- ![image.png](../assets/image_1704618260727_0.png)
+- #### CUDA
+- In cuda, because there are no such things called branching in order to squeeze the performance of SIMD, the regular branching will be substituted by a costly approach called masking.
+- Simply, masking is masking those units that don't participate in calculation but still needs extra overhead.
+- It decreases the branching and every unit now has one single program counter.
+- ![image.png](../assets/image_1704618410307_0.png)
+- We exploited on one single machine but simply it's not enough.
+- CUDA still needs to provide development kit to the end user and there are trends for domain-specific accelerators to pop off for doing things that matrix multiplication.
+- ### Multi-machine Concurrency
+- #### Map-Reduce
+- Discussed in chp not gonna focus more.
+- Something to be noticed here.
+- **Fault Tolerance**: Each operation is idompiant
