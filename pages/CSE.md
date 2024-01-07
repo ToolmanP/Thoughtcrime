@@ -662,5 +662,6 @@
   logseq.order-list-type:: number
 - One-time Password --- use hashing for 100 times generate a chain of password
   logseq.order-list-type:: number
-- logseq.order-list-type:: number
+- Bind authentication with authorization
+  logseq.order-list-type:: number
 -
