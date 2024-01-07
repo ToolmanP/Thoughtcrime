@@ -556,6 +556,10 @@
 - The distributed key value look up is for one key storing at one designated machine in the public network.
 - So each key and the machine address should be hashed into one uniform hash space (ring).
 - Each key is stored in the successor in the hash space corresponding to the machine.
-- For storage, each machine holds a distributed lookup table for documenting the next r nodes in the hash space and the
+- For storage, each machine holds a distributed lookup table for documenting the next r nodes in the hash space and the binary lifting table on the 1/2 ahead 1/4 ahead 1/8 ahead and so on.
+- For each lookup, we jump to the closest node based on the lifting table if that node is still alive.
+- If not, we jump to the next r nodes hoping that those nodes can have reachable candidates when calling the lifting nodes.
+- The amortized cost of getting and putting is now $O(log n)$
 - ---
-- ## Distributed Trainingd
+- ## Distributed Training
+- ##
