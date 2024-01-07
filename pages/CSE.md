@@ -608,5 +608,6 @@
 - ![image.png](../assets/image_1704619335169_0.png)
 - Some idempotent actions may include some transactions here to restore the atomicity.
 - **Optimization**:
+	- Combining the data opewn
 -
 -
