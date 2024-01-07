@@ -611,9 +611,18 @@
 - **Optimization for AI**:
 	- Ease for gradient computation.
 	- Ease for graph fusion to simplify the computation.
-- ### Training Parallelism
+- ### Data Parallelism
 - ![image.png](../assets/image_1704621566078_0.png)
-- Parameter Server: On parameter update, send the updated parameter to the server
-- Decentralized Allreduce:
+- Parameter Server: On parameter update, send the updated parameter to the server, and send the parameters back to processors.
+- Decentralized Allreduce: Concurrently send the parameter to its previous and after P rounds, the node can collect all parameters from its counterparts across the net.
+- Ring allreduce: partition only send one partition at a time and combine and send the combined one to another. In the end, exchange the partitions of P and collect them together.
+- ### Model Parallelism
+- #### Layer Parallelism
+- Microbatching: the acceleration ratio  $p-1/m$
+- $p$ is partitioning factor and can be decreased by removing device. (Parameters are too large we can not reduce it).
+- Maybe increasing m, no since large batch size will significantly affect the training performance.
+- #### Tensor Parallelism
+- ### Modern Network
+-
 -
 -
