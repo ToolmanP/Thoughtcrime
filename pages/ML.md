@@ -29,13 +29,17 @@
 - Steps:
 - Select a field of partitioning the dataset to get the maximum information gain
   logseq.order-list-type:: number
-- Calculate the purity or information entropy based on the new
+- Calculate the purity or information entropy based on the new partition.
   logseq.order-list-type:: number
-- ### Naive Bayes Rules
+- ![image.png](../assets/image_1704721791473_0.png)
+- ### Naive Bayes
 - Deduce the posterior probaibility based on the joint probability.
 - Vulnerable to underfitting for each item's presence in the predicted classes.
-- ### KNN Classification (Unsupervised classification)
+- We assume that the conditions are independent distributed so using the bayes rules.
+- $P(x|c_1,c_2,c_3,...,c_n) = P(x,
+- ### KNN Classification
 - ### Logistic Regression
+-
 - #### Softmax/Sigmoid
 - #### Cross Entropy Loss
 - ### Support Vector Machine
