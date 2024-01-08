@@ -39,10 +39,12 @@
 - To decide whether the attribute group $(c_1,c_2,c_3,...,c_n)$ belongs to $c_p$,
 - $c_p = argmax p(c_p) \Pi_{i=1}^{n} p(c_i | c_p)$
 - ### KNN Classification
-- Find the closet point and join the category,
+- Find the closet point and join the category. voting by the distance using least distance estimation.
 - ### Logistic Regression
--
+- We want to find a line that can maximize the confidence score of a maximize the probability of a entity in a specific class. In this specific model, we want to find a specific hyperplane such that $p(c1 | x) = 1 ,p(c2| x) =0$
+- This is crucial since we want to ind a linear logistic model to model this problem.
 - #### Softmax/Sigmoid
+- Since we cannot find the gradient of a zero one bernouli distribution, we need a estimation by
 - #### Cross Entropy Loss
 - ### Support Vector Machine
 - ---
