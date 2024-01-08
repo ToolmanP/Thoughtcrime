@@ -28,7 +28,7 @@
 - ### KNN Classification (Unsupervised classification)
 - ### Logistic Regression
 - #### Softmax/Sigmoid
-- ####Cross Entropy Loss
+- #### Cross Entropy Loss
 - ### Support Vector Machine
 - ---
 - ## Neural Network
