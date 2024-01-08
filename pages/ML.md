@@ -97,6 +97,8 @@
   logseq.order-list-type:: number
 - Output Gate
   logseq.order-list-type:: number
+- ![image.png](../assets/image_1704731643097_0.png)
+-
 - ### Transformers
 - #### Seq2Seq Attention Map
 - #### BERT
