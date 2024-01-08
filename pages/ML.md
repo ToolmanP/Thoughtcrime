@@ -44,9 +44,20 @@
 - We want to find a line that can maximize the confidence score of a maximize the probability of a entity in a specific class. In this specific model, we want to find a specific hyperplane such that $p(c1 | x) = 1 ,p(c2| x) =0$
 - This is crucial since we want to ind a linear logistic model to model this problem.
 - #### Softmax/Sigmoid
-- Since we cannot find the gradient of a zero one bernouli distribution, we need a estimation by
+- Since we cannot find the gradient of a zero one bernouli distribution, we need a estimation by its posterior combination.
+- So we loose the constraint hoping that the correct class will fall over 0.5
+- ![image.png](../assets/image_1704725352171_0.png)
+-
+- We need the logit loss of  log since we want to find the posterior using the baysecian laws since we assume that the distribution is gaussian and we want to map the logit function of gaussian can simply map to the linear combination of x.
+- So we introduce the sigmoid function.
+- ![image.png](../assets/image_1704725587804_0.png)
+- For multi-variable distribution, simply we need to map this to IID then we got softmax regression.
+- ![image.png](../assets/image_1704725698294_0.png)
 - #### Cross Entropy Loss
+- ![image.png](../assets/image_1704725741816_0.png)
+- ![image.png](../assets/image_1704725721578_0.png)
 - ### Support Vector Machine
+-
 - ---
 - ## Neural Network
 - ### Perceptron
