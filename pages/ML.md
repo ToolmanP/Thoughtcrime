@@ -36,8 +36,10 @@
 - Deduce the posterior probaibility based on the joint probability.
 - Vulnerable to underfitting for each item's presence in the predicted classes.
 - We assume that the conditions are independent distributed so using the bayes rules.
-- $P(x|c_1,c_2,c_3,...,c_n) = P(x,
+- To decide whether the attribute group $(c_1,c_2,c_3,...,c_n)$ belongs to $c_p$,
+- $c_p = argmax p(c_p) \Pi_{i=1}^{n} p(c_i | c_p)$
 - ### KNN Classification
+- Find the regester
 - ### Logistic Regression
 -
 - #### Softmax/Sigmoid
