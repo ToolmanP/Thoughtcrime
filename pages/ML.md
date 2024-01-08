@@ -62,7 +62,11 @@
 - Notice that simply we want to find such a line such that
 - ![image.png](../assets/image_1704725952080_0.png)
 - ![image.png](../assets/image_1704725962773_0.png)
--
+- ![image.png](../assets/image_1704727559117_0.png)
+- ![image.png](../assets/image_1704727625415_0.png)
+- ![image.png](../assets/image_1704727631696_0.png)
+- ![image.png](../assets/image_1704727659553_0.png)
+- Once we find all the $\alpha$, find the supporting vectors and calculate the w and w_0.
 - ---
 - ## Neural Network
 - ### Perceptron
