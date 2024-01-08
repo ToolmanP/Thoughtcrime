@@ -39,7 +39,7 @@
 - To decide whether the attribute group $(c_1,c_2,c_3,...,c_n)$ belongs to $c_p$,
 - $c_p = argmax p(c_p) \Pi_{i=1}^{n} p(c_i | c_p)$
 - ### KNN Classification
-- Find the regester
+- Find the closet point and join the category,
 - ### Logistic Regression
 -
 - #### Softmax/Sigmoid
