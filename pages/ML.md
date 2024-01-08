@@ -18,13 +18,17 @@
 - ## Linear Regression
 - Estimating the hyperplane to estimate the regression trend.
 - **Loss Function**: $L(w, w_0 | D ) = \frac{1}{2N} sum_{l=1}^{N} (r_l - y_l)^2 = \frac{1}{2} (r - y) (r - y) ^T = \frac {1}{2} (r-Xw)^T(r-Xw)$
-- Solution: $\frac{\partial L}{\partial w}$
+- Solution: $\frac{\partial L}{\partial w} = -X^T(r-Xw) = 0$
+- $w = (X^TX)^-1X^Tr$
+- Geometric explanation: the column vectors form a subspace of  $R^n$, so the estimated $y$ is to minimize the projectioan distance between $r$ and $y$.
 - ---
 - ## Classification Model
 - ### Decision Tree
-- Divide and conquer
-  logseq.order-list-type:: number
+- Divide and conquer to separate the tags across a wide range of attributes.
 - #### Algorithm: ID3 Algorithm
+- Steps:
+- Select a field of partitioning
+  logseq.order-list-type:: number
 - ### Naive Bayes Rules
 - Deduce the posterior probaibility based on the joint probability.
 - Vulnerable to underfitting for each item's presence in the predicted classes.
