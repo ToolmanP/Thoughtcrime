@@ -27,7 +27,9 @@
 - Divide and conquer to separate the tags across a wide range of attributes.
 - #### Algorithm: ID3 Algorithm
 - Steps:
-- Select a field of partitioning
+- Select a field of partitioning the dataset to get the maximum information gain
+  logseq.order-list-type:: number
+- Calculate the purity or information entropy based on the new
   logseq.order-list-type:: number
 - ### Naive Bayes Rules
 - Deduce the posterior probaibility based on the joint probability.
