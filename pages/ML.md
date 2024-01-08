@@ -16,6 +16,9 @@
 - ### System Design
 -
 - ## Linear Regression
+- Estimating the hyperplane to estimate the regression trend.
+- **Loss Function**: $L(w, w_0 | D ) = \frac{1}{2N} sum_{l=1}^{N} (r_l - y_l)^2 = \frac{1}{2} (r - y) (r - y) ^T = \frac {1}{2} (r-Xw)^T(r-Xw)$
+- Solution: $\frac{\partial L}{\partial w}$
 - ---
 - ## Classification Model
 - ### Decision Tree
