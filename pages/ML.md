@@ -55,8 +55,13 @@
 - ![image.png](../assets/image_1704725698294_0.png)
 - #### Cross Entropy Loss
 - ![image.png](../assets/image_1704725741816_0.png)
+- ![image.png](../assets/image_1704725819908_0.png)
 - ![image.png](../assets/image_1704725721578_0.png)
 - ### Support Vector Machine
+- Simply we want to find a hyperplane that can support the interspace of the given dataset.
+- Notice that simply we want to find such a line such that
+- ![image.png](../assets/image_1704725952080_0.png)
+- ![image.png](../assets/image_1704725962773_0.png)
 -
 - ---
 - ## Neural Network
