@@ -481,6 +481,7 @@
 - Timeout is introduced by the at least once delivery promise.
 - #### Adaptive Timer
 - We continuously measures the RTT of the request to adjust the timeout period or uses the exponential back-off to adjust the timer.
+- For example, in linux we have a weight to calculate the past RTT average and deviation and the current one to form a new RTT estimation.
 - #### NAK Protocol
 - Negative Acknowledgment means the receiver side should send a message that lists missing items.
 - Receiver can count arriving segments rather than timer.
@@ -490,6 +491,15 @@
 - Since each packet has one nounce identifier, the receiver can maintain a table taking notes of the every nonce the receiver receives.
 - However, the table might grow too large to handle. One optimization, the receiver can choose to select the biggest nouce to store the nouce number. Now the old nonce is an tombstone that can not be remove d.
 - Use a different port for each port to let the receiver knows that the port is different so that different nonce is distributed.
+- ---
+- ### Out of Order
+- Two approaches:
+- Discard the out of order packet when the buffer is exhausted.
+  logseq.order-list-type:: number
+- Buffer the out of order packets until the prefix is in order and pop the contiguous slices.
+  logseq.order-list-type:: number
+- ---
+- ![image.png](../assets/image_1704806123156_0.png)
 - ---
 - ### Sliding Window
 - Advance on the lowest acknowledgement number received.
@@ -673,6 +683,7 @@
 - Homomorhpic Encryption means that calculation using the encrypted data can be projected calculation on the raw data.
 - RSA  multiplication
 - Paillier addition
+-
 - ## Trust Execution Environment
 - TEE is a private and secure environment provided by the web which the client securely communicate with the enclave and performs the computation on the cloud.
 - The cloud can neither view the data nor maniuplate the computation since it shoulders the responsibility of attesting to the user.
