@@ -343,6 +343,7 @@
 - #### Invariant
 - Only **commited** log can not be overwritten.
 - The commited log should be replicated to the majority of the partition. So the new elected leader should at least have all the up-to-date commited log (if not it will simply be rejected.)
+- Leader can only commit the log of this term it cannot commit to other, in this case the leader can only
 - #### Practice
 - Therefore, if one follower hasn't kept up with the leader, the leader should first replicate the missing or overwrite the missing entries for the follower to keep up with the leader. (That's why there's next index and last index for the leader to take notes.)
 - ### Persistent Data
@@ -664,4 +665,5 @@
   logseq.order-list-type:: number
 - Bind authentication with authorization
   logseq.order-list-type:: number
+- ### Oblivious Transaction
 -
