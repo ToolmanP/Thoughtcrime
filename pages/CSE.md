@@ -670,4 +670,10 @@
 - Oblivious Transaction is using public-private asymmetric encryption scheme.
 - ![image.png](../assets/image_1704804785033_0.png)
 - ## Homomorphic Encryption
-- Homo
+- Homomorhpic Encryption means that calculation using the encrypted data can be projected calculation on the raw data.
+- RSA  multiplication
+- Paillier addition
+- ## Trust Execution Environment
+- TEE is a private and secure environment provided by the web which the client securely communicate with the enclave and performs the computation on the cloud.
+- The cloud can neither view the data nor maniuplate the computation since it shoulders the responsibility of attesting to the user.
+- ![image.png](../assets/image_1704805078322_0.png)
