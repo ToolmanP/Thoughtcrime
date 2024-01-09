@@ -343,9 +343,10 @@
 - #### Invariant
 - Only **commited** log can not be overwritten.
 - The commited log should be replicated to the majority of the partition. So the new elected leader should at least have all the up-to-date commited log (if not it will simply be rejected.)
-- Leader can only commit the log of this term it cannot commit to other, in this case the leader can only
+- Leader can only commit the log of this term it cannot commit to other, in this case the leader can only commit the log until all the previous logs of this leader before this term has been replicated. Leader cannot represent the past term to commit the logs in case new leader tries to overwrite the log entries.
 - #### Practice
 - Therefore, if one follower hasn't kept up with the leader, the leader should first replicate the missing or overwrite the missing entries for the follower to keep up with the leader. (That's why there's next index and last index for the leader to take notes.)
+- Up-to-date means this simple partial order group (t2,i2 ) >  (t1, i1) if and only if t2 > t1 or t2=t1, i2 > i1
 - ### Persistent Data
 - CurrentTerm: it should be persisted in case that the term mismatched for the log and for the election stage,  the follower might vote twice if it dies and restart.
   logseq.order-list-type:: number
@@ -651,7 +652,7 @@
 - ### Policy
 - Decide the authentication model and method.
 - ### Threat Model
-- Assumptions of the components that the adversary cannot control
+- Assumptions of the components that the adversary cannot control.
 - ---
 - ## Password Authentication Attack Model
 - ### Principle
@@ -666,4 +667,7 @@
 - Bind authentication with authorization
   logseq.order-list-type:: number
 - ### Oblivious Transaction
--
+- Oblivious Transaction is using public-private asymmetric encryption scheme.
+- ![image.png](../assets/image_1704804785033_0.png)
+- ## Homomorphic Encryption
+- Homo
