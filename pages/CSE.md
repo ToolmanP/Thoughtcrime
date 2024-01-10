@@ -683,7 +683,10 @@
 - Homomorhpic Encryption means that calculation using the encrypted data can be projected calculation on the raw data.
 - RSA  multiplication
 - Paillier addition
--
+- ## DP
+- Asking the data using workaround method e.g. asking the total and the total except the interest.
+- ## Secret Sharing
+- Split the key into pieces using the langragian interpolation and only k people present can get the private key to decrypt the data.
 - ## Trust Execution Environment
 - TEE is a private and secure environment provided by the web which the client securely communicate with the enclave and performs the computation on the cloud.
 - The cloud can neither view the data nor maniuplate the computation since it shoulders the responsibility of attesting to the user.
